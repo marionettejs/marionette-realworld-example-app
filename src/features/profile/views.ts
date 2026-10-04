@@ -1,6 +1,6 @@
 import { View } from "marionette";
 import { html } from "lit-html";
-import type { Profile } from "../../shared/types";
+import type { Profile, Status } from "../../shared/types";
 import { avatar, errorsTemplate, profilePath } from "../../shared/presentation";
 export const ProfileLayout = View.extend({
   className: "profile-page",
@@ -19,15 +19,13 @@ export const ProfileLayout = View.extend({
 });
 export const ProfileHeader = View.extend({
   modelEvents: { change: "render" },
-  template: (
-    p: Profile & { self: boolean; pending: boolean; errors: string[] },
-  ) =>
+  template: (p: Profile & Status & { self: boolean }) =>
     html`<div class="user-info">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-10 offset-md-1">
             <img src=${avatar(p.image)} class="user-img" alt="" />
-            <h1 tabindex="-1">${p.username}</h1>
+            <h4 tabindex="-1">${p.username}</h4>
             <p>${p.bio}</p>
             ${p.self
               ? html`<a

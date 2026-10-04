@@ -223,7 +223,9 @@ export class ConduitApplication extends Application {
   }
   focusPage(moveFocus: boolean) {
     const root = this.getView()?.el;
-    const heading = root?.querySelector<HTMLElement>("main h1");
+    const heading = root?.querySelector<HTMLElement>(
+      "main h1[tabindex], main h4[tabindex]",
+    );
     document.title = `${heading?.textContent || "Conduit"} — Conduit`;
     if (moveFocus)
       (heading ?? root?.querySelector<HTMLElement>("main"))?.focus();

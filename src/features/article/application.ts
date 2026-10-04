@@ -28,13 +28,11 @@ export class ArticleApplication extends Application {
     );
   }
   get viewEvents() {
-    return {
-      favorite: () => this.favorite(),
-      follow: () => this.follow(),
-      remove: () => this.remove(),
-    };
+    return { favorite: "favorite", follow: "follow", remove: "remove" };
   }
   prepareStart({ slug }: { slug: string }, { signal }: LifecycleContext) {
+    if (!this.getView()) this.setView(new ArticleLayout());
+    if (!this.comments.isRunning()) void this.openComments(slug);
     return this.context.session.api.article(slug, signal);
   }
   onStart(_app: unknown, _options: unknown, article: Article) {
@@ -44,8 +42,8 @@ export class ArticleApplication extends Application {
       errors: [],
       self: article.author.username === this.context.session.user()?.username,
     });
-    if (!this.getView()) {
-      const layout = this.setView(new ArticleLayout());
+    const layout = this.getView() as InstanceType<typeof ArticleLayout>;
+    if (!layout.getChildView("heading")) {
       layout.showChildView(
         "heading",
         new ArticleHeading({ model: this.article }),
@@ -55,26 +53,22 @@ export class ArticleApplication extends Application {
       layout.showChildView("bottom", new ArticleMeta({ model: this.article }));
     }
     this.showView();
-    if (!this.comments.isRunning()) void this.openComments();
   }
-  async openComments() {
-    const region = (this.getView() as ViewInstance).getRegion("comments")!;
-    region.show(new LoadingView());
+  async openComments(slug: string) {
+    const layout = this.getView() as ViewInstance;
+    layout.showChildView("comments", new LoadingView());
+    const region = layout.getRegion("comments")!;
     try {
-      await this.comments.start({ region, slug: this.article.get("slug") });
+      await this.comments.start({ region, slug });
     } catch (error) {
-      if (
-        !this.isRunning() ||
-        region !== (this.getView() as ViewInstance)?.getRegion("comments")
-      )
-        return;
+      if (layout !== this.getView()) return;
       this.comments.stop();
       const view = new ErrorView({
         model: { message: errorMessages(error).join(". ") },
       });
       this.listenTo(view, {
         retry: () => {
-          void this.openComments();
+          void this.openComments(slug);
         },
       });
       region.show(view);

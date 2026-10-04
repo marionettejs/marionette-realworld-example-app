@@ -15,9 +15,7 @@ export class CommentsApplication extends Application {
   createState() {
     return new Model<ComposeState>({ body: "", pending: false, errors: [] });
   }
-  getState() {
-    return super.getState() as Model<ComposeState>;
-  }
+  declare getState: () => Model<ComposeState>;
   comments = new Collection<Model<Comment>>();
   operation = new Operation();
   slug = "";
@@ -26,7 +24,7 @@ export class CommentsApplication extends Application {
   }
   get viewEvents() {
     return {
-      "comment:submit": () => this.submit(),
+      "comment:submit": "submit",
       "comment:remove": (row: InstanceType<typeof CommentRow>) =>
         this.remove(row.options.model),
     };

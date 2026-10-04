@@ -52,15 +52,3 @@ form::after {
   display: table;
   clear: both;
 }
-@media (max-width: 480px) {
-  .navbar .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .navbar-nav {
-    margin-left: auto;
-  }
-  .navbar .nav-link {
-    padding-inline: 0.3rem;
-  }
-}

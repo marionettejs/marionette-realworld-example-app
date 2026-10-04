@@ -52,6 +52,8 @@ export const ArticleList = CollectionView.extend({
   childViewTriggers: { favorite: "favorite" },
 });
 export const FeedLayout = View.extend({
+  initialize(_options: { model: Model<Status> }) {},
+  modelEvents: { "change:pending": "updatePending" },
   template: () =>
     html`<div class="feed-status"></div>
       <div class="feed-articles"></div>
@@ -62,12 +64,23 @@ export const FeedLayout = View.extend({
     pages: ".feed-pages",
   },
   childViewTriggers: { retry: "retry", favorite: "favorite" },
+  onRender() {
+    this.updatePending();
+  },
+  updatePending() {
+    const pending = !!this.options.model.get("pending");
+    this.el.querySelectorAll(".feed-articles, .feed-pages").forEach((el) => {
+      el.toggleAttribute("hidden", pending);
+    });
+  },
 });
 export const FeedStatus = View.extend({
   modelEvents: { change: "render" },
   template: ({ pending, errors }: Status) =>
     html`${pending
-      ? html`<p role="status">Loading articles…</p>`
+      ? html`<div class="article-preview" role="status">
+          Loading articles...
+        </div>`
       : ""}${errorsTemplate(errors)}${errors.length
       ? html`<button class="retry btn btn-outline-primary">Retry</button>`
       : ""}`,

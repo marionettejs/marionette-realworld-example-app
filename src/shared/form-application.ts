@@ -11,16 +11,14 @@ export abstract class FormApplication<
   createState() {
     return new Model<FormStatus>({ pending: false, errors: [] });
   }
-  getState() {
-    return super.getState() as Model<FormStatus>;
-  }
+  declare getState: () => Model<FormStatus>;
   fields = new Model<Fields>();
   operation = new Operation();
   constructor(readonly context: Context) {
     super();
   }
   get viewEvents() {
-    return { submit: () => this.submit() };
+    return { submit: "submit" };
   }
   abstract submit(): void;
   save<T>(

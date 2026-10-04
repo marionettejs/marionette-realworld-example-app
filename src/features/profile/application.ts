@@ -2,16 +2,14 @@ import { Application, type LifecycleContext } from "marionette";
 import { Model } from "@mnjs/data";
 import { FeedApplication } from "../feed/application";
 import { requireUser, type Context } from "../../app/session";
-import type { FeedQuery, Profile } from "../../shared/types";
+import type { FeedQuery, Profile, Status } from "../../shared/types";
 import { errorMessages } from "../../shared/api";
 import { Operation } from "../../shared/operation";
 import { ProfileLayout, ProfileHeader, ProfileTabs } from "./views";
 type ProfileStart = { username: string; query: FeedQuery };
 export class ProfileApplication extends Application {
   feed: FeedApplication;
-  profile = new Model<
-    Profile & { self: boolean; pending: boolean; errors: string[] }
-  >();
+  profile = new Model<Profile & Status & { self: boolean }>();
   tabs = new Model<{ username: string; favorites: boolean }>();
   operation = new Operation();
   constructor(readonly context: Context) {
@@ -19,9 +17,20 @@ export class ProfileApplication extends Application {
     this.feed = this.addChildApp("feed", new FeedApplication(context));
   }
   get viewEvents() {
-    return { follow: () => this.follow() };
+    return { follow: "follow" };
   }
-  prepareStart({ username }: ProfileStart, { signal }: LifecycleContext) {
+  prepareStart(
+    { username, query }: ProfileStart,
+    { signal }: LifecycleContext,
+  ) {
+    let layout = this.getView() as
+      | InstanceType<typeof ProfileLayout>
+      | undefined;
+    if (!layout) {
+      layout = this.setView(new ProfileLayout());
+      layout.render();
+    }
+    void this.feed.load(query, layout.getRegion("feed")!);
     return this.context.session.api.profile(username, signal);
   }
   onStart(_app: unknown, { query }: ProfileStart, profile: Profile) {
@@ -35,11 +44,8 @@ export class ProfileApplication extends Application {
       username: profile.username,
       favorites: !!query.favorited,
     });
-    let layout = this.getView() as
-      | InstanceType<typeof ProfileLayout>
-      | undefined;
-    if (!layout) {
-      layout = this.setView(new ProfileLayout());
+    const layout = this.getView() as InstanceType<typeof ProfileLayout>;
+    if (!layout.getChildView("header")) {
       layout.showChildView(
         "header",
         new ProfileHeader({ model: this.profile }),
@@ -47,7 +53,6 @@ export class ProfileApplication extends Application {
       layout.showChildView("tabs", new ProfileTabs({ model: this.tabs }));
     }
     this.showView();
-    void this.feed.open(layout.getRegion("feed")!, query);
   }
   setQuery(query: FeedQuery) {
     this.tabs.set("favorites", !!query.favorited);

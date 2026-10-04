@@ -22,8 +22,8 @@ export class SettingsApplication extends FormApplication<SettingsFields> {
     );
   }
   submit() {
-    const fields = this.fields.toObject() as SettingsFields;
-    if (!fields.password) delete (fields as Partial<SettingsFields>).password;
+    const fields = this.fields.toObject();
+    if (!fields.password) delete fields.password;
     this.save(
       (signal) => this.context.session.api.updateUser(fields, signal),
       (user) => {

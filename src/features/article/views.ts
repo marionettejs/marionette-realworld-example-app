@@ -45,21 +45,38 @@ export const ArticleHeading = View.extend({
 });
 export const ArticleBody = View.extend({
   modelEvents: { change: "renderContent" },
-  renderContent(_model: unknown, { changed }: { changed: Partial<Article> }) {
-    if ("body" in changed || "tagList" in changed) this.render();
+  renderContent(
+    _model: unknown,
+    {
+      changed,
+      previous,
+    }: { changed: Partial<Article>; previous: Partial<Article> },
+  ) {
+    const tags = changed.tagList;
+    const tagsChanged =
+      tags &&
+      (tags.length !== previous.tagList?.length ||
+        tags.some((tag, index) => tag !== previous.tagList?.[index]));
+    if ("body" in changed || tagsChanged) this.render();
   },
   template: ({ body, tagList }: Article) =>
     html`<div class="row article-content">
-        <div class="col-md-12">${markdown(body)}</div>
+      <div class="col-md-12">
+        ${markdown(body)}
+        <ul class="tag-list">
+          ${tagList.map(
+            (tag) =>
+              html`<li>
+                <a
+                  class="tag-default tag-pill tag-outline"
+                  href=${`/tag/${segment(tag)}`}
+                  >${tag}</a
+                >
+              </li>`,
+          )}
+        </ul>
       </div>
-      <ul class="tag-list">
-        ${tagList.map(
-          (tag) =>
-            html`<li class="tag-default tag-pill tag-outline">
-              <a href=${`/tag/${segment(tag)}`}>${tag}</a>
-            </li>`,
-        )}
-      </ul>`,
+    </div>`,
 });
 export const ArticleMeta = View.extend({
   className: "article-meta",

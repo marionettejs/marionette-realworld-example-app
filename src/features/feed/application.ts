@@ -10,7 +10,7 @@ import { errorMessages } from "../../shared/api";
 import { Operation } from "../../shared/operation";
 import { requireUser, type Context } from "../../app/session";
 import { pageHref } from "../../app/routes";
-import { ErrorView, LoadingView } from "../../shared/views";
+import { ErrorView } from "../../shared/views";
 
 import {
   ArticleRow,
@@ -25,9 +25,7 @@ export class FeedApplication extends Application {
   createState() {
     return new Model<Status>({ pending: false, errors: [] });
   }
-  getState() {
-    return super.getState() as Model<Status>;
-  }
+  declare getState: () => Model<Status>;
   constructor(readonly context: Context) {
     super();
   }
@@ -45,7 +43,8 @@ export class FeedApplication extends Application {
   }
   onBeforeStart() {
     this.getState().set({ pending: true, errors: [] });
-    if (!this.isRunning()) this.showView(new LoadingView());
+    if (!this.isRunning())
+      this.showView(new FeedStatus({ model: this.getState() }));
   }
   async prepareStart({ query }: FeedStart, { signal }: LifecycleContext) {
     this.query = query;
@@ -72,7 +71,7 @@ export class FeedApplication extends Application {
       return;
     }
     if (!(this.getView() instanceof FeedLayout)) {
-      const layout = this.setView(new FeedLayout());
+      const layout = this.setView(new FeedLayout({ model: this.getState() }));
       layout.showChildView(
         "status",
         new FeedStatus({ model: this.getState() }),
@@ -93,14 +92,6 @@ export class FeedApplication extends Application {
     );
     this.showView();
   }
-  async open(region: RegionInstance, query: FeedQuery) {
-    if (this.isRunning()) return this.load(query);
-    try {
-      await this.start({ region, query });
-    } catch (error) {
-      this.showFailure(error);
-    }
-  }
   showFailure(error: unknown) {
     if (this.isRunning())
       this.getState().set({ pending: false, errors: errorMessages(error) });
@@ -111,9 +102,10 @@ export class FeedApplication extends Application {
       );
     }
   }
-  async load(query: FeedQuery) {
+  async load(query: FeedQuery, region?: RegionInstance) {
     try {
-      await this.restart({ query });
+      if (region && !this.isRunning()) await this.start({ region, query });
+      else await this.restart({ query });
     } catch (error) {
       this.showFailure(error);
     }

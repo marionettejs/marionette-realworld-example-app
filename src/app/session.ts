@@ -12,9 +12,7 @@ export class SessionApplication extends Application {
   createState() {
     return new Model<SessionState>({ user: null, status: "loading" });
   }
-  getState() {
-    return super.getState() as Model<SessionState>;
-  }
+  declare getState: () => Model<SessionState>;
   private credentialToken = this.token();
   private verifiedToken: string | null = null;
   private credentials = new AbortController();

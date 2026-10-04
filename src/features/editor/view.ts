@@ -29,11 +29,13 @@ export const EditorView = View.extend({
     html`<div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
-          <h1 class="text-xs-center" tabindex="-1">
+          <h1 class="sr-only" tabindex="-1">
             ${fields.slug ? "Edit Article" : "New Article"}
           </h1>
           ${errorsTemplate(errors)}
-          <p role="status">${notice || (pending ? "Saving…" : "")}</p>
+          <p role="status" class=${notice || pending ? "" : "sr-only"}>
+            ${notice || (pending ? "Saving…" : "")}
+          </p>
           <form>
             ${input("title", "Article Title", fields.title)}${input(
               "description",
@@ -52,7 +54,9 @@ export const EditorView = View.extend({
                 class="form-control tag-input"
                 placeholder="Enter tags"
                 aria-describedby="tag-help"
-              /><small id="tag-help">Press Enter to add a tag.</small>
+              /><small id="tag-help" class="sr-only"
+                >Press Enter to add a tag.</small
+              >
               <div class="tag-list">
                 ${(fields.tagList ?? []).map(
                   (tag) =>

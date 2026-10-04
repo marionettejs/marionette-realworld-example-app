@@ -10,7 +10,7 @@ export class AuthApplication extends FormApplication<AuthFields> {
     );
   }
   submit() {
-    const fields = this.fields.toObject() as AuthFields;
+    const fields = this.fields.toObject();
     this.save(
       (signal) =>
         this.context.session.api.authenticate(this.mode, fields, signal),
