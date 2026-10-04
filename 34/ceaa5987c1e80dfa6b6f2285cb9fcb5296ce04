@@ -1,0 +1,24 @@
+.gitmodules
+  h_0f06c286dda36f 1-3
+README.md
+  h_0f06c286dda36f 56-77
+eslint.config.mjs
+  h_0f06c286dda36f 12
+package.json
+  h_0f06c286dda36f 13-14
+playwright.realworld.config.mjs
+  h_0f06c286dda36f 1-19
+realworld
+  h_0f06c286dda36f 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "34ceaa5987c1e80dfa6b6f2285cb9fcb5296ce04",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
