@@ -31,3 +31,9 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local configuration and browser artifacts
+.env
+.env.local
+/test-results
+/playwright-report

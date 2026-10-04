@@ -1,0 +1,4 @@
+styles.css and default-avatar.svg are from realworld-apps/realworld (MIT):
+https://github.com/realworld-apps/realworld
+Revision ebbcdeb8d55b42a3a613c787560498b8ef10003f
+The project's MIT license is retained at the repository root.
