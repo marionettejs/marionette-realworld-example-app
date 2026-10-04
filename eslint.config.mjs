@@ -9,6 +9,7 @@ export default [
       "test-results/**",
       "playwright-report/**",
       "public/**",
+      "realworld/**",
     ],
   },
   js.configs.recommended,

@@ -10,6 +10,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "playwright test",
+    "test:e2e": "playwright test --config playwright.realworld.config.mjs",
+    "test:e2e:list": "playwright test --config playwright.realworld.config.mjs --list",
     "test:unit": "node --experimental-strip-types --test tests/*.test.ts",
     "format": "prettier --write src tests docs README.md *.ts *.json *.mjs index.html",
     "format:check": "prettier --check src tests docs README.md *.ts *.json *.mjs index.html",

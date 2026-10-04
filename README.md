@@ -53,6 +53,28 @@ The Playwright configuration starts/stops its own local server on port 5173. Clo
 
 The browser tests exercise workflows against local API fixtures. Run them against a specification-compatible backend separately to verify integration.
 
+### Official RealWorld suite
+
+Like the Angular and Vue examples, this repository pins the official RealWorld specification and unchanged browser tests through a Git submodule. Initialize it before running the shared suite:
+
+```sh
+git submodule update --init --recursive
+npx playwright install chromium
+npm run test:e2e:list
+npm run test:e2e -- health.spec.ts \
+  --grep 'app should load successfully|can navigate to login page|can navigate to register page'
+```
+
+The separate configuration extends `realworld/specs/e2e/playwright.base.ts` and starts Vite on port **5174**, leaving a dev instance on 5173 available. The command above runs three read-only UI smoke tests. The full suite runs with `npm run test:e2e`; it creates disposable users/articles and performs writes and deletions against the public demo API by default. Run it only against a backend authorized for those test operations. No real credentials are needed.
+
+To configure another specification-compatible backend, set `API_BASE` for both the test runner and application:
+
+```sh
+API_BASE=http://127.0.0.1:3000/api TEST_MODE=spa npm run test:e2e
+```
+
+The shared SPA tests expect seeded cross-user data such as `johndoe`. Some upstream mocks and the API health check hard-code the public API URL, so a local endpoint cannot make every unchanged test portable. Report those limitations separately from application failures. Full official-suite acceptance remains unverified; the controlled tests above do not substitute for it.
+
 ## Behavior notes
 
 - JWT uses the specification's `localStorage.jwtToken` key and `Authorization: Token …` header. A 401 clears the session. Same-user verification preserves active drafts. Temporary verification failure retains the token and offers Retry; new writes wait for successful verification. Credential changes revoke old response authority.
