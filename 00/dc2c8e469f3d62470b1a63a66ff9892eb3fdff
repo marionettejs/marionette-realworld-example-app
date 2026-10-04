@@ -1,0 +1,46 @@
+docs/submission-evidence/official-prepare.log
+  h_0f06c286dda36f 1-5
+docs/submission-evidence/official-smoke.log
+  h_0f06c286dda36f 1-15
+docs/metrics/visual-final/build.json
+  s_a55b221deb2b5b::t_a40799e54d3f6e 7
+docs/realworld-submission.md
+  h_0f06c286dda36f 1-63
+docs/metrics/README.md
+  s_a55b221deb2b5b::t_a40799e54d3f6e 1-24
+docs/submission-evidence/official-list.log
+  h_0f06c286dda36f 1-141
+docs/marionette-source-review.md
+  s_a55b221deb2b5b::t_a40799e54d3f6e 3
+docs/submission-evidence/tooling-lint.log
+  h_0f06c286dda36f 1-6
+docs/submission-evidence/official-provenance.json
+  h_0f06c286dda36f 1-28
+docs/benchmark-comparison.md
+  s_a55b221deb2b5b::t_a40799e54d3f6e 3,13
+docs/metrics.md
+  s_a55b221deb2b5b::t_a40799e54d3f6e 1,19,25,31,33,35,43,45,48-49
+docs/submission-evidence/typecheck.log
+  h_0f06c286dda36f 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "00dc2c8e469f3d62470b1a63a66ff9892eb3fdff",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  },
+  "sessions": {
+    "s_a55b221deb2b5b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1081d-6770-7200-a029-da5237cc2cbd",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": null
+    }
+  }
+}
