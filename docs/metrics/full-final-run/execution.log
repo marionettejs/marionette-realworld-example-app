@@ -1,0 +1,16 @@
+marionette: desktop
+marionette: mobile
+marionette: memory
+vue: desktop
+vue: mobile
+vue: memory
+react: desktop
+react: mobile
+react: memory
+angular: desktop
+angular: mobile
+angular: memory
+svelte: desktop
+svelte: mobile
+svelte: memory
+Results: docs/metrics/full-final-run/results.json

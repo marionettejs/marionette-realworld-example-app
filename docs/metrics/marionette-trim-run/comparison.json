@@ -1,0 +1,88 @@
+{
+  "baseline": "../marionette-loading-run/results.json",
+  "current": "results.json",
+  "timing": [
+    {
+      "profile": "desktop",
+      "metric": "readyMs",
+      "before": 146.25,
+      "after": 142.30000007152557
+    },
+    {
+      "profile": "desktop",
+      "metric": "scriptCpuMs",
+      "before": 9.415,
+      "after": 9.240499999999999
+    },
+    {
+      "profile": "desktop",
+      "metric": "taskCpuMs",
+      "before": 68.129,
+      "after": 66.68800000000002
+    },
+    {
+      "profile": "desktop",
+      "metric": "articleMs",
+      "before": 77.89999997615814,
+      "after": 81.20000004768372
+    },
+    {
+      "profile": "desktop",
+      "metric": "homeMs",
+      "before": 80.19999992847443,
+      "after": 79.09999990463257
+    },
+    {
+      "profile": "mobile",
+      "metric": "readyMs",
+      "before": 786.3500000238419,
+      "after": 784
+    },
+    {
+      "profile": "mobile",
+      "metric": "scriptCpuMs",
+      "before": 40.96,
+      "after": 42.435
+    },
+    {
+      "profile": "mobile",
+      "metric": "taskCpuMs",
+      "before": 284.086,
+      "after": 289.69450000000006
+    },
+    {
+      "profile": "mobile",
+      "metric": "articleMs",
+      "before": 164.40000009536743,
+      "after": 164.60000002384186
+    },
+    {
+      "profile": "mobile",
+      "metric": "homeMs",
+      "before": 140.70000004768372,
+      "after": 140.60000002384186
+    }
+  ],
+  "initialGzipBytes": {
+    "before": 56943,
+    "after": 56889
+  },
+  "memory": {
+    "before": {
+      "startMiB": 3.2186203002929688,
+      "endMiB": 4.09893798828125,
+      "growthKiB": 896.85546875,
+      "lateGrowthKiB": 58.9921875,
+      "nodeGrowth": 0,
+      "listenerGrowth": 13
+    },
+    "after": {
+      "startMiB": 3.2161941528320312,
+      "endMiB": 4.081195831298828,
+      "growthKiB": 886.6015625,
+      "lateGrowthKiB": 54.69140625,
+      "nodeGrowth": 0,
+      "listenerGrowth": 13
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+> marionette-realworld-example-app@1.0.0 test:unit
+> node --experimental-strip-types --test tests/*.test.ts
+
+✔ cancelled operations cannot commit even when transport ignores abort (1.003583ms)
+✔ duplicate writes are ignored and failure permits an explicit retry (0.157125ms)
+✔ route decoding, filters, invalid pages and unknown routes (0.273666ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 269.852458

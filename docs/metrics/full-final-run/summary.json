@@ -1,0 +1,117 @@
+{
+  "marionette": {
+    "desktop": {
+      "readyMs": 141.35000002384186,
+      "scriptCpuMs": 9.0115,
+      "taskCpuMs": 63.6415,
+      "articleMs": 73.30000007152557,
+      "homeMs": 80.20000004768372
+    },
+    "mobile": {
+      "readyMs": 792.9500000476837,
+      "scriptCpuMs": 41.7805,
+      "taskCpuMs": 290.392,
+      "articleMs": 174.5,
+      "homeMs": 143.34999990463257
+    },
+    "initialGzipKiB": 55.5556640625,
+    "heapBaselineMiB": 3.2165260314941406,
+    "heapEndMiB": 4.090610504150391,
+    "heapGrowthKiB": 895.0625,
+    "lateHeapGrowthKiB": 53.30859375,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  },
+  "vue": {
+    "desktop": {
+      "readyMs": 140.89999997615814,
+      "scriptCpuMs": 8.361,
+      "taskCpuMs": 55.036500000000004,
+      "articleMs": 82.85000002384186,
+      "homeMs": 76.94999992847443
+    },
+    "mobile": {
+      "readyMs": 832.2500001192093,
+      "scriptCpuMs": 38.9015,
+      "taskCpuMs": 249.6195,
+      "articleMs": 425.15000009536743,
+      "homeMs": 140.19999992847443
+    },
+    "initialGzipKiB": 49.326171875,
+    "heapBaselineMiB": 4.469474792480469,
+    "heapEndMiB": 5.346946716308594,
+    "heapGrowthKiB": 898.53125,
+    "lateHeapGrowthKiB": 51.32421875,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  },
+  "react": {
+    "desktop": {
+      "readyMs": 408.4499999284744,
+      "scriptCpuMs": 29.88,
+      "taskCpuMs": 86.61449999999999,
+      "articleMs": 335.10000002384186,
+      "homeMs": 330.9499999284744
+    },
+    "mobile": {
+      "readyMs": 1404.0500000715256,
+      "scriptCpuMs": 130.83350000000002,
+      "taskCpuMs": 372.5485,
+      "articleMs": 458.0499999523163,
+      "homeMs": 344.75
+    },
+    "initialGzipKiB": 111.1103515625,
+    "heapBaselineMiB": 4.186161041259766,
+    "heapEndMiB": 5.312835693359375,
+    "heapGrowthKiB": 1153.33203125,
+    "lateHeapGrowthKiB": 107.8671875,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  },
+  "angular": {
+    "desktop": {
+      "readyMs": 175.85000002384186,
+      "scriptCpuMs": 19.5845,
+      "taskCpuMs": 74.98150000000001,
+      "articleMs": 100.85000002384186,
+      "homeMs": 80
+    },
+    "mobile": {
+      "readyMs": 1292.2999999523163,
+      "scriptCpuMs": 95.5285,
+      "taskCpuMs": 356.81949999999995,
+      "articleMs": 637.2500001192093,
+      "homeMs": 163.05000007152557
+    },
+    "initialGzipKiB": 98.42578125,
+    "heapBaselineMiB": 5.9113616943359375,
+    "heapEndMiB": 7.163516998291016,
+    "heapGrowthKiB": 1281.6875,
+    "lateHeapGrowthKiB": 191.015625,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  },
+  "svelte": {
+    "desktop": {
+      "readyMs": 139.20000004768372,
+      "scriptCpuMs": 3.4595,
+      "taskCpuMs": 51.9525,
+      "articleMs": 78.94999992847443,
+      "homeMs": 81.25
+    },
+    "mobile": {
+      "readyMs": 589.9500000476837,
+      "scriptCpuMs": 17.133,
+      "taskCpuMs": 234.4905,
+      "articleMs": 158.29999995231628,
+      "homeMs": 135.64999997615814
+    },
+    "initialGzipKiB": 43.98046875,
+    "heapBaselineMiB": 2.5892105102539062,
+    "heapEndMiB": 3.4074020385742188,
+    "heapGrowthKiB": 837.875,
+    "lateHeapGrowthKiB": 54.03515625,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  }
+}

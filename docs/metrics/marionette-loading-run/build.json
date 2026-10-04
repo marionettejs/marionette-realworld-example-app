@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-04",
+  "baseCommit": "31717ec2d19b52f11fbcdb2605dbf04e03961ffe",
+  "sourcePatch": "source.patch",
+  "sourcePatchSha256": "be9e9af9bbf4575f0305c5b1aa356e11c4f95c0e43df6bd49f91aebb7dfa154f",
+  "sourceDirty": true,
+  "sourceFiles": 29,
+  "physicalLines": 2526,
+  "nonblankLines": 2523,
+  "sourceBytes": 80151,
+  "sourceHashes": {
+    "src/app/application.ts": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+    "src/app/routes.ts": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+    "src/app/session.ts": "6565a1b7bb11c2305147c9eb74baf1fb578d95ae4c89629f0bae09c6df284ada",
+    "src/app/shell.ts": "37c24f17e13f5b7bdd6158cc7dc9e7411c47f023bd243f99432832f8fbe01032",
+    "src/features/article/application.ts": "52562c50c8c05daebfd06bfaa7e6cde7eb0450fb0be36cc036b32e0b056b2b83",
+    "src/features/article/views.ts": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+    "src/features/auth/application.ts": "5d7332fb74d851e10a5da14100f20302ebfd64dd6c11bb1bfa7617b3e6818fad",
+    "src/features/auth/view.ts": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+    "src/features/comments/application.ts": "ca39719cc18b753cac7e07c566122f8f082d8f6bd4e07d47032ca640a2dbcfc7",
+    "src/features/comments/views.ts": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+    "src/features/editor/application.ts": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+    "src/features/editor/view.ts": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+    "src/features/feed/application.ts": "84975e825d20fddbc1360243d438d755287f8df1fb609dfa3c0a19bedcf93d2f",
+    "src/features/feed/views.ts": "a3a99f37d6588e2ba7cfbabb28707f203ea05937abff0423753a9d9e43bdeae3",
+    "src/features/home/application.ts": "37702f496f81642afb94ae4bbbc189dc711561c6f5390e701bc4d0e925203ef1",
+    "src/features/home/views.ts": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+    "src/features/profile/application.ts": "b1bfcbb65321cf8db720eaf443da26d5e8570cb185473d2f094702095e5ca21c",
+    "src/features/profile/views.ts": "a80fa39ffc8991e3d2b646d7a590884a9c3a55837cdd9f7d67e3382c545daf0e",
+    "src/features/settings/application.ts": "73ef80f4471c5c8baa002753fadf8132dd79611a76718d799a66692ec6e6aedc",
+    "src/features/settings/view.ts": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+    "src/main.ts": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+    "src/setup.ts": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+    "src/shared/api.ts": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+    "src/shared/form-application.ts": "cd69df95f34e60b81510f6d3dea5a81209438d391b5c9c6730b3e32ef5c45cc1",
+    "src/shared/form-fields.ts": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+    "src/shared/operation.ts": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+    "src/shared/presentation.ts": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+    "src/shared/types.ts": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+    "src/shared/views.ts": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+    "src/styles.css": "4ce6172882bc1d91fa01feb095c19e6edd27a1e8a2e42734b5d85fc1164f537d"
+  },
+  "buildHashes": {
+    "NOTICE.txt": "82c257f1195c9344d80af35aaaa464e155236211ba25027ac8caedbfaf9dfde7",
+    "assets/index-1d0yjyja.js": "0f04af3715e0db8ec8187f33cb18f13c457a2c857eafe550a4be023e0b72abe2",
+    "assets/index-3os8BnsX.css": "b3acae98c2c3771347967680bc66b70242063b6e293bd80f6d25e0d3c59da8a4",
+    "default-avatar.svg": "aca1167e9408087bcf853c0c5177de5519735c49acb19e2a4045122705db90de",
+    "favicon.ico": "105048062a788225cd3ae073f4a4cacc198ea8e149d67c6f7efb0cd98f33e99c",
+    "index.html": "b630848e005205310664ccf2856a9d2b038cf9e08bb02976013b8189f67a2ebf",
+    "styles.css": "f4b3d6224f725fc0ba08a943d931d341082e57cc8dac3a7cf7fff5b93b7a750c"
+  },
+  "productionJsFiles": 1,
+  "productionJsRawBytes": 192244,
+  "productionJsGzipBytes": 56943,
+  "harnessHashes": {
+    "benchmarks/realworld/README.md": "5e147ff98594cca8124c88c106c208254cf4e72f02f2306c2b4acfc0dd2e8de5",
+    "benchmarks/realworld/prepare.mjs": "57085a1fdc23c60365f1e39ae9a5c4d818859fd5ccc3f2080ae47dc3eb011adb",
+    "benchmarks/realworld/run.mjs": "45d2f5bde78d96c451721d2b9476b149bd21440187300b6e755b89b310e69161",
+    "benchmarks/realworld/server.mjs": "892dbcfe34578479d74ca3cadf3cf36ce2fc160332b178ac7f451726220a8104",
+    "benchmarks/realworld/visual-auth.mjs": "11d0d3e77acdb20598ba92e2a4487cf52f1b032902e2d39db7c454b1db48f208",
+    "benchmarks/realworld/visual.mjs": "1167b230d8ea3197df90ae06e0b807d496a9134c337529d09977a1f2e0ad1df8"
+  },
+  "frameworkPackages": {
+    "marionette": "5.0.0-rc.2",
+    "@mnjs/adapters": "5.0.0-rc.2",
+    "@mnjs/data": "5.0.0-rc.2",
+    "@mnjs/radio": "5.0.0-rc.2",
+    "@mnjs/utils": "5.0.0-rc.2"
+  },
+  "docsRevision": "f4243b8334cafe0bd1b06eba85d87e2310cb3618",
+  "previousSnapshot": "../marionette-settled-run/build.json",
+  "sourceDelta": {
+    "physicalLines": 14,
+    "nonblankLines": 14
+  },
+  "preservedFilesCount": 244,
+  "checks": {
+    "development": {
+      "passed": 99,
+      "existing": 93,
+      "added": 6,
+      "log": "development.log"
+    },
+    "production": {
+      "passed": 19,
+      "existing": 17,
+      "added": 2,
+      "log": "production.log"
+    },
+    "unit": {
+      "passed": 3
+    },
+    "visual": {
+      "passed": 2,
+      "screenshots": 12,
+      "log": "visual.log",
+      "apiUrl": "http://127.0.0.1:5174/api"
+    },
+    "types": "passed",
+    "lint": "passed",
+    "format": "passed",
+    "normalBuild": "normal-build.log"
+  },
+  "testHashes": {
+    "tests/api-fixture.ts": "d5196e933f22815903d3f48d498be226bc123369d685c73bd22fb393e93a05e9",
+    "tests/journeys.spec.ts": "e0800d1c5e880102b8d55495cde1d6b9f9423050d0258f133854e61860ab21c1",
+    "tests/lifecycle.spec.ts": "fe4251103d5fa7b950e52fe978dc8a334242b8c4df2fa94d76fc15e00fa55e2b",
+    "tests/loading.spec.ts": "8ffd656af088108f68275952ee300543c98139c2970e35a16c2a5bfecfc0eae9",
+    "tests/operation.test.ts": "8a9b059504e0546db683f69771017f1be003a125823840c03f89737824341192"
+  },
+  "screenshotHashes": {
+    "visual/desktop-initial-failure.png": "b7c723e81ef489f7096998c76a6e67f33207a9c04025c29592ca0192b3b31a37",
+    "visual/desktop-initial-loading.png": "d418a8d6f8d74f89f23a8dcd3cfb92e578d3cf2d3d20cf454536a59bd88eb54d",
+    "visual/desktop-initial-success.png": "1acd084aaa1e8c7e02e28165b6127def45b008d8cdbcc51489ca34a6ef960cce",
+    "visual/desktop-refresh-failure.png": "853e359f95d24c07b80950776bed0aad820c466ba2344b126e2e4e75995b48d7",
+    "visual/desktop-refresh-loading.png": "d418a8d6f8d74f89f23a8dcd3cfb92e578d3cf2d3d20cf454536a59bd88eb54d",
+    "visual/desktop-refresh-success.png": "43e2bb068ddca03e30d3d2d4615c676f1e496889004124758c6a8df7736e3e86",
+    "visual/mobile-initial-failure.png": "3ed2af0ac9794e34fb34f34eba15b382c0b7995875248f62514444561b447c76",
+    "visual/mobile-initial-loading.png": "d35c9569ff552858c033bd61a5d88896938475a9b47998393ec30fed1c8b34d4",
+    "visual/mobile-initial-success.png": "ca005ae79fff17dc301ba26aae133669d1d2e22c9553fc0b60f67fc80adbc7cb",
+    "visual/mobile-refresh-failure.png": "bf2759a3b08d7fcd5074cbf2f61c9dd8cbfd5d60950a403a51b14679b9aaa43f",
+    "visual/mobile-refresh-loading.png": "d35c9569ff552858c033bd61a5d88896938475a9b47998393ec30fed1c8b34d4",
+    "visual/mobile-refresh-success.png": "47a160cb857413d3b3994106489350aac70c167ee8c24978a4ab06adc8fdbde1"
+  },
+  "measurementEnvironment": {
+    "date": "2026-10-04T14:35:25.263Z",
+    "browser": "153.0.8010.12",
+    "node": "v24.19.0",
+    "machine": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpus": "Apple M2 Pro",
+      "memoryBytes": 17179869184
+    }
+  },
+  "apiUrl": "http://127.0.0.1:5280/api",
+  "sourcePatchFormat": "Zero-context unified diff; use git apply --unidiff-zero against baseCommit."
+}

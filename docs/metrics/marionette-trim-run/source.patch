@@ -1,0 +1,325 @@
+diff --git a/src/app/application.ts b/src/app/application.ts
+index 914bf1d..7c9b013 100644
+--- a/src/app/application.ts
++++ b/src/app/application.ts
+@@ -226 +226,3 @@ export class ConduitApplication extends Application {
+-    const heading = root?.querySelector<HTMLElement>("main h1");
++    const heading = root?.querySelector<HTMLElement>(
++      "main h1[tabindex], main h4[tabindex]",
++    );
+diff --git a/src/app/session.ts b/src/app/session.ts
+index c2bdb9c..5960e8c 100644
+--- a/src/app/session.ts
++++ b/src/app/session.ts
+@@ -15,3 +15 @@ export class SessionApplication extends Application {
+-  getState() {
+-    return super.getState() as Model<SessionState>;
+-  }
++  declare getState: () => Model<SessionState>;
+diff --git a/src/features/article/application.ts b/src/features/article/application.ts
+index 9148e14..338d5c0 100644
+--- a/src/features/article/application.ts
++++ b/src/features/article/application.ts
+@@ -31,5 +31 @@ export class ArticleApplication extends Application {
+-    return {
+-      favorite: () => this.favorite(),
+-      follow: () => this.follow(),
+-      remove: () => this.remove(),
+-    };
++    return { favorite: "favorite", follow: "follow", remove: "remove" };
+@@ -37,0 +34,2 @@ export class ArticleApplication extends Application {
++    if (!this.getView()) this.setView(new ArticleLayout());
++    if (!this.comments.isRunning()) void this.openComments(slug);
+@@ -47,2 +45,2 @@ export class ArticleApplication extends Application {
+-    if (!this.getView()) {
+-      const layout = this.setView(new ArticleLayout());
++    const layout = this.getView() as InstanceType<typeof ArticleLayout>;
++    if (!layout.getChildView("heading")) {
+@@ -58 +55,0 @@ export class ArticleApplication extends Application {
+-    if (!this.comments.isRunning()) void this.openComments();
+@@ -60,3 +57,4 @@ export class ArticleApplication extends Application {
+-  async openComments() {
+-    const region = (this.getView() as ViewInstance).getRegion("comments")!;
+-    region.show(new LoadingView());
++  async openComments(slug: string) {
++    const layout = this.getView() as ViewInstance;
++    layout.showChildView("comments", new LoadingView());
++    const region = layout.getRegion("comments")!;
+@@ -64 +62 @@ export class ArticleApplication extends Application {
+-      await this.comments.start({ region, slug: this.article.get("slug") });
++      await this.comments.start({ region, slug });
+@@ -66,5 +64 @@ export class ArticleApplication extends Application {
+-      if (
+-        !this.isRunning() ||
+-        region !== (this.getView() as ViewInstance)?.getRegion("comments")
+-      )
+-        return;
++      if (layout !== this.getView()) return;
+@@ -77 +71 @@ export class ArticleApplication extends Application {
+-          void this.openComments();
++          void this.openComments(slug);
+diff --git a/src/features/article/views.ts b/src/features/article/views.ts
+index a3bb2aa..7f699f1 100644
+--- a/src/features/article/views.ts
++++ b/src/features/article/views.ts
+@@ -48,2 +48,13 @@ export const ArticleBody = View.extend({
+-  renderContent(_model: unknown, { changed }: { changed: Partial<Article> }) {
+-    if ("body" in changed || "tagList" in changed) this.render();
++  renderContent(
++    _model: unknown,
++    {
++      changed,
++      previous,
++    }: { changed: Partial<Article>; previous: Partial<Article> },
++  ) {
++    const tags = changed.tagList;
++    const tagsChanged =
++      tags &&
++      (tags.length !== previous.tagList?.length ||
++        tags.some((tag, index) => tag !== previous.tagList?.[index]));
++    if ("body" in changed || tagsChanged) this.render();
+@@ -53 +64,14 @@ export const ArticleBody = View.extend({
+-        <div class="col-md-12">${markdown(body)}</div>
++      <div class="col-md-12">
++        ${markdown(body)}
++        <ul class="tag-list">
++          ${tagList.map(
++            (tag) =>
++              html`<li>
++                <a
++                  class="tag-default tag-pill tag-outline"
++                  href=${`/tag/${segment(tag)}`}
++                  >${tag}</a
++                >
++              </li>`,
++          )}
++        </ul>
+@@ -55,8 +79 @@ export const ArticleBody = View.extend({
+-      <ul class="tag-list">
+-        ${tagList.map(
+-          (tag) =>
+-            html`<li class="tag-default tag-pill tag-outline">
+-              <a href=${`/tag/${segment(tag)}`}>${tag}</a>
+-            </li>`,
+-        )}
+-      </ul>`,
++    </div>`,
+diff --git a/src/features/auth/application.ts b/src/features/auth/application.ts
+index 77fe001..bd1ff4d 100644
+--- a/src/features/auth/application.ts
++++ b/src/features/auth/application.ts
+@@ -13 +13 @@ export class AuthApplication extends FormApplication<AuthFields> {
+-    const fields = this.fields.toObject() as AuthFields;
++    const fields = this.fields.toObject();
+diff --git a/src/features/comments/application.ts b/src/features/comments/application.ts
+index 8c289a6..c1fafaa 100644
+--- a/src/features/comments/application.ts
++++ b/src/features/comments/application.ts
+@@ -18,3 +18 @@ export class CommentsApplication extends Application {
+-  getState() {
+-    return super.getState() as Model<ComposeState>;
+-  }
++  declare getState: () => Model<ComposeState>;
+@@ -29 +27 @@ export class CommentsApplication extends Application {
+-      "comment:submit": () => this.submit(),
++      "comment:submit": "submit",
+diff --git a/src/features/editor/view.ts b/src/features/editor/view.ts
+index b8ba796..812983e 100644
+--- a/src/features/editor/view.ts
++++ b/src/features/editor/view.ts
+@@ -32 +32 @@ export const EditorView = View.extend({
+-          <h1 class="text-xs-center" tabindex="-1">
++          <h1 class="sr-only" tabindex="-1">
+@@ -36 +36,3 @@ export const EditorView = View.extend({
+-          <p role="status">${notice || (pending ? "Saving…" : "")}</p>
++          <p role="status" class=${notice || pending ? "" : "sr-only"}>
++            ${notice || (pending ? "Saving…" : "")}
++          </p>
+@@ -55 +57,3 @@ export const EditorView = View.extend({
+-              /><small id="tag-help">Press Enter to add a tag.</small>
++              /><small id="tag-help" class="sr-only"
++                >Press Enter to add a tag.</small
++              >
+diff --git a/src/features/feed/application.ts b/src/features/feed/application.ts
+index 4cce781..f104752 100644
+--- a/src/features/feed/application.ts
++++ b/src/features/feed/application.ts
+@@ -13 +13 @@ import { pageHref } from "../../app/routes";
+-import { ErrorView, LoadingView } from "../../shared/views";
++import { ErrorView } from "../../shared/views";
+@@ -28,3 +28 @@ export class FeedApplication extends Application {
+-  getState() {
+-    return super.getState() as Model<Status>;
+-  }
++  declare getState: () => Model<Status>;
+@@ -48 +46,2 @@ export class FeedApplication extends Application {
+-    if (!this.isRunning()) this.showView(new LoadingView());
++    if (!this.isRunning())
++      this.showView(new FeedStatus({ model: this.getState() }));
+@@ -75 +74 @@ export class FeedApplication extends Application {
+-      const layout = this.setView(new FeedLayout());
++      const layout = this.setView(new FeedLayout({ model: this.getState() }));
+@@ -96,8 +94,0 @@ export class FeedApplication extends Application {
+-  async open(region: RegionInstance, query: FeedQuery) {
+-    if (this.isRunning()) return this.load(query);
+-    try {
+-      await this.start({ region, query });
+-    } catch (error) {
+-      this.showFailure(error);
+-    }
+-  }
+@@ -114 +105 @@ export class FeedApplication extends Application {
+-  async load(query: FeedQuery) {
++  async load(query: FeedQuery, region?: RegionInstance) {
+@@ -116 +107,2 @@ export class FeedApplication extends Application {
+-      await this.restart({ query });
++      if (region && !this.isRunning()) await this.start({ region, query });
++      else await this.restart({ query });
+diff --git a/src/features/feed/views.ts b/src/features/feed/views.ts
+index 6eaa790..90de443 100644
+--- a/src/features/feed/views.ts
++++ b/src/features/feed/views.ts
+@@ -54,0 +55,2 @@ export const FeedLayout = View.extend({
++  initialize(_options: { model: Model<Status> }) {},
++  modelEvents: { "change:pending": "updatePending" },
+@@ -64,0 +67,9 @@ export const FeedLayout = View.extend({
++  onRender() {
++    this.updatePending();
++  },
++  updatePending() {
++    const pending = !!this.options.model.get("pending");
++    this.el.querySelectorAll(".feed-articles, .feed-pages").forEach((el) => {
++      el.toggleAttribute("hidden", pending);
++    });
++  },
+@@ -70 +81,3 @@ export const FeedStatus = View.extend({
+-      ? html`<p role="status">Loading articles…</p>`
++      ? html`<div class="article-preview" role="status">
++          Loading articles...
++        </div>`
+diff --git a/src/features/home/application.ts b/src/features/home/application.ts
+index 20c4e1a..c68507b 100644
+--- a/src/features/home/application.ts
++++ b/src/features/home/application.ts
+@@ -9,4 +9 @@ export class HomeApplication extends Application {
+-  tabs = new Model<FeedQuery & { authenticated: boolean }>({
+-    page: 1,
+-    authenticated: false,
+-  });
++  tabs = new Model<FeedQuery & { authenticated: boolean }>();
+@@ -17,4 +14 @@ export class HomeApplication extends Application {
+-  prepareStart(_options: unknown, { signal }: LifecycleContext) {
+-    return this.context.session.api.tags(signal);
+-  }
+-  onStart(_app: unknown, { query }: { query: FeedQuery }, tags: string[]) {
++  prepareStart({ query }: { query: FeedQuery }, { signal }: LifecycleContext) {
+@@ -22,0 +17 @@ export class HomeApplication extends Application {
++      // Resolve child Regions off-screen; tags still govern page activation.
+@@ -24 +19 @@ export class HomeApplication extends Application {
+-      layout.showChildView("tabs", new HomeTabs({ model: this.tabs }));
++      layout.render();
+@@ -25,0 +21,8 @@ export class HomeApplication extends Application {
++    void this.feed.load(query, layout.getRegion("feed")!);
++    return this.context.session.api.tags(signal);
++  }
++  onStart(_app: unknown, { query }: { query: FeedQuery }, tags: string[]) {
++    const layout = this.getView() as InstanceType<typeof HomeLayout>;
++    this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
++    if (!layout.getChildView("tabs"))
++      layout.showChildView("tabs", new HomeTabs({ model: this.tabs }));
+@@ -28,3 +30,0 @@ export class HomeApplication extends Application {
+-    // Feed readiness is independently retryable; the parent does not await it.
+-    void this.feed.open(layout.getRegion("feed")!, query);
+-    this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
+diff --git a/src/features/profile/application.ts b/src/features/profile/application.ts
+index af58247..08274b6 100644
+--- a/src/features/profile/application.ts
++++ b/src/features/profile/application.ts
+@@ -5 +5 @@ import { requireUser, type Context } from "../../app/session";
+-import type { FeedQuery, Profile } from "../../shared/types";
++import type { FeedQuery, Profile, Status } from "../../shared/types";
+@@ -12,3 +12 @@ export class ProfileApplication extends Application {
+-  profile = new Model<
+-    Profile & { self: boolean; pending: boolean; errors: string[] }
+-  >();
++  profile = new Model<Profile & Status & { self: boolean }>();
+@@ -22 +20 @@ export class ProfileApplication extends Application {
+-    return { follow: () => this.follow() };
++    return { follow: "follow" };
+@@ -24 +22,12 @@ export class ProfileApplication extends Application {
+-  prepareStart({ username }: ProfileStart, { signal }: LifecycleContext) {
++  prepareStart(
++    { username, query }: ProfileStart,
++    { signal }: LifecycleContext,
++  ) {
++    let layout = this.getView() as
++      | InstanceType<typeof ProfileLayout>
++      | undefined;
++    if (!layout) {
++      layout = this.setView(new ProfileLayout());
++      layout.render();
++    }
++    void this.feed.load(query, layout.getRegion("feed")!);
+@@ -38,5 +47,2 @@ export class ProfileApplication extends Application {
+-    let layout = this.getView() as
+-      | InstanceType<typeof ProfileLayout>
+-      | undefined;
+-    if (!layout) {
+-      layout = this.setView(new ProfileLayout());
++    const layout = this.getView() as InstanceType<typeof ProfileLayout>;
++    if (!layout.getChildView("header")) {
+@@ -50 +55,0 @@ export class ProfileApplication extends Application {
+-    void this.feed.open(layout.getRegion("feed")!, query);
+diff --git a/src/features/profile/views.ts b/src/features/profile/views.ts
+index cbd902f..0cc1c12 100644
+--- a/src/features/profile/views.ts
++++ b/src/features/profile/views.ts
+@@ -3 +3 @@ import { html } from "lit-html";
+-import type { Profile } from "../../shared/types";
++import type { Profile, Status } from "../../shared/types";
+@@ -22,3 +22 @@ export const ProfileHeader = View.extend({
+-  template: (
+-    p: Profile & { self: boolean; pending: boolean; errors: string[] },
+-  ) =>
++  template: (p: Profile & Status & { self: boolean }) =>
+@@ -30 +28 @@ export const ProfileHeader = View.extend({
+-            <h1 tabindex="-1">${p.username}</h1>
++            <h4 tabindex="-1">${p.username}</h4>
+diff --git a/src/features/settings/application.ts b/src/features/settings/application.ts
+index a432374..de5a3f4 100644
+--- a/src/features/settings/application.ts
++++ b/src/features/settings/application.ts
+@@ -25,2 +25,2 @@ export class SettingsApplication extends FormApplication<SettingsFields> {
+-    const fields = this.fields.toObject() as SettingsFields;
+-    if (!fields.password) delete (fields as Partial<SettingsFields>).password;
++    const fields = this.fields.toObject();
++    if (!fields.password) delete fields.password;
+diff --git a/src/shared/form-application.ts b/src/shared/form-application.ts
+index 8a18697..2d40cb1 100644
+--- a/src/shared/form-application.ts
++++ b/src/shared/form-application.ts
+@@ -14,3 +14 @@ export abstract class FormApplication<
+-  getState() {
+-    return super.getState() as Model<FormStatus>;
+-  }
++  declare getState: () => Model<FormStatus>;
+@@ -23 +21 @@ export abstract class FormApplication<
+-    return { submit: () => this.submit() };
++    return { submit: "submit" };
+diff --git a/src/styles.css b/src/styles.css
+index 43dd611..4bee005 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -55,12 +54,0 @@ form::after {
+-@media (max-width: 480px) {
+-  .navbar .container {
+-    display: flex;
+-    flex-wrap: wrap;
+-  }
+-  .navbar-nav {
+-    margin-left: auto;
+-  }
+-  .navbar .nav-link {
+-    padding-inline: 0.3rem;
+-  }
+-}

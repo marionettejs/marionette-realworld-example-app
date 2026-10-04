@@ -1,0 +1,4 @@
+marionette: desktop
+marionette: mobile
+marionette: memory
+Results: docs/metrics/marionette-run/results.json

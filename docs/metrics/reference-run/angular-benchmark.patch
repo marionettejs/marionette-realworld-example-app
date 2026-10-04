@@ -1,0 +1,25 @@
+diff --git a/src/app/core/interceptors/api.interceptor.ts b/src/app/core/interceptors/api.interceptor.ts
+index 32160a1..41b8785 100644
+--- a/src/app/core/interceptors/api.interceptor.ts
++++ b/src/app/core/interceptors/api.interceptor.ts
+@@ -1,6 +1,6 @@
+ import { HttpInterceptorFn } from '@angular/common/http';
+ 
+ export const apiInterceptor: HttpInterceptorFn = (req, next) => {
+-  const apiReq = req.clone({ url: `https://api.realworld.show/api${req.url}` });
++  const apiReq = req.clone({ url: `http://127.0.0.1:5280/api${req.url}` });
+   return next(apiReq);
+ };
+diff --git a/src/app/features/article/pages/home/home.component.html b/src/app/features/article/pages/home/home.component.html
+index 4bf83af..40a967c 100644
+--- a/src/app/features/article/pages/home/home.component.html
++++ b/src/app/features/article/pages/home/home.component.html
+@@ -44,7 +44,7 @@
+         </div>
+ 
+         <app-article-list
+-          [limit]="10"
++          [limit]="20"
+           [config]="listConfig()"
+           [currentPage]="currentPage()"
+           [isFollowingFeed]="isFollowingFeed()"

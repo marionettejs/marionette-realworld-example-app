@@ -1,0 +1,37 @@
+
+> angular-realworld@0.0.0 build
+> ng build
+
+❯ Building...
+✔ Building...
+Initial chunk files | Names                       |  Raw size | Estimated transfer size
+chunk-JC6VLHRF.js   | -                           | 278.35 kB |                76.27 kB
+styles-V7LOWGDA.css | styles                      |  20.03 kB |                 3.55 kB
+main-MNDU3Z2N.js    | main                        |   5.99 kB |                 1.97 kB
+chunk-2NFLSA4Y.js   | -                           | 449 bytes |               449 bytes
+chunk-BBLBSSIH.js   | -                           | 258 bytes |               258 bytes
+
+                    | Initial total               | 305.07 kB |                82.49 kB
+
+Lazy chunk files    | Names                       |  Raw size | Estimated transfer size
+chunk-ZZXAKVAV.js   | marked-esm                  |  41.38 kB |                11.47 kB
+chunk-UIIZ2WZK.js   | -                           |  33.20 kB |                 7.14 kB
+chunk-WRCESXA7.js   | home-component              |  20.13 kB |                 6.85 kB
+chunk-7AFJ5KRD.js   | article-component           |   9.74 kB |                 2.98 kB
+chunk-Q7OUDKAM.js   | -                           |   4.44 kB |                 1.66 kB
+chunk-2YFUBAGB.js   | editor-component            |   3.63 kB |                 1.44 kB
+chunk-7D64JBQA.js   | profile-routes              |   3.31 kB |                 1.39 kB
+chunk-F7U2U73H.js   | auth-component              |   3.15 kB |                 1.18 kB
+chunk-HIF34UTY.js   | settings-component          |   3.05 kB |                 1.16 kB
+chunk-D5MDF5MM.js   | -                           |   2.43 kB |               948 bytes
+chunk-KW2N4VYD.js   | -                           |   1.53 kB |               715 bytes
+chunk-CSAZNM4J.js   | profile-favorites-component |   1.18 kB |               570 bytes
+chunk-MXPZGPB4.js   | profile-articles-component  |   1.17 kB |               566 bytes
+chunk-ONVSYMKT.js   | -                           | 873 bytes |               873 bytes
+chunk-LKKAYTRW.js   | -                           | 855 bytes |               855 bytes
+...and 3 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [6.716 seconds] - 2026-10-04T12:19:18.178Z
+
+Output location: /private/tmp/realworld-metrics/angular/dist/angular-conduit
+

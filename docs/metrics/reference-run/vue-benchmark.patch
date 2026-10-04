@@ -1,0 +1,13 @@
+diff --git a/src/views/Home.vue b/src/views/Home.vue
+index e973e02..448f423 100755
+--- a/src/views/Home.vue
++++ b/src/views/Home.vue
+@@ -52,7 +52,7 @@
+             :type="articleType"
+             :tag="tag"
+             :current-page="currentPage"
+-            :items-per-page="10"
++            :items-per-page="20"
+             @update:currentPage="onPageChange"
+           />
+         </div>

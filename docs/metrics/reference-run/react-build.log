@@ -1,0 +1,5 @@
+
+> realworld-react-fsd@2.1.0 build:prod
+> cross-env NODE_ENV=production webpack
+
+webpack 5.97.1 compiled successfully

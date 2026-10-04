@@ -1,0 +1,166 @@
+diff --git a/src/features/article/application.ts b/src/features/article/application.ts
+index 9148e14..8f1f1f5 100644
+--- a/src/features/article/application.ts
++++ b/src/features/article/application.ts
+@@ -35,6 +35,8 @@ export class ArticleApplication extends Application {
+     };
+   }
+   prepareStart({ slug }: { slug: string }, { signal }: LifecycleContext) {
++    if (!this.getView()) this.setView(new ArticleLayout());
++    if (!this.comments.isRunning()) void this.openComments(slug);
+     return this.context.session.api.article(slug, signal);
+   }
+   onStart(_app: unknown, _options: unknown, article: Article) {
+@@ -44,8 +46,8 @@ export class ArticleApplication extends Application {
+       errors: [],
+       self: article.author.username === this.context.session.user()?.username,
+     });
+-    if (!this.getView()) {
+-      const layout = this.setView(new ArticleLayout());
++    const layout = this.getView() as InstanceType<typeof ArticleLayout>;
++    if (!layout.getChildView("heading")) {
+       layout.showChildView(
+         "heading",
+         new ArticleHeading({ model: this.article }),
+@@ -55,26 +57,22 @@ export class ArticleApplication extends Application {
+       layout.showChildView("bottom", new ArticleMeta({ model: this.article }));
+     }
+     this.showView();
+-    if (!this.comments.isRunning()) void this.openComments();
+   }
+-  async openComments() {
+-    const region = (this.getView() as ViewInstance).getRegion("comments")!;
+-    region.show(new LoadingView());
++  async openComments(slug: string) {
++    const layout = this.getView() as ViewInstance;
++    layout.showChildView("comments", new LoadingView());
++    const region = layout.getRegion("comments")!;
+     try {
+-      await this.comments.start({ region, slug: this.article.get("slug") });
++      await this.comments.start({ region, slug });
+     } catch (error) {
+-      if (
+-        !this.isRunning() ||
+-        region !== (this.getView() as ViewInstance)?.getRegion("comments")
+-      )
+-        return;
++      if (layout !== this.getView()) return;
+       this.comments.stop();
+       const view = new ErrorView({
+         model: { message: errorMessages(error).join(". ") },
+       });
+       this.listenTo(view, {
+         retry: () => {
+-          void this.openComments();
++          void this.openComments(slug);
+         },
+       });
+       region.show(view);
+diff --git a/src/features/article/views.ts b/src/features/article/views.ts
+index a3bb2aa..f41e9ca 100644
+--- a/src/features/article/views.ts
++++ b/src/features/article/views.ts
+@@ -45,8 +45,19 @@ export const ArticleHeading = View.extend({
+ });
+ export const ArticleBody = View.extend({
+   modelEvents: { change: "renderContent" },
+-  renderContent(_model: unknown, { changed }: { changed: Partial<Article> }) {
+-    if ("body" in changed || "tagList" in changed) this.render();
++  renderContent(
++    _model: unknown,
++    {
++      changed,
++      previous,
++    }: { changed: Partial<Article>; previous: Partial<Article> },
++  ) {
++    const tags = changed.tagList;
++    const tagsChanged =
++      tags &&
++      (tags.length !== previous.tagList?.length ||
++        tags.some((tag, index) => tag !== previous.tagList?.[index]));
++    if ("body" in changed || tagsChanged) this.render();
+   },
+   template: ({ body, tagList }: Article) =>
+     html`<div class="row article-content">
+diff --git a/src/features/home/application.ts b/src/features/home/application.ts
+index 20c4e1a..d60dc0d 100644
+--- a/src/features/home/application.ts
++++ b/src/features/home/application.ts
+@@ -14,20 +14,23 @@ export class HomeApplication extends Application {
+     super();
+     this.feed = this.addChildApp("feed", new FeedApplication(context));
+   }
+-  prepareStart(_options: unknown, { signal }: LifecycleContext) {
+-    return this.context.session.api.tags(signal);
+-  }
+-  onStart(_app: unknown, { query }: { query: FeedQuery }, tags: string[]) {
++  prepareStart({ query }: { query: FeedQuery }, { signal }: LifecycleContext) {
+     let layout = this.getView() as InstanceType<typeof HomeLayout> | undefined;
+     if (!layout) {
++      // Resolve child Regions off-screen; tags still govern page activation.
+       layout = this.setView(new HomeLayout());
+-      layout.showChildView("tabs", new HomeTabs({ model: this.tabs }));
++      layout.render();
+     }
+-    layout.showChildView("tags", new TagsView({ model: { tags } }));
+-    this.showView();
+-    // Feed readiness is independently retryable; the parent does not await it.
+     void this.feed.open(layout.getRegion("feed")!, query);
++    return this.context.session.api.tags(signal);
++  }
++  onStart(_app: unknown, { query }: { query: FeedQuery }, tags: string[]) {
++    const layout = this.getView() as InstanceType<typeof HomeLayout>;
+     this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
++    if (!layout.getChildView("tabs"))
++      layout.showChildView("tabs", new HomeTabs({ model: this.tabs }));
++    layout.showChildView("tags", new TagsView({ model: { tags } }));
++    this.showView();
+   }
+   setQuery(query: FeedQuery) {
+     this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
+diff --git a/src/features/profile/application.ts b/src/features/profile/application.ts
+index af58247..64977d6 100644
+--- a/src/features/profile/application.ts
++++ b/src/features/profile/application.ts
+@@ -21,7 +21,18 @@ export class ProfileApplication extends Application {
+   get viewEvents() {
+     return { follow: () => this.follow() };
+   }
+-  prepareStart({ username }: ProfileStart, { signal }: LifecycleContext) {
++  prepareStart(
++    { username, query }: ProfileStart,
++    { signal }: LifecycleContext,
++  ) {
++    let layout = this.getView() as
++      | InstanceType<typeof ProfileLayout>
++      | undefined;
++    if (!layout) {
++      layout = this.setView(new ProfileLayout());
++      layout.render();
++    }
++    void this.feed.open(layout.getRegion("feed")!, query);
+     return this.context.session.api.profile(username, signal);
+   }
+   onStart(_app: unknown, { query }: ProfileStart, profile: Profile) {
+@@ -35,11 +46,8 @@ export class ProfileApplication extends Application {
+       username: profile.username,
+       favorites: !!query.favorited,
+     });
+-    let layout = this.getView() as
+-      | InstanceType<typeof ProfileLayout>
+-      | undefined;
+-    if (!layout) {
+-      layout = this.setView(new ProfileLayout());
++    const layout = this.getView() as InstanceType<typeof ProfileLayout>;
++    if (!layout.getChildView("header")) {
+       layout.showChildView(
+         "header",
+         new ProfileHeader({ model: this.profile }),
+@@ -47,7 +55,6 @@ export class ProfileApplication extends Application {
+       layout.showChildView("tabs", new ProfileTabs({ model: this.tabs }));
+     }
+     this.showView();
+-    void this.feed.open(layout.getRegion("feed")!, query);
+   }
+   setQuery(query: FeedQuery) {
+     this.tabs.set("favorites", !!query.favorited);

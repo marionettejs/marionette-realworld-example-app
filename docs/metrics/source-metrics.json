@@ -1,0 +1,42 @@
+{
+  "marionette": {
+    "commit": "66bc371314b706d4f76c4065273da55f7c97eb84",
+    "files": 18,
+    "lines": 2163,
+    "nonblank_lines": 2162,
+    "source_bytes": 67961,
+    "extensions": [".ts"]
+  },
+  "vue": {
+    "commit": "f7e48c8178602ce25d43293bc6f8ca51d84ae222",
+    "files": 32,
+    "lines": 2082,
+    "nonblank_lines": 1913,
+    "source_bytes": 58112,
+    "extensions": [".js", ".vue"]
+  },
+  "react": {
+    "commit": "969709a379b13935b4e1caae0ad8cad548e5879a",
+    "files": 63,
+    "lines": 3063,
+    "nonblank_lines": 2633,
+    "source_bytes": 97560,
+    "extensions": [".ts", ".tsx"]
+  },
+  "angular": {
+    "commit": "dd99ed2cf39c805d719f943c5d7061a5683d98a8",
+    "files": 53,
+    "lines": 2443,
+    "nonblank_lines": 2210,
+    "source_bytes": 78870,
+    "extensions": [".html", ".ts"]
+  },
+  "svelte": {
+    "commit": "df796708040f5200ec572b28ab7f88ecee5794dd",
+    "files": 41,
+    "lines": 1355,
+    "nonblank_lines": 1153,
+    "source_bytes": 32131,
+    "extensions": [".html", ".js", ".svelte"]
+  }
+}

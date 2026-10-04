@@ -1,0 +1,333 @@
+{
+  "vue": {
+    "commit": "f7e48c8178602ce25d43293bc6f8ca51d84ae222",
+    "jsFiles": 14,
+    "totalJsRawBytes": 225874,
+    "totalJsGzipBytes": 81769,
+    "packages": {
+      "author": "Emmanuel Vilsbol <emmanuel@vilsbol.com>",
+      "dependencies": {
+        "date-fns": "^4.4.0",
+        "dompurify": "^3.4.9",
+        "marked": "^18.0.5",
+        "pinia": "^3.0.0",
+        "vue": "^3.5.0",
+        "vue-router": "^5.1.0"
+      },
+      "description": "TodoMVC for the RealWorld\u2122",
+      "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@playwright/test": "^1.60.0",
+        "@vitejs/plugin-vue": "^6.0.7",
+        "eslint": "^10.4.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^10.9.2",
+        "globals": "^17.6.0",
+        "prettier": "^3.8.4",
+        "vite": "^8.0.16"
+      },
+      "name": "realworld-vue",
+      "scripts": {
+        "build": "vite build",
+        "format": "prettier --write \"src/**/*.{js,vue}\"",
+        "format:check": "prettier --check \"src/**/*.{js,vue}\"",
+        "lint": "eslint src",
+        "preview": "vite preview",
+        "serve": "vite",
+        "test": "playwright test",
+        "test:e2e": "playwright test --grep-invert @security",
+        "test:e2e:security": "playwright test --grep @security"
+      },
+      "version": "0.1.0"
+    },
+    "buildRoot": "dist",
+    "npmLockSha256": "5a6a8f58ee23f9c3ddc5cc9bd0bdfad0a87f8bb90b690ed23acf0f928ad871ac",
+    "runtimeVersions": {
+      "vue": "3.5.43",
+      "vue-router": "5.3.1",
+      "pinia": "3.0.4"
+    },
+    "authoredSource": {
+      "files": 32,
+      "physicalLines": 2082,
+      "nonblankLines": 1913
+    },
+    "generatedApiSource": {
+      "files": 0,
+      "physicalLines": 0
+    },
+    "savedNpmLockSha256": "163887a1ab5d532d71d58cd84f13439e759f07c30bbd34165d5f9d6ac40dc2c4"
+  },
+  "react": {
+    "commit": "969709a379b13935b4e1caae0ad8cad548e5879a",
+    "jsFiles": 33,
+    "totalJsRawBytes": 411059,
+    "totalJsGzipBytes": 134604,
+    "packages": {
+      "name": "realworld-react-fsd",
+      "author": "yurisldk <soldatenko.yuri@gmail.com>",
+      "repository": "https://github.com/yurisldk/realworld-react-fsd",
+      "version": "2.1.0",
+      "scripts": {
+        "start": "cross-env NODE_ENV=development webpack serve",
+        "build:dev": "cross-env NODE_ENV=development webpack",
+        "build:prod": "cross-env NODE_ENV=production webpack",
+        "analyze:prod": "cross-env NODE_ENV=production webpack --env analyzer=true",
+        "test": "jest",
+        "eslint": "eslint src --fix --ext ts,tsx --cache --report-unused-disable-directives",
+        "prettier": "prettier --write . --ignore-path .gitignore",
+        "graph": "depcruise src --output-type dot | dot -T svg > dependency-graph-preview.svg",
+        "generate": "orval && yarn run zod:mini",
+        "zod:mini": "ts-node convert-zod-mini.ts",
+        "format:generated": "eslint --fix --ext ts,tsx src/shared/api/generated && prettier --write src/shared/api/generated",
+        "prepare": "husky"
+      },
+      "dependencies": {
+        "@tanstack/react-query": "^5.90.20",
+        "classnames": "^2.5.1",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "react-error-boundary": "^4.0.13",
+        "react-icons": "^5.2.1",
+        "react-router": "^7.13.0",
+        "zod": "^4.3.6"
+      },
+      "devDependencies": {
+        "@babel/core": "7.26.7",
+        "@babel/preset-env": "7.26.7",
+        "@babel/preset-react": "7.26.3",
+        "@babel/preset-typescript": "7.26.0",
+        "@biomejs/biome": "2.3.15",
+        "@faker-js/faker": "^10.3.0",
+        "@jest/globals": "^29.7.0",
+        "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
+        "@svgr/webpack": "8.1.0",
+        "@tanstack/react-query-devtools": "^5.67.1",
+        "@testing-library/dom": "^10.1.0",
+        "@testing-library/jest-dom": "^6.4.5",
+        "@testing-library/react": "^16.0.0",
+        "@testing-library/user-event": "^14.5.2",
+        "@types/node": "22.12.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
+        "@types/webpack-bundle-analyzer": "4.7.0",
+        "@types/webpack-dev-server": "4.7.2",
+        "@types/webpack-env": "^1.18.8",
+        "@typescript-eslint/eslint-plugin": "7.18.0",
+        "@typescript-eslint/parser": "7.18.0",
+        "babel-loader": "9.2.1",
+        "copy-webpack-plugin": "12.0.2",
+        "cross-env": "^7.0.3",
+        "css-loader": "7.1.2",
+        "css-minimizer-webpack-plugin": "^8.0.0",
+        "dependency-cruiser": "^17.3.8",
+        "dotenv": "^16.4.7",
+        "dotenv-cli": "^8.0.0",
+        "eslint": "8.57.0",
+        "eslint-config-airbnb": "19.0.4",
+        "eslint-config-airbnb-typescript": "18.0.0",
+        "eslint-config-prettier": "10.0.1",
+        "eslint-plugin-import": "2.25.3",
+        "eslint-plugin-jsx-a11y": "6.5.1",
+        "eslint-plugin-prettier": "5.2.3",
+        "eslint-plugin-react": "7.28.0",
+        "eslint-plugin-react-hooks": "4.3.0",
+        "fork-ts-checker-webpack-plugin": "9.0.2",
+        "html-webpack-plugin": "5.6.3",
+        "husky": "^9.1.7",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "jsdom": "^24.1.0",
+        "lint-staged": "^16.1.0",
+        "mini-css-extract-plugin": "2.9.2",
+        "msw": "^2.12.10",
+        "openapi-typescript": "^7.10.1",
+        "orval": "^8.3.0",
+        "path": "^0.12.7",
+        "prettier": "^3.5.3",
+        "react-refresh": "0.16.0",
+        "react-refresh-typescript": "2.0.10",
+        "sass": "1.83.4",
+        "sass-loader": "16.0.4",
+        "style-loader": "4.0.0",
+        "ts-jest": "^29.2.6",
+        "ts-loader": "9.5.2",
+        "ts-node": "10.9.2",
+        "typescript": "^5.4.5",
+        "webpack": "5.97.1",
+        "webpack-bundle-analyzer": "4.10.2",
+        "webpack-cli": "6.0.1",
+        "webpack-dev-server": "5.2.0",
+        "webpack-merge": "6.0.1"
+      },
+      "lint-staged": {
+        "*.{ts,tsx,js,jsx}": ["eslint --fix", "prettier --write"],
+        "*.{json,md,css,scss}": "prettier --write"
+      },
+      "browserslist": ["defaults"],
+      "msw": {
+        "workerDirectory": ["public"]
+      }
+    },
+    "buildRoot": "build",
+    "npmLockSha256": "04f5eda9f5ef1309368f51d342e5102548773926dbc3ff5347b4dee40c44a76b",
+    "runtimeVersions": {
+      "react": "19.2.4",
+      "react-dom": "19.2.4",
+      "react-router": "7.13.0",
+      "@tanstack/react-query": "5.90.20",
+      "orval": "8.3.0",
+      "ajv": "8.17.1"
+    },
+    "authoredSource": {
+      "files": 63,
+      "physicalLines": 3063,
+      "nonblankLines": 2633
+    },
+    "generatedApiSource": {
+      "files": 45,
+      "physicalLines": 2753
+    },
+    "savedNpmLockSha256": "d1543a735655ca8cc2268abde78ef65494725bf5bad96f1e911239025ad3f03b"
+  },
+  "angular": {
+    "commit": "dd99ed2cf39c805d719f943c5d7061a5683d98a8",
+    "jsFiles": 22,
+    "totalJsRawBytes": 416860,
+    "totalJsGzipBytes": 133091,
+    "packages": {
+      "name": "angular-realworld",
+      "version": "0.0.0",
+      "license": "MIT",
+      "scripts": {
+        "ng": "ng",
+        "setup": "git submodule init && git submodule update && bun install",
+        "start": "ng serve",
+        "build": "ng build",
+        "test": "vitest",
+        "test:ui": "vitest --ui",
+        "test:coverage": "vitest --coverage",
+        "test:e2e": "playwright test --grep-invert @security",
+        "test:e2e:security": "playwright test --grep @security",
+        "test:e2e:ui": "playwright test --ui",
+        "test:e2e:headed": "playwright test --headed",
+        "test:e2e:debug": "playwright test --debug",
+        "test:e2e:report": "playwright show-report",
+        "test:e2e:disabled": "cat e2e/DISABLED_TESTS.md",
+        "format": "prettier --write \"**/*.{ts,html,css,json,md}\" \"!realworld/**\"",
+        "format:check": "prettier --check \"**/*.{ts,html,css,json,md}\" \"!realworld/**\"",
+        "prepare": "husky install"
+      },
+      "engines": {
+        "node": ">=20.11.1"
+      },
+      "private": true,
+      "dependencies": {
+        "@angular/animations": "21.2.12",
+        "@angular/common": "21.2.12",
+        "@angular/compiler": "21.2.12",
+        "@angular/core": "21.2.12",
+        "@angular/forms": "21.2.12",
+        "@angular/platform-browser": "21.2.12",
+        "@angular/platform-browser-dynamic": "21.2.12",
+        "@angular/router": "21.2.12",
+        "@rx-angular/cdk": "21.0.0",
+        "@rx-angular/template": "21.0.0",
+        "marked": "^17.0.1",
+        "rxjs": "^7.8.2",
+        "tslib": "^2.8.1"
+      },
+      "devDependencies": {
+        "@analogjs/vite-plugin-angular": "^2.2.2",
+        "@angular/build": "21.2.10",
+        "@angular/cli": "21.2.10",
+        "@angular/compiler-cli": "21.2.12",
+        "@playwright/test": "^1.58.0",
+        "@types/marked": "^6.0.0",
+        "@vitest/ui": "^4.0.18",
+        "husky": "^9.1.7",
+        "jsdom": "^27.4.0",
+        "lint-staged": "^16.2.7",
+        "playwright": "^1.58.0",
+        "prettier": "^3.8.1",
+        "typescript": "~5.9.3",
+        "vitest": "^4.0.18"
+      },
+      "lint-staged": {
+        "*.{ts,html,css,json,md}": "prettier --write"
+      }
+    },
+    "buildRoot": "dist/angular-conduit/browser",
+    "npmLockSha256": "961585bef9f93a35203c9be97d8c847d0c53de9f3b407fc67a0e1da080bdbe05",
+    "runtimeVersions": {
+      "@angular/core": "21.2.12",
+      "@angular/router": "21.2.12",
+      "rxjs": "7.8.2"
+    },
+    "authoredSource": {
+      "files": 53,
+      "physicalLines": 2443,
+      "nonblankLines": 2210
+    },
+    "generatedApiSource": {
+      "files": 0,
+      "physicalLines": 0
+    },
+    "savedNpmLockSha256": "9a6a387c6ef4a04106eca2ad1981c3ad62adc5a78c5a888d1b2d1904580c9293"
+  },
+  "svelte": {
+    "commit": "df796708040f5200ec572b28ab7f88ecee5794dd",
+    "jsFiles": 36,
+    "totalJsRawBytes": 127707,
+    "totalJsGzipBytes": 56017,
+    "packages": {
+      "name": "realworld.svelte.dev",
+      "version": "1.0.1-next.0",
+      "private": true,
+      "license": "MIT",
+      "type": "module",
+      "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "prettier --check .",
+        "format": "prettier --write ."
+      },
+      "devDependencies": {
+        "@sveltejs/adapter-vercel": "^6.3.2",
+        "@sveltejs/kit": "^2.52.2",
+        "@sveltejs/vite-plugin-svelte": "^6.2.1",
+        "marked": "^16.4.1",
+        "prettier": "^3.6.2",
+        "prettier-plugin-svelte": "^3.4.0",
+        "sanitize-html": "^2.17.0",
+        "svelte": "^5.55.7",
+        "typescript": "^5.9.3",
+        "vite": "^7.3.2"
+      },
+      "packageManager": "pnpm@10.20.0"
+    },
+    "buildRoot": ".svelte-kit/output/client",
+    "npmLockSha256": "1af18acd09c1f21b4960dbc6f0eb2ac0bdb0cb6ac76ad07331a52a740344b3c5",
+    "runtimeVersions": {
+      "svelte": "5.57.1",
+      "@sveltejs/kit": "2.70.3",
+      "@sveltejs/adapter-vercel": "6.3.4"
+    },
+    "authoredSource": {
+      "files": 41,
+      "physicalLines": 1355,
+      "nonblankLines": 1153
+    },
+    "generatedApiSource": {
+      "files": 0,
+      "physicalLines": 0
+    },
+    "serverOutput": {
+      "jsFiles": 61,
+      "rawBytes": 408448
+    },
+    "savedNpmLockSha256": "ea0b53437d87c3402101b040a1157739ed4da0872b90f2bb2a184b89aa292f34"
+  }
+}

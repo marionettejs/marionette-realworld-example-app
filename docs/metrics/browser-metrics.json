@@ -1,0 +1,82 @@
+{
+  "method": "Production Chromium localhost, 12 fresh contexts; first 2 discarded; mocked API, external fonts/icons blocked, no throttling; ready after 20 rows and two animation frames; update measured in-browser from click event to changed rows plus two animation frames",
+  "samples": [
+    {
+      "readyMs": 166.70000004768372,
+      "domContentLoadedMs": 85.40000009536743,
+      "updateMs": 64.29999995231628
+    },
+    {
+      "readyMs": 91,
+      "domContentLoadedMs": 32.40000009536743,
+      "updateMs": 80.39999985694885
+    },
+    {
+      "readyMs": 94.10000014305115,
+      "domContentLoadedMs": 32,
+      "updateMs": 64
+    },
+    {
+      "readyMs": 92.20000004768372,
+      "domContentLoadedMs": 29.40000009536743,
+      "updateMs": 63.799999952316284
+    },
+    {
+      "readyMs": 90.89999985694885,
+      "domContentLoadedMs": 28.399999856948853,
+      "updateMs": 63.89999985694885
+    },
+    {
+      "readyMs": 91,
+      "domContentLoadedMs": 28.299999952316284,
+      "updateMs": 64.10000014305115
+    },
+    {
+      "readyMs": 91.29999995231628,
+      "domContentLoadedMs": 29.5,
+      "updateMs": 80.09999990463257
+    },
+    {
+      "readyMs": 91.40000009536743,
+      "domContentLoadedMs": 29.600000143051147,
+      "updateMs": 63.5
+    },
+    {
+      "readyMs": 90.5,
+      "domContentLoadedMs": 28.300000190734863,
+      "updateMs": 80.40000009536743
+    },
+    {
+      "readyMs": 91.79999995231628,
+      "domContentLoadedMs": 29.799999952316284,
+      "updateMs": 64.20000004768372
+    },
+    {
+      "readyMs": 93.59999990463257,
+      "domContentLoadedMs": 27.700000047683716,
+      "updateMs": 80
+    },
+    {
+      "readyMs": 91.59999990463257,
+      "domContentLoadedMs": 29.59999990463257,
+      "updateMs": 63.89999985694885
+    }
+  ],
+  "summary": {
+    "readyMs": {
+      "median": 91.59999990463257,
+      "min": 90.5,
+      "max": 94.10000014305115
+    },
+    "domContentLoadedMs": {
+      "median": 29.5,
+      "min": 27.700000047683716,
+      "max": 32
+    },
+    "updateMs": {
+      "median": 64.10000014305115,
+      "min": 63.5,
+      "max": 80.40000009536743
+    }
+  }
+}

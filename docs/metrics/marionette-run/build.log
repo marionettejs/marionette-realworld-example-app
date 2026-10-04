@@ -1,0 +1,18 @@
+
+> marionette-realworld-example-app@1.0.0 build /Users/paulfalgout/Projects/marionette-realworld-example-app
+> tsc --noEmit && vite build --outDir /tmp/marionette-benchmark-dist
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 44 modules transformed.
+
+(!) outDir /tmp/marionette-benchmark-dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../../../../tmp/marionette-benchmark-dist/index.html                   0.87 kB │ gzip:  0.48 kB
+../../../../tmp/marionette-benchmark-dist/assets/index-xHcXi3jV.css    0.74 kB │ gzip:  0.45 kB
+../../../../tmp/marionette-benchmark-dist/assets/index-pJYd1YCx.js   191.45 kB │ gzip: 57.27 kB
+
+✓ built in 128ms

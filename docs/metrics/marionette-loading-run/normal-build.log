@@ -1,0 +1,14 @@
+
+> marionette-realworld-example-app@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 44 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.87 kB │ gzip:  0.48 kB
+dist/assets/index-3os8BnsX.css    0.60 kB │ gzip:  0.38 kB
+dist/assets/index-BF3xiKKy.js   192.24 kB │ gzip: 57.52 kB
+
+✓ built in 76ms

@@ -1,0 +1,123 @@
+{
+  "before": [
+    {
+      "check": "/tags / /articles concurrency",
+      "childRequestsWhileParentBlocked": 0,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "/articles/article-1 / /articles/article-1/comments concurrency",
+      "childRequestsWhileParentBlocked": 0,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "/profiles/writer / /articles concurrency",
+      "childRequestsWhileParentBlocked": 0,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "favorite with unchanged article body and tags",
+      "bodyRenders": 1
+    },
+    {
+      "check": "changed article body/tags still update",
+      "passed": true
+    }
+  ],
+  "after": [
+    {
+      "check": "/tags / /articles concurrency",
+      "childRequestsWhileParentBlocked": 1,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "/articles/article-1 / /articles/article-1/comments concurrency",
+      "childRequestsWhileParentBlocked": 1,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "/profiles/writer / /articles concurrency",
+      "childRequestsWhileParentBlocked": 1,
+      "totalChildRequests": 1
+    },
+    {
+      "check": "favorite with unchanged article body and tags",
+      "bodyRenders": 0
+    },
+    {
+      "check": "changed article body/tags still update",
+      "passed": true
+    }
+  ],
+  "cancellationAndErrors": [
+    {
+      "feature": "home",
+      "check": "navigate-away",
+      "passed": true
+    },
+    {
+      "feature": "home",
+      "check": "parent-fails",
+      "passed": true
+    },
+    {
+      "feature": "home",
+      "check": "child-fails-first",
+      "passed": true
+    },
+    {
+      "feature": "home",
+      "check": "child-finishes-last",
+      "passed": true
+    },
+    {
+      "feature": "article",
+      "check": "navigate-away",
+      "passed": true
+    },
+    {
+      "feature": "article",
+      "check": "parent-fails",
+      "passed": true
+    },
+    {
+      "feature": "article",
+      "check": "child-fails-first",
+      "passed": true
+    },
+    {
+      "feature": "article",
+      "check": "child-finishes-last",
+      "passed": true
+    },
+    {
+      "feature": "profile",
+      "check": "navigate-away",
+      "passed": true
+    },
+    {
+      "feature": "profile",
+      "check": "parent-fails",
+      "passed": true
+    },
+    {
+      "feature": "profile",
+      "check": "child-fails-first",
+      "passed": true
+    },
+    {
+      "feature": "profile",
+      "check": "child-finishes-last",
+      "passed": true
+    }
+  ],
+  "checks": {
+    "development": "93/93 across Chromium, Firefox, WebKit",
+    "production": "17/17 Chromium",
+    "unit": "3/3",
+    "types": "passed",
+    "lint": "passed",
+    "markup": "27 mounted View templates unchanged; existing tests, helpers, HTML, CSS and static assets unchanged"
+  },
+  "note": "Focused probes are separate from the unchanged shared benchmark workload."
+}

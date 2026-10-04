@@ -1,0 +1,12 @@
+diff --git a/src/pages/home/home.state.ts b/src/pages/home/home.state.ts
+index 6c855d0..d505bf3 100644
+--- a/src/pages/home/home.state.ts
++++ b/src/pages/home/home.state.ts
+@@ -1,6 +1,6 @@
+ import * as zod from 'zod/mini';
+ 
+-const DEFAULT_LIMIT = 10;
++const DEFAULT_LIMIT = 20;
+ const DEFAULT_OFFSET = 0;
+ const MAX_LIMIT = 100;
+ 

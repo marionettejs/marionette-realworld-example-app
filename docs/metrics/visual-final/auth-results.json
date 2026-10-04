@@ -1,0 +1,230 @@
+{
+  "results": [
+    {
+      "app": "marionette",
+      "profile": "desktop",
+      "page": "editor",
+      "screenshot": "marionette-desktop-editor.png"
+    },
+    {
+      "app": "marionette",
+      "profile": "desktop",
+      "page": "settings",
+      "screenshot": "marionette-desktop-settings.png"
+    },
+    {
+      "app": "marionette",
+      "profile": "mobile",
+      "page": "editor",
+      "screenshot": "marionette-mobile-editor.png"
+    },
+    {
+      "app": "marionette",
+      "profile": "mobile",
+      "page": "settings",
+      "screenshot": "marionette-mobile-settings.png"
+    },
+    {
+      "app": "vue",
+      "profile": "desktop",
+      "page": "editor",
+      "screenshot": "vue-desktop-editor.png"
+    },
+    {
+      "app": "vue",
+      "profile": "desktop",
+      "page": "settings",
+      "screenshot": "vue-desktop-settings.png"
+    },
+    {
+      "app": "vue",
+      "profile": "mobile",
+      "page": "editor",
+      "screenshot": "vue-mobile-editor.png"
+    },
+    {
+      "app": "vue",
+      "profile": "mobile",
+      "page": "settings",
+      "screenshot": "vue-mobile-settings.png"
+    },
+    {
+      "page": "marionette-external-resources",
+      "fonts": [
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "loaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "unloaded"
+        },
+        {
+          "family": "Lora",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Source Sans Pro",
+          "status": "unloaded"
+        },
+        {
+          "family": "Ionicons",
+          "status": "loaded"
+        }
+      ],
+      "failedRequests": []
+    }
+  ]
+}

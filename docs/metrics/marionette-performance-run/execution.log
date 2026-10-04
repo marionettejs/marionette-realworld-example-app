@@ -1,0 +1,5 @@
+BENCH_APPS=marionette BENCH_OUT=docs/metrics/marionette-performance-run node benchmarks/realworld/run.mjs
+marionette: desktop
+marionette: mobile
+marionette: memory
+Results: docs/metrics/marionette-performance-run/results.json

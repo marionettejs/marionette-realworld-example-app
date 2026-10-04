@@ -1,0 +1,348 @@
+{
+  "results": [
+    {
+      "profile": "desktop",
+      "page": "profile",
+      "heading": {
+        "fontSize": "24px",
+        "fontWeight": "700",
+        "tag": "H4"
+      },
+      "header": {
+        "x": 0,
+        "y": 56,
+        "width": 1440,
+        "height": 259.890625
+      },
+      "focusAndTitle": true
+    },
+    {
+      "profile": "desktop",
+      "page": "article",
+      "tags": {
+        "x": 360,
+        "y": 434.203125,
+        "width": 196.328125,
+        "height": 38.78125
+      },
+      "tagColor": "rgb(170, 170, 170)",
+      "tagNavigation": true
+    },
+    {
+      "profile": "desktop",
+      "page": "editor",
+      "externalResources": false,
+      "screenshot": "fallback-authenticated-desktop-editor.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "bottom": 56
+      },
+      "brand": {
+        "x": 165,
+        "y": 8,
+        "width": 72,
+        "height": 40,
+        "bottom": 48
+      },
+      "links": {
+        "x": 976.359375,
+        "y": 9.203125,
+        "width": 298.640625,
+        "height": 37.59375,
+        "bottom": 46.796875
+      },
+      "firstField": {
+        "x": 259.984375,
+        "y": 80,
+        "width": 919.984375,
+        "height": 51,
+        "bottom": 131
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "desktop",
+      "page": "settings",
+      "externalResources": false,
+      "screenshot": "fallback-authenticated-desktop-settings.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "bottom": 56
+      },
+      "brand": {
+        "x": 165,
+        "y": 8,
+        "width": 72,
+        "height": 40,
+        "bottom": 48
+      },
+      "links": {
+        "x": 976.359375,
+        "y": 9.203125,
+        "width": 298.640625,
+        "height": 37.59375,
+        "bottom": 46.796875
+      },
+      "firstField": {
+        "x": 450,
+        "y": 140,
+        "width": 540,
+        "height": 51,
+        "bottom": 191
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "desktop",
+      "page": "editor",
+      "externalResources": true,
+      "screenshot": "external-authenticated-desktop-editor.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "bottom": 56
+      },
+      "brand": {
+        "x": 165,
+        "y": 8,
+        "width": 86.359375,
+        "height": 40,
+        "bottom": 48
+      },
+      "links": {
+        "x": 985.78125,
+        "y": 9.203125,
+        "width": 289.21875,
+        "height": 37.59375,
+        "bottom": 46.796875
+      },
+      "firstField": {
+        "x": 259.984375,
+        "y": 80,
+        "width": 919.984375,
+        "height": 51,
+        "bottom": 131
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "desktop",
+      "page": "settings",
+      "externalResources": true,
+      "screenshot": "external-authenticated-desktop-settings.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "bottom": 56
+      },
+      "brand": {
+        "x": 165,
+        "y": 8,
+        "width": 86.359375,
+        "height": 40,
+        "bottom": 48
+      },
+      "links": {
+        "x": 985.78125,
+        "y": 9.203125,
+        "width": 289.21875,
+        "height": 37.59375,
+        "bottom": 46.796875
+      },
+      "firstField": {
+        "x": 450,
+        "y": 140,
+        "width": 540,
+        "height": 51,
+        "bottom": 191
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "mobile",
+      "page": "profile",
+      "heading": {
+        "fontSize": "24px",
+        "fontWeight": "700",
+        "tag": "H4"
+      },
+      "header": {
+        "x": 0,
+        "y": 56,
+        "width": 390,
+        "height": 259.890625
+      },
+      "focusAndTitle": true
+    },
+    {
+      "profile": "mobile",
+      "page": "article",
+      "tags": {
+        "x": 15,
+        "y": 407.046875,
+        "width": 196.328125,
+        "height": 38.78125
+      },
+      "tagColor": "rgb(170, 170, 170)",
+      "tagNavigation": true
+    },
+    {
+      "profile": "mobile",
+      "page": "editor",
+      "externalResources": false,
+      "screenshot": "fallback-authenticated-mobile-editor.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 79.59375,
+        "bottom": 79.59375
+      },
+      "brand": {
+        "x": 31,
+        "y": 19.796875,
+        "width": 72,
+        "height": 40,
+        "bottom": 59.796875
+      },
+      "links": {
+        "x": 135,
+        "y": 8,
+        "width": 231.625,
+        "height": 63.59375,
+        "bottom": 71.59375
+      },
+      "firstField": {
+        "x": 15,
+        "y": 103.59375,
+        "width": 360,
+        "height": 51,
+        "bottom": 154.59375
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "mobile",
+      "page": "settings",
+      "externalResources": false,
+      "screenshot": "fallback-authenticated-mobile-settings.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 79.59375,
+        "bottom": 79.59375
+      },
+      "brand": {
+        "x": 31,
+        "y": 19.796875,
+        "width": 72,
+        "height": 40,
+        "bottom": 59.796875
+      },
+      "links": {
+        "x": 135,
+        "y": 8,
+        "width": 231.625,
+        "height": 63.59375,
+        "bottom": 71.59375
+      },
+      "firstField": {
+        "x": 15,
+        "y": 163.59375,
+        "width": 360,
+        "height": 51,
+        "bottom": 214.59375
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "mobile",
+      "page": "editor",
+      "externalResources": true,
+      "screenshot": "external-authenticated-mobile-editor.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 79.59375,
+        "bottom": 79.59375
+      },
+      "brand": {
+        "x": 31,
+        "y": 19.796875,
+        "width": 86.359375,
+        "height": 40,
+        "bottom": 59.796875
+      },
+      "links": {
+        "x": 149.359375,
+        "y": 8,
+        "width": 225.15625,
+        "height": 63.59375,
+        "bottom": 71.59375
+      },
+      "firstField": {
+        "x": 15,
+        "y": 103.59375,
+        "width": 360,
+        "height": 51,
+        "bottom": 154.59375
+      },
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "profile": "mobile",
+      "page": "settings",
+      "externalResources": true,
+      "screenshot": "external-authenticated-mobile-settings.png",
+      "navbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 79.59375,
+        "bottom": 79.59375
+      },
+      "brand": {
+        "x": 31,
+        "y": 19.796875,
+        "width": 86.359375,
+        "height": 40,
+        "bottom": 59.796875
+      },
+      "links": {
+        "x": 149.359375,
+        "y": 8,
+        "width": 225.15625,
+        "height": 63.59375,
+        "bottom": 71.59375
+      },
+      "firstField": {
+        "x": 15,
+        "y": 163.59375,
+        "width": 360,
+        "height": 51,
+        "bottom": 214.59375
+      },
+      "overflow": false,
+      "errors": []
+    }
+  ]
+}

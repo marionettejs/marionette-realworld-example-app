@@ -1,0 +1,75 @@
+{
+  "desktop": {
+    "readyMs": {
+      "median": 142.89999997615814,
+      "min": 124,
+      "max": 146,
+      "samples": 10
+    },
+    "scriptCpuMs": {
+      "median": 9.382000000000001,
+      "min": 8.765,
+      "max": 9.566,
+      "samples": 10
+    },
+    "taskCpuMs": {
+      "median": 65.286,
+      "min": 62.55000000000001,
+      "max": 70.43,
+      "samples": 10
+    },
+    "articleMs": {
+      "median": 72.45000004768372,
+      "min": 67.5,
+      "max": 83.29999995231628,
+      "samples": 10
+    },
+    "homeMs": {
+      "median": 79.69999992847443,
+      "min": 64,
+      "max": 82.10000014305115,
+      "samples": 10
+    }
+  },
+  "mobile": {
+    "readyMs": {
+      "median": 789.8500001430511,
+      "min": 769.5,
+      "max": 807.7999999523163,
+      "samples": 10
+    },
+    "scriptCpuMs": {
+      "median": 42.879999999999995,
+      "min": 38.337999999999994,
+      "max": 49.806999999999995,
+      "samples": 10
+    },
+    "taskCpuMs": {
+      "median": 286.846,
+      "min": 257.866,
+      "max": 297.462,
+      "samples": 10
+    },
+    "articleMs": {
+      "median": 170.05000007152557,
+      "min": 161.59999990463257,
+      "max": 176.09999990463257,
+      "samples": 10
+    },
+    "homeMs": {
+      "median": 141.04999995231628,
+      "min": 128.20000004768372,
+      "max": 145.09999990463257,
+      "samples": 10
+    }
+  },
+  "initialJsGzipBytes": 56857,
+  "memory": {
+    "baselineMiB": 3.216075897216797,
+    "afterMiB": 4.095607757568359,
+    "growthKiB": 900.640625,
+    "lateGrowthKiB": 52.78515625,
+    "nodeGrowth": 0,
+    "listenerGrowth": 13
+  }
+}

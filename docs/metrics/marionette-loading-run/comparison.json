@@ -1,0 +1,98 @@
+{
+  "baseline": "../marionette-settled-run/results.json",
+  "current": "results.json",
+  "timing": [
+    {
+      "profile": "desktop",
+      "metric": "readyMs",
+      "before": 142.89999997615814,
+      "after": 146.25,
+      "changePercent": 2.344296728062134
+    },
+    {
+      "profile": "desktop",
+      "metric": "scriptCpuMs",
+      "before": 9.382000000000001,
+      "after": 9.415,
+      "changePercent": 0.3517373694307935
+    },
+    {
+      "profile": "desktop",
+      "metric": "taskCpuMs",
+      "before": 65.286,
+      "after": 68.129,
+      "changePercent": 4.35468553748124
+    },
+    {
+      "profile": "desktop",
+      "metric": "articleMs",
+      "before": 72.45000004768372,
+      "after": 77.89999997615814,
+      "changePercent": 7.52242915788468
+    },
+    {
+      "profile": "desktop",
+      "metric": "homeMs",
+      "before": 79.69999992847443,
+      "after": 80.19999992847443,
+      "changePercent": 0.6273525727085616
+    },
+    {
+      "profile": "mobile",
+      "metric": "readyMs",
+      "before": 789.8500001430511,
+      "after": 786.3500000238419,
+      "changePercent": -0.4431221268057728
+    },
+    {
+      "profile": "mobile",
+      "metric": "scriptCpuMs",
+      "before": 42.879999999999995,
+      "after": 40.96,
+      "changePercent": -4.477611940298498
+    },
+    {
+      "profile": "mobile",
+      "metric": "taskCpuMs",
+      "before": 286.846,
+      "after": 284.086,
+      "changePercent": -0.962188770280914
+    },
+    {
+      "profile": "mobile",
+      "metric": "articleMs",
+      "before": 170.05000007152557,
+      "after": 164.40000009536743,
+      "changePercent": -3.3225521751141796
+    },
+    {
+      "profile": "mobile",
+      "metric": "homeMs",
+      "before": 141.04999995231628,
+      "after": 140.70000004768372,
+      "changePercent": -0.24813889028776348
+    }
+  ],
+  "initialGzipBytes": {
+    "before": 56857,
+    "after": 56943
+  },
+  "memory": {
+    "before": {
+      "startMiB": 3.216075897216797,
+      "endMiB": 4.095607757568359,
+      "growthKiB": 900.640625,
+      "lateGrowthKiB": 52.78515625,
+      "nodeGrowth": 0,
+      "listenerGrowth": 13
+    },
+    "after": {
+      "startMiB": 3.2186203002929688,
+      "endMiB": 4.09893798828125,
+      "growthKiB": 896.85546875,
+      "lateGrowthKiB": 58.9921875,
+      "nodeGrowth": 0,
+      "listenerGrowth": 13
+    }
+  }
+}

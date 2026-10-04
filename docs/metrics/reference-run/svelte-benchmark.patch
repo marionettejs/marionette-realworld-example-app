@@ -1,0 +1,20 @@
+diff --git a/src/lib/api.js b/src/lib/api.js
+index b67dcb4..67555e5 100644
+--- a/src/lib/api.js
++++ b/src/lib/api.js
+@@ -1,6 +1,6 @@
+ import { error } from '@sveltejs/kit';
+ 
+-const base = 'https://api.realworld.show/api';
++const base = 'http://127.0.0.1:5280/api';
+ 
+ async function send({ method, path, data, token }) {
+ 	const opts = { method, headers: {} };
+diff --git a/src/lib/constants.js b/src/lib/constants.js
+index c126f48..9353906 100644
+--- a/src/lib/constants.js
++++ b/src/lib/constants.js
+@@ -1,2 +1,2 @@
+-export const page_size = 10;
++export const page_size = 20;
+ export const placeholder = 'https://static.productionready.io/images/smiley-cyrus.jpg';

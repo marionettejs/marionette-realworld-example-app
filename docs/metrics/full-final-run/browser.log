@@ -1,0 +1,283 @@
+[WebServer] (node:47846) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 99 tests using 3 workers
+
+(node:47847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:47848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:47849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 12:00:04 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:04 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:04 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   3 [chromium] › tests/journeys.spec.ts:63:1 › failed sign in retains fields and permits correction; protected direct routes redirect (1.5s)
+  ✓   2 [chromium] › tests/journeys.spec.ts:3:1 › global feed, tag filtering, pagination and browser history retain shell and home (1.5s)
+[WebServer] 12:00:05 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:05 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:05 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   1 [chromium] › tests/journeys.spec.ts:29:1 › registration, reload session, settings update, empty password omission and logout (1.9s)
+[WebServer] 12:00:05 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:06 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   6 [chromium] › tests/journeys.spec.ts:186:1 › comments retain newer typing during pending post, then delete only owned comment (1.1s)
+  ✓   4 [chromium] › tests/journeys.spec.ts:86:1 › create, read markdown, edit slug, profile author list and delete article (1.4s)
+  ✓   5 [chromium] › tests/journeys.spec.ts:133:1 › favorites, followed feed, profile tabs and synchronized article metadata (1.6s)
+[WebServer] 12:00:06 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:06 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:07 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   8 [chromium] › tests/journeys.spec.ts:235:1 › session outage preserves token, explicit retry restores and expired token clears (500ms)
+[WebServer] 12:00:07 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   7 [chromium] › tests/journeys.spec.ts:213:1 › feed errors are explicit, retryable and retain layout during failed refresh (1.0s)
+[WebServer] 12:00:07 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓   9 [chromium] › tests/journeys.spec.ts:261:1 › Markdown and text escape XSS, unknown routes and guest actions (1.1s)
+[WebServer] 12:00:07 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:08 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  10 [chromium] › tests/journeys.spec.ts:292:1 › editor keeps newer text after save and updates the returned slug on next save (1.0s)
+[WebServer] 12:00:08 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:08 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:08 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  11 [chromium] › tests/journeys.spec.ts:327:1 › comment deletion cannot invoke article deletion; editor denies nonauthor (1.2s)
+  ✓  12 [chromium] › tests/journeys.spec.ts:350:1 › failed article and comment writes preserve drafts and allow explicit resubmission (1.1s)
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  13 [chromium] › tests/journeys.spec.ts:391:1 › desktop and mobile Conduit layout, keyboard focus and empty feed (1.0s)
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  15 [chromium] › tests/journeys.spec.ts:458:1 › favorite failure belongs to its row and clears after a successful retry (946ms)
+[WebServer] 12:00:09 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  14 [chromium] › tests/journeys.spec.ts:428:1 › unfavoriting reconciles favorites membership, pages, and empty results (1.4s)
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  16 [chromium] › tests/journeys.spec.ts:480:1 › form autocomplete matches the workflow and logout adds one history entry (1.5s)
+[WebServer] 12:00:10 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:11 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  17 [chromium] › tests/journeys.spec.ts:503:1 › overlapping unfavorites finish before membership refresh replaces their rows (1.2s)
+  ✓  18 [chromium] › tests/lifecycle.spec.ts:3:1 › navigation cancels readiness and destroys the outgoing page and rows (881ms)
+[WebServer] 12:00:11 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:11 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  19 [chromium] › tests/lifecycle.spec.ts:49:1 › rapid feed requests ignore obsolete data and preserve current query (893ms)
+[WebServer] 12:00:12 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  20 [chromium] › tests/lifecycle.spec.ts:74:1 › destroyed observable rows stop rendering when borrowed data changes (895ms)
+  ✓  21 [chromium] › tests/lifecycle.spec.ts:113:1 › stop/start and restart keep one navigation subscription; destroy disposes descendants (915ms)
+[WebServer] 12:00:12 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:12 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  22 [chromium] › tests/lifecycle.spec.ts:158:1 › navigating away during save prevents late UI and session commits (1.2s)
+  ✓  23 [chromium] › tests/lifecycle.spec.ts:187:1 › Marionette preparation rejects stale completion even when API ignores its abort signal (806ms)
+[WebServer] 12:00:13 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:13 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:13 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  24 [chromium] › tests/lifecycle.spec.ts:235:1 › same-user, unavailable, and superseded session refresh retain the editor draft (1.5s)
+  ✓  25 [chromium] › tests/lifecycle.spec.ts:300:1 › credential replacement rejects an old settings response before the new user resolves (1.1s)
+[WebServer] 12:00:14 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:14 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  26 [chromium] › tests/lifecycle.spec.ts:359:1 › a settings completion that ignores cancellation cannot accept obsolete credentials (1.2s)
+[WebServer] 12:00:14 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:14 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  27 [chromium] › tests/lifecycle.spec.ts:387:1 › a completed favorite supersedes a held feed snapshot (982ms)
+  ✓  29 [chromium] › tests/lifecycle.spec.ts:478:1 › an obsolete activation failure cannot replace the newer destination (688ms)
+[WebServer] 12:00:14 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  31 [chromium] › tests/lifecycle.spec.ts:523:1 › startup rechecks credentials changed before storage listeners are installed (446ms)
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:15 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  28 [chromium] › tests/lifecycle.spec.ts:425:1 › composite restart retains child Regions and comment drafts; stop/start reconstructs (1.8s)
+  ✓  30 [chromium] › tests/lifecycle.spec.ts:501:1 › a write cannot use replaced credentials before the storage event is handled (1.2s)
+[WebServer] 12:00:16 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+(node:48399) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  32 [chromium] › tests/loading.spec.ts:7:3 › desktop feed loading hides retained results and preserves failure/retry (1.7s)
+  ✓  33 [chromium] › tests/loading.spec.ts:7:3 › mobile feed loading hides retained results and preserves failure/retry (1.6s)
+(node:48419) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 12:00:21 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:21 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:22 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  34 [firefox] › tests/journeys.spec.ts:3:1 › global feed, tag filtering, pagination and browser history retain shell and home (4.4s)
+  ✓  36 [firefox] › tests/journeys.spec.ts:63:1 › failed sign in retains fields and permits correction; protected direct routes redirect (3.7s)
+[WebServer] 12:00:23 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:23 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:23 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  35 [firefox] › tests/journeys.spec.ts:29:1 › registration, reload session, settings update, empty password omission and logout (3.6s)
+[WebServer] 12:00:24 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:25 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  37 [firefox] › tests/journeys.spec.ts:86:1 › create, read markdown, edit slug, profile author list and delete article (2.6s)
+  ✓  38 [firefox] › tests/journeys.spec.ts:133:1 › favorites, followed feed, profile tabs and synchronized article metadata (2.6s)
+  ✓  39 [firefox] › tests/journeys.spec.ts:186:1 › comments retain newer typing during pending post, then delete only owned comment (2.2s)
+[WebServer] 12:00:26 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:26 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:27 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  41 [firefox] › tests/journeys.spec.ts:235:1 › session outage preserves token, explicit retry restores and expired token clears (1.3s)
+[WebServer] 12:00:27 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:27 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  42 [firefox] › tests/journeys.spec.ts:261:1 › Markdown and text escape XSS, unknown routes and guest actions (1.8s)
+  ✓  40 [firefox] › tests/journeys.spec.ts:213:1 › feed errors are explicit, retryable and retain layout during failed refresh (2.8s)
+[WebServer] 12:00:28 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:28 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  43 [firefox] › tests/journeys.spec.ts:292:1 › editor keeps newer text after save and updates the returned slug on next save (2.0s)
+[WebServer] 12:00:29 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:29 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:29 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  44 [firefox] › tests/journeys.spec.ts:327:1 › comment deletion cannot invoke article deletion; editor denies nonauthor (1.8s)
+  ✓  45 [firefox] › tests/journeys.spec.ts:350:1 › failed article and comment writes preserve drafts and allow explicit resubmission (1.4s)
+[WebServer] 12:00:30 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:30 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:30 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  46 [firefox] › tests/journeys.spec.ts:391:1 › desktop and mobile Conduit layout, keyboard focus and empty feed (1.4s)
+[WebServer] 12:00:30 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:30 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  48 [firefox] › tests/journeys.spec.ts:458:1 › favorite failure belongs to its row and clears after a successful retry (1.1s)
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:31 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  47 [firefox] › tests/journeys.spec.ts:428:1 › unfavoriting reconciles favorites membership, pages, and empty results (1.9s)
+  ✓  49 [firefox] › tests/journeys.spec.ts:480:1 › form autocomplete matches the workflow and logout adds one history entry (1.6s)
+[WebServer] 12:00:32 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:32 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  50 [firefox] › tests/journeys.spec.ts:503:1 › overlapping unfavorites finish before membership refresh replaces their rows (1.3s)
+[WebServer] 12:00:32 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  51 [firefox] › tests/lifecycle.spec.ts:3:1 › navigation cancels readiness and destroys the outgoing page and rows (940ms)
+[WebServer] 12:00:32 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:33 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  52 [firefox] › tests/lifecycle.spec.ts:49:1 › rapid feed requests ignore obsolete data and preserve current query (1.1s)
+  ✓  53 [firefox] › tests/lifecycle.spec.ts:74:1 › destroyed observable rows stop rendering when borrowed data changes (865ms)
+[WebServer] 12:00:33 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:33 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  54 [firefox] › tests/lifecycle.spec.ts:113:1 › stop/start and restart keep one navigation subscription; destroy disposes descendants (982ms)
+  ✓  56 [firefox] › tests/lifecycle.spec.ts:187:1 › Marionette preparation rejects stale completion even when API ignores its abort signal (757ms)
+[WebServer] 12:00:34 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  55 [firefox] › tests/lifecycle.spec.ts:158:1 › navigating away during save prevents late UI and session commits (1.1s)
+[WebServer] 12:00:34 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:34 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:34 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  57 [firefox] › tests/lifecycle.spec.ts:235:1 › same-user, unavailable, and superseded session refresh retain the editor draft (1.2s)
+  ✓  58 [firefox] › tests/lifecycle.spec.ts:300:1 › credential replacement rejects an old settings response before the new user resolves (1.1s)
+[WebServer] 12:00:35 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  59 [firefox] › tests/lifecycle.spec.ts:359:1 › a settings completion that ignores cancellation cannot accept obsolete credentials (1.1s)
+[WebServer] 12:00:35 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:35 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  60 [firefox] › tests/lifecycle.spec.ts:387:1 › a completed favorite supersedes a held feed snapshot (996ms)
+[WebServer] 12:00:35 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  62 [firefox] › tests/lifecycle.spec.ts:478:1 › an obsolete activation failure cannot replace the newer destination (2.0s)
+  ✓  61 [firefox] › tests/lifecycle.spec.ts:425:1 › composite restart retains child Regions and comment drafts; stop/start reconstructs (2.9s)
+  ✓  63 [firefox] › tests/lifecycle.spec.ts:501:1 › a write cannot use replaced credentials before the storage event is handled (2.2s)
+[WebServer] 12:00:38 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  64 [firefox] › tests/lifecycle.spec.ts:523:1 › startup rechecks credentials changed before storage listeners are installed (870ms)
+[WebServer] 12:00:38 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:38 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+(node:48940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  65 [firefox] › tests/loading.spec.ts:7:3 › desktop feed loading hides retained results and preserves failure/retry (1.5s)
+  ✓  66 [firefox] › tests/loading.spec.ts:7:3 › mobile feed loading hides retained results and preserves failure/retry (1.4s)
+(node:48948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48949) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 12:00:41 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:41 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:41 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  69 [webkit] › tests/journeys.spec.ts:63:1 › failed sign in retains fields and permits correction; protected direct routes redirect (933ms)
+[WebServer] 12:00:41 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  67 [webkit] › tests/journeys.spec.ts:3:1 › global feed, tag filtering, pagination and browser history retain shell and home (1.7s)
+[WebServer] 12:00:42 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:42 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  68 [webkit] › tests/journeys.spec.ts:29:1 › registration, reload session, settings update, empty password omission and logout (1.6s)
+[WebServer] 12:00:42 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:43 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  70 [webkit] › tests/journeys.spec.ts:86:1 › create, read markdown, edit slug, profile author list and delete article (1.5s)
+  ✓  71 [webkit] › tests/journeys.spec.ts:133:1 › favorites, followed feed, profile tabs and synchronized article metadata (1.7s)
+[WebServer] 12:00:43 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  72 [webkit] › tests/journeys.spec.ts:186:1 › comments retain newer typing during pending post, then delete only owned comment (1.4s)
+[WebServer] 12:00:43 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:44 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  74 [webkit] › tests/journeys.spec.ts:235:1 › session outage preserves token, explicit retry restores and expired token clears (694ms)
+[WebServer] 12:00:44 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  73 [webkit] › tests/journeys.spec.ts:213:1 › feed errors are explicit, retryable and retain layout during failed refresh (989ms)
+  ✓  75 [webkit] › tests/journeys.spec.ts:261:1 › Markdown and text escape XSS, unknown routes and guest actions (722ms)
+[WebServer] 12:00:44 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:44 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:44 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:45 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  76 [webkit] › tests/journeys.spec.ts:292:1 › editor keeps newer text after save and updates the returned slug on next save (925ms)
+[WebServer] 12:00:45 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  78 [webkit] › tests/journeys.spec.ts:350:1 › failed article and comment writes preserve drafts and allow explicit resubmission (1.2s)
+[WebServer] 12:00:45 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  77 [webkit] › tests/journeys.spec.ts:327:1 › comment deletion cannot invoke article deletion; editor denies nonauthor (1.7s)
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  79 [webkit] › tests/journeys.spec.ts:391:1 › desktop and mobile Conduit layout, keyboard focus and empty feed (1.4s)
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:46 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  81 [webkit] › tests/journeys.spec.ts:458:1 › favorite failure belongs to its row and clears after a successful retry (957ms)
+[WebServer] 12:00:47 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:47 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:47 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:47 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:47 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  82 [webkit] › tests/journeys.spec.ts:480:1 › form autocomplete matches the workflow and logout adds one history entry (1.3s)
+  ✓  80 [webkit] › tests/journeys.spec.ts:428:1 › unfavoriting reconciles favorites membership, pages, and empty results (2.2s)
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  83 [webkit] › tests/journeys.spec.ts:503:1 › overlapping unfavorites finish before membership refresh replaces their rows (1.4s)
+  ✓  84 [webkit] › tests/lifecycle.spec.ts:3:1 › navigation cancels readiness and destroys the outgoing page and rows (665ms)
+  ✓  85 [webkit] › tests/lifecycle.spec.ts:49:1 › rapid feed requests ignore obsolete data and preserve current query (664ms)
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:48 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  86 [webkit] › tests/lifecycle.spec.ts:74:1 › destroyed observable rows stop rendering when borrowed data changes (479ms)
+  ✓  87 [webkit] › tests/lifecycle.spec.ts:113:1 › stop/start and restart keep one navigation subscription; destroy disposes descendants (528ms)
+[WebServer] 12:00:49 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:49 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  88 [webkit] › tests/lifecycle.spec.ts:158:1 › navigating away during save prevents late UI and session commits (841ms)
+  ✓  89 [webkit] › tests/lifecycle.spec.ts:187:1 › Marionette preparation rejects stale completion even when API ignores its abort signal (512ms)
+[WebServer] 12:00:49 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:49 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:49 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  90 [webkit] › tests/lifecycle.spec.ts:235:1 › same-user, unavailable, and superseded session refresh retain the editor draft (883ms)
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  91 [webkit] › tests/lifecycle.spec.ts:300:1 › credential replacement rejects an old settings response before the new user resolves (753ms)
+  ✓  92 [webkit] › tests/lifecycle.spec.ts:359:1 › a settings completion that ignores cancellation cannot accept obsolete credentials (703ms)
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  93 [webkit] › tests/lifecycle.spec.ts:387:1 › a completed favorite supersedes a held feed snapshot (626ms)
+  ✓  95 [webkit] › tests/lifecycle.spec.ts:478:1 › an obsolete activation failure cannot replace the newer destination (575ms)
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:50 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:51 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:51 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  97 [webkit] › tests/lifecycle.spec.ts:523:1 › startup rechecks credentials changed before storage listeners are installed (610ms)
+[WebServer] 12:00:51 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  96 [webkit] › tests/lifecycle.spec.ts:501:1 › a write cannot use replaced credentials before the storage event is handled (1.0s)
+[WebServer] 12:00:51 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:51 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:52 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[WebServer] 12:00:52 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  94 [webkit] › tests/lifecycle.spec.ts:425:1 › composite restart retains child Regions and comment drafts; stop/start reconstructs (2.6s)
+  ✓  98 [webkit] › tests/loading.spec.ts:7:3 › desktop feed loading hides retained results and preserves failure/retry (1.6s)
+  ✓  99 [webkit] › tests/loading.spec.ts:7:3 › mobile feed loading hides retained results and preserves failure/retry (1.4s)
+
+  99 passed (51.9s)

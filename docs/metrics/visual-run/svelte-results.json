@@ -1,0 +1,642 @@
+{
+  "browser": "153.0.8010.12",
+  "externalResources": "blocked; fallback fonts and icons",
+  "results": [
+    {
+      "app": "svelte",
+      "profile": "desktop",
+      "page": "home",
+      "path": "/",
+      "screenshot": "svelte-desktop-home.png",
+      "overflow": false,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 159.59375,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".page": {
+          "x": 150,
+          "y": 247.59375,
+          "width": 1140,
+          "height": 3845.75,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": {
+          "x": 165,
+          "y": 288.59375,
+          "width": 825,
+          "height": 186.1875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-meta": {
+          "x": 165,
+          "y": 313.59375,
+          "width": 825,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "desktop",
+      "page": "article",
+      "path": "/article/article-1",
+      "screenshot": "svelte-desktop-article.png",
+      "overflow": false,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 179.265625,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".page": {
+          "x": 150,
+          "y": 267.265625,
+          "width": 1140,
+          "height": 2616.03125,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": {
+          "x": 375,
+          "y": 170.265625,
+          "width": 690,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": {
+          "x": 360,
+          "y": 267.265625,
+          "width": 720,
+          "height": 1270.71875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "desktop",
+      "page": "profile",
+      "path": "/profile/writer",
+      "screenshot": "svelte-desktop-profile.png",
+      "overflow": false,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": null,
+        ".article-preview": {
+          "x": 259.984375,
+          "y": 377.390625,
+          "width": 919.984375,
+          "height": 186.1875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-meta": {
+          "x": 259.984375,
+          "y": 402.390625,
+          "width": 919.984375,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": {
+          "x": 0,
+          "y": 56,
+          "width": 1440,
+          "height": 256.390625,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "desktop",
+      "page": "login",
+      "path": "/login",
+      "screenshot": "svelte-desktop-login.png",
+      "overflow": false,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": {
+          "x": 150,
+          "y": 80,
+          "width": 1140,
+          "height": 277,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": null,
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": {
+          "x": 450,
+          "y": 172,
+          "width": 540,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "input[type=password]": {
+          "x": 450,
+          "y": 239,
+          "width": 540,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "desktop",
+      "page": "register",
+      "path": "/register",
+      "screenshot": "svelte-desktop-register.png",
+      "overflow": false,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": {
+          "x": 150,
+          "y": 80,
+          "width": 1140,
+          "height": 344,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": null,
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": {
+          "x": 450,
+          "y": 239,
+          "width": 540,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "input[type=password]": {
+          "x": 450,
+          "y": 306,
+          "width": 540,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "mobile",
+      "page": "home",
+      "path": "/",
+      "screenshot": "svelte-mobile-home.png",
+      "overflow": false,
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": {
+          "x": 0,
+          "y": 56,
+          "width": 390,
+          "height": 159.59375,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".page": {
+          "x": 0,
+          "y": 247.59375,
+          "width": 390,
+          "height": 3911.71875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": {
+          "x": 0,
+          "y": 288.59375,
+          "width": 348.953125,
+          "height": 186.1875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-meta": {
+          "x": 0,
+          "y": 313.59375,
+          "width": 348.953125,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "mobile",
+      "page": "article",
+      "path": "/article/article-1",
+      "screenshot": "svelte-mobile-article.png",
+      "overflow": false,
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": {
+          "x": 0,
+          "y": 56,
+          "width": 390,
+          "height": 179.265625,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".page": {
+          "x": 0,
+          "y": 267.265625,
+          "width": 390,
+          "height": 3191.96875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": {
+          "x": 15,
+          "y": 170.265625,
+          "width": 360,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": {
+          "x": 15,
+          "y": 267.265625,
+          "width": 360,
+          "height": 1846.65625,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "mobile",
+      "page": "profile",
+      "path": "/profile/writer",
+      "screenshot": "svelte-mobile-profile.png",
+      "overflow": false,
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": null,
+        ".article-preview": {
+          "x": 15,
+          "y": 377.390625,
+          "width": 360,
+          "height": 186.1875,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-meta": {
+          "x": 15,
+          "y": 402.390625,
+          "width": 360,
+          "height": 32,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": {
+          "x": 0,
+          "y": 56,
+          "width": 390,
+          "height": 256.390625,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        "input[type=email]": null,
+        "input[type=password]": null,
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "mobile",
+      "page": "login",
+      "path": "/login",
+      "screenshot": "svelte-mobile-login.png",
+      "overflow": false,
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": {
+          "x": 0,
+          "y": 80,
+          "width": 390,
+          "height": 277,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": null,
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": {
+          "x": 15,
+          "y": 172,
+          "width": 360,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "input[type=password]": {
+          "x": 15,
+          "y": 239,
+          "width": 360,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "footer": null
+      },
+      "errors": []
+    },
+    {
+      "app": "svelte",
+      "profile": "mobile",
+      "page": "register",
+      "path": "/register",
+      "screenshot": "svelte-mobile-register.png",
+      "overflow": false,
+      "viewportWidth": 390,
+      "scrollWidth": 390,
+      "elements": {
+        ".navbar": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 56,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".banner": null,
+        ".page": {
+          "x": 0,
+          "y": 80,
+          "width": 390,
+          "height": 344,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "color": "rgb(55, 58, 60)"
+        },
+        ".article-preview": null,
+        ".article-meta": null,
+        ".article-content": null,
+        ".comment-form": null,
+        ".user-info": null,
+        "input[type=email]": {
+          "x": 15,
+          "y": 239,
+          "width": 360,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "input[type=password]": {
+          "x": 15,
+          "y": 306,
+          "width": 360,
+          "height": 51,
+          "font": "\"Source Sans Pro\", sans-serif",
+          "fontSize": "20px",
+          "lineHeight": "25px",
+          "color": "rgb(85, 89, 92)"
+        },
+        "footer": null
+      },
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+react: desktop
+react: mobile
+react: memory
+Results: docs/metrics/react-run/results.json

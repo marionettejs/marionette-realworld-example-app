@@ -1,0 +1,5 @@
+{
+  "benchmarks/realworld/prepare.mjs": "57085a1fdc23c60365f1e39ae9a5c4d818859fd5ccc3f2080ae47dc3eb011adb",
+  "benchmarks/realworld/run.mjs": "45d2f5bde78d96c451721d2b9476b149bd21440187300b6e755b89b310e69161",
+  "benchmarks/realworld/server.mjs": "892dbcfe34578479d74ca3cadf3cf36ce2fc160332b178ac7f451726220a8104"
+}

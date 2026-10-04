@@ -1,0 +1,36 @@
+
+> marionette-realworld-example-app@1.0.0 test:production
+> TEST_PRODUCTION=1 playwright test --project=chromium --workers=3
+
+[WebServer] (node:76284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:76312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 3 workers
+
+(node:76327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76329) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/journeys.spec.ts:3:1 › global feed, tag filtering, pagination and browser history retain shell and home (970ms)
+  ✓   3 [chromium] › tests/journeys.spec.ts:63:1 › failed sign in retains fields and permits correction; protected direct routes redirect (1.0s)
+  ✓   2 [chromium] › tests/journeys.spec.ts:29:1 › registration, reload session, settings update, empty password omission and logout (1.4s)
+  ✓   4 [chromium] › tests/journeys.spec.ts:86:1 › create, read markdown, edit slug, profile author list and delete article (1.5s)
+  ✓   6 [chromium] › tests/journeys.spec.ts:186:1 › comments retain newer typing during pending post, then delete only owned comment (1.2s)
+  ✓   5 [chromium] › tests/journeys.spec.ts:133:1 › favorites, followed feed, profile tabs and synchronized article metadata (1.4s)
+  ✓   8 [chromium] › tests/journeys.spec.ts:235:1 › session outage preserves token, explicit retry restores and expired token clears (533ms)
+  ✓   7 [chromium] › tests/journeys.spec.ts:213:1 › feed errors are explicit, retryable and retain layout during failed refresh (981ms)
+  ✓   9 [chromium] › tests/journeys.spec.ts:261:1 › Markdown and text escape XSS, unknown routes and guest actions (937ms)
+  ✓  10 [chromium] › tests/journeys.spec.ts:292:1 › editor keeps newer text after save and updates the returned slug on next save (908ms)
+  ✓  11 [chromium] › tests/journeys.spec.ts:327:1 › comment deletion cannot invoke article deletion; editor denies nonauthor (1.2s)
+  ✓  12 [chromium] › tests/journeys.spec.ts:350:1 › failed article and comment writes preserve drafts and allow explicit resubmission (1.2s)
+  ✓  13 [chromium] › tests/journeys.spec.ts:391:1 › desktop and mobile Conduit layout, keyboard focus and empty feed (1.1s)
+  ✓  15 [chromium] › tests/journeys.spec.ts:458:1 › favorite failure belongs to its row and clears after a successful retry (991ms)
+  ✓  14 [chromium] › tests/journeys.spec.ts:428:1 › unfavoriting reconciles favorites membership, pages, and empty results (1.6s)
+  ✓  16 [chromium] › tests/journeys.spec.ts:480:1 › form autocomplete matches the workflow and logout adds one history entry (1.3s)
+  ✓  17 [chromium] › tests/journeys.spec.ts:503:1 › overlapping unfavorites finish before membership refresh replaces their rows (974ms)
+
+  17 passed (11.6s)

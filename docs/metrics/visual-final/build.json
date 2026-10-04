@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-04",
+  "baseCommit": "ded911eb133856dfa5fc73e6fa25d43fd7dd1e72",
+  "sourceDirty": true,
+  "sourcePatch": "source.patch",
+  "sourcePatchSha256": "5b6f98a6341065df07584bb8f03ab7d9e90aea22061766993e97fcd74fc891fc",
+  "note": "Patch includes concurrent preparation/rendering work plus visual corrections; base is the parent of the commit being amended. This snapshot was not performance-benchmarked.",
+  "sourceHashes": {
+    "src/app/application.ts": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+    "src/app/routes.ts": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+    "src/app/session.ts": "6565a1b7bb11c2305147c9eb74baf1fb578d95ae4c89629f0bae09c6df284ada",
+    "src/app/shell.ts": "37c24f17e13f5b7bdd6158cc7dc9e7411c47f023bd243f99432832f8fbe01032",
+    "src/features/article/application.ts": "52562c50c8c05daebfd06bfaa7e6cde7eb0450fb0be36cc036b32e0b056b2b83",
+    "src/features/article/views.ts": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+    "src/features/auth/application.ts": "793d09276a1c4d1787d2c76a6bee854b5d6c27ab0ee0434f5005793fd3cef357",
+    "src/features/auth/view.ts": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+    "src/features/comments/application.ts": "ca39719cc18b753cac7e07c566122f8f082d8f6bd4e07d47032ca640a2dbcfc7",
+    "src/features/comments/views.ts": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+    "src/features/editor/application.ts": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+    "src/features/editor/view.ts": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+    "src/features/feed/application.ts": "596529b7aba960a7d7e986e611d1d77197120bc01645f573c3e3d6722d0124ea",
+    "src/features/feed/views.ts": "9311baf6b644327b9c8558936a75ff27e2934a8dd8b0c387b1421a39cfa6dfea",
+    "src/features/home/application.ts": "37702f496f81642afb94ae4bbbc189dc711561c6f5390e701bc4d0e925203ef1",
+    "src/features/home/views.ts": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+    "src/features/profile/application.ts": "b1bfcbb65321cf8db720eaf443da26d5e8570cb185473d2f094702095e5ca21c",
+    "src/features/profile/views.ts": "a80fa39ffc8991e3d2b646d7a590884a9c3a55837cdd9f7d67e3382c545daf0e",
+    "src/features/settings/application.ts": "147481b32deb236bfccd9a6faaaf9ef3bda3a989f02237bb19b11781f052ec79",
+    "src/features/settings/view.ts": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+    "src/main.ts": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+    "src/setup.ts": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+    "src/shared/api.ts": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+    "src/shared/form-application.ts": "cd69df95f34e60b81510f6d3dea5a81209438d391b5c9c6730b3e32ef5c45cc1",
+    "src/shared/form-fields.ts": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+    "src/shared/operation.ts": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+    "src/shared/presentation.ts": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+    "src/shared/types.ts": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+    "src/shared/views.ts": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+    "src/styles.css": "4ce6172882bc1d91fa01feb095c19e6edd27a1e8a2e42734b5d85fc1164f537d"
+  },
+  "configurationHashes": {
+    "package.json": "8107482a78f6529f5a91a83ae35bdaf68f235a5a84245b7ffba172ede011340d",
+    "package-lock.json": "42feec15d6bc45889cad3f81315d74ae677bbbf720d0c451c79b2cc41dd84154",
+    "index.html": "41f25e718beba949ba0e212cae5d4a1822cd92890b4746075555956b25c572fa",
+    "public/styles.css": "f4b3d6224f725fc0ba08a943d931d341082e57cc8dac3a7cf7fff5b93b7a750c"
+  },
+  "installedVersions": {
+    "marionette": "5.0.0-rc.2",
+    "@mnjs/data": "5.0.0-rc.2",
+    "@mnjs/adapters": "5.0.0-rc.2",
+    "@mnjs/radio": "5.0.0-rc.2",
+    "@mnjs/utils": "5.0.0-rc.2"
+  },
+  "docsProvenance": {
+    "packageVersion": "5.0.0-rc.2",
+    "sourceRevision": "f4243b8334cafe0bd1b06eba85d87e2310cb3618",
+    "sourceDirty": false,
+    "contentSha256": "33e25b34b7de8097aedad992ba19af5f381a282cc9f1a14a124dc8f6b69384de"
+  },
+  "visualBuild": {
+    "apiUrl": "http://127.0.0.1:5280/api",
+    "files": {
+      "NOTICE.txt": "82c257f1195c9344d80af35aaaa464e155236211ba25027ac8caedbfaf9dfde7",
+      "assets/index-3os8BnsX.css": "b3acae98c2c3771347967680bc66b70242063b6e293bd80f6d25e0d3c59da8a4",
+      "assets/index-llB7Yg86.js": "0a916bf2a310bd3c3eb2c46307834c0c5c1ad14aee012d99ccfd67c47ab2ea59",
+      "default-avatar.svg": "aca1167e9408087bcf853c0c5177de5519735c49acb19e2a4045122705db90de",
+      "favicon.ico": "105048062a788225cd3ae073f4a4cacc198ea8e149d67c6f7efb0cd98f33e99c",
+      "index.html": "9ba52c9e93dbc4234bdd12c1847235aaaac5ec8c66395e0dafa3ce2bf22b8da6",
+      "styles.css": "f4b3d6224f725fc0ba08a943d931d341082e57cc8dac3a7cf7fff5b93b7a750c"
+    }
+  },
+  "harnessHashes": {
+    "benchmarks/realworld/visual.mjs": "1167b230d8ea3197df90ae06e0b807d496a9134c337529d09977a1f2e0ad1df8",
+    "benchmarks/realworld/visual-auth.mjs": "11d0d3e77acdb20598ba92e2a4487cf52f1b032902e2d39db7c454b1db48f208",
+    "benchmarks/realworld/server.mjs": "892dbcfe34578479d74ca3cadf3cf36ce2fc160332b178ac7f451726220a8104"
+  },
+  "focusedProbe": "detail-check.mjs",
+  "focusedProbeSha256": "d696ce62c0c72d7f45cc9b2d720c36a6a357e1e13a09e8b0ac5c36d6768b8b62",
+  "screenshotCount": 41,
+  "screenshotHashes": {
+    "detail-desktop-article-tags.png": "40d70f5d7adb3d78569feb79ae6ac230012c474e10c9d11724579fb09d80d683",
+    "detail-desktop-profile.png": "c01f287eb28d951ac4655900879292d6c9abb4471f9937a2007707ec957d113a",
+    "detail-mobile-article-tags.png": "4070985994e6766d6a9d50c52772b1479ff78b2c6b54425cfa50eac3275bf6d9",
+    "detail-mobile-profile.png": "03a82de8be90a85e5a3dcb7f95601fad0e422ca7591875c65b61f5b30868dabc",
+    "external-authenticated-desktop-editor.png": "3bd8278499a545ddc09dace48fe71168662873205a1f207326e16d6a15c26645",
+    "external-authenticated-desktop-settings.png": "45d920e585a2ea1bc5b89080b178b5800e7d09a58311786f6b3aa9c224ee2fe9",
+    "external-authenticated-mobile-editor.png": "a8c48356d250816b1bfa18d5f4a70b221dc4357ebc7cd0334ec7758c02c8defe",
+    "external-authenticated-mobile-settings.png": "7173d6a25402c8559ab49cfe5255e1a40e32dd0f2a039541e42c2aff7c049ac3",
+    "external-marionette-desktop-article.png": "1361cb943765f8abbbb70d5697628e3a16100b66dcf34c7291985c90873552bc",
+    "external-marionette-desktop-home.png": "35801dfafafa39cdd4a750754020d9dc644e85f535854a1204ac9ef17945e870",
+    "external-marionette-desktop-login.png": "59e5d8168ad5d875e8e60e09cff276c43061f8239ca1e23fce2939f24cdd33c0",
+    "external-marionette-desktop-profile.png": "db652b802ee3ca240a4dc9ee51d640bae42ba89aab60bc0a9bf3037eab168129",
+    "external-marionette-desktop-register.png": "d7a93112e4dc7800f9a5e51081b1bafe4c52b4730bd70a16a8abbda6863efc9c",
+    "external-marionette-mobile-article.png": "ed27327e9ae6783174c52c39b452a806a7838d358664d285d19dc92746ad38a5",
+    "external-marionette-mobile-home.png": "98936261612c713ca48287db768720b33710694d52fdebd9ab99f3e540e54f3e",
+    "external-marionette-mobile-login.png": "318e6dec22925184b4e51489a9848387e182fa10cdf5a972440637d853b06c2a",
+    "external-marionette-mobile-profile.png": "f52812c3e56047725b7a8e0e08c5706c7a501e42497e4bb4633d024e1180edc6",
+    "external-marionette-mobile-register.png": "6fcfb6fc5a1d2a80dac43dbf22194e2e39c97b0f76df564c727e1846e19e0e33",
+    "fallback-authenticated-desktop-editor.png": "f674b72fea2ddc744d343945ffab78b64ffa9a904ec8039b62158f170b877542",
+    "fallback-authenticated-desktop-settings.png": "944e8e7d5783b9e9fd59c84450d91ccbe451f972e45a89f05e377b9341c6bf9a",
+    "fallback-authenticated-mobile-editor.png": "b451ba814f4a5b111e5c0743a355ec28f7e97ebfa66164d4a3e8de0b04641b34",
+    "fallback-authenticated-mobile-settings.png": "84de96eb8d41df737bd79c8b0cea607387079cab0d8387a4611acbf60a65b1b1",
+    "marionette-desktop-article.png": "1b2f2eff5d1b42c1af3c28f409501e267772f23bbfdd8d22f24944a0adf3dbba",
+    "marionette-desktop-editor.png": "f674b72fea2ddc744d343945ffab78b64ffa9a904ec8039b62158f170b877542",
+    "marionette-desktop-home-external-resources.png": "5b78324d8a96d5a634d154edae5ea95d7e21f783a278d61c237e91e1a5b01ac0",
+    "marionette-desktop-home.png": "bba17bf517e39b1e576ca96c58f122144544a5b930e18a1d0e42cbaab36b6482",
+    "marionette-desktop-login.png": "2df75b5f7f196353b41daea9d95993f5a29065cc3ba43dd77ca479b7503c51c6",
+    "marionette-desktop-profile.png": "4012334bc1c0552b70d565068208be0fd3a5fbfe34cf60847cbe059d90eae268",
+    "marionette-desktop-register.png": "2f7ca7eb873a5bf5f136a2319de2a59f698bc483603b9987046f7094a4f2cd85",
+    "marionette-desktop-settings.png": "944e8e7d5783b9e9fd59c84450d91ccbe451f972e45a89f05e377b9341c6bf9a",
+    "marionette-mobile-article.png": "4b1a502e8c5ab26cdebb38684f061cb9f51b631fef6a827f3e61c630d3148702",
+    "marionette-mobile-editor.png": "b451ba814f4a5b111e5c0743a355ec28f7e97ebfa66164d4a3e8de0b04641b34",
+    "marionette-mobile-home.png": "610fdf07601c14e7d8001aa01646e356924f5d918231340bc4d0c227c6e5df46",
+    "marionette-mobile-login.png": "496042c778f926611ccfc297085e008b776497958786adadd27dfe8128de2d37",
+    "marionette-mobile-profile.png": "cbf8460b532633a1ed5d19eda754a03590ce05d748132fd3960cb2124f402c6b",
+    "marionette-mobile-register.png": "eaa8de56f4234ed73c025e6fad531998e50ee4768a31f6a82994140e30b765da",
+    "marionette-mobile-settings.png": "84de96eb8d41df737bd79c8b0cea607387079cab0d8387a4611acbf60a65b1b1",
+    "vue-desktop-editor.png": "9e1575eb415dac8361b151d9cb6c4eedb0333bd7d2bcc707a0988ffdbf420e30",
+    "vue-desktop-settings.png": "e331b84bf45c60f1ec4a59ed1917d98abccc182d01f0448c2af2703c185ad387",
+    "vue-mobile-editor.png": "2e4c90ac81b654778326ee4a938556e3b2366a74ccf64c997d363ec3f6516297",
+    "vue-mobile-settings.png": "bb07f66f465a8d29c1777a81f4d8f2656e239012d724b1ec4cbd78e819df88a1"
+  },
+  "preservation": {
+    "preExistingHarnessAndEvidenceFilesChecked": 184,
+    "changed": [],
+    "performanceBenchmarksRerun": false
+  },
+  "checks": {
+    "developmentBrowserTests": {
+      "passed": 93,
+      "log": "development-tests.log"
+    },
+    "productionBrowserTests": {
+      "passed": 17,
+      "log": "production-tests.log"
+    },
+    "unitTestsPassed": 3,
+    "publicHarnessCaptures": 20,
+    "authenticatedHarnessCapturesAndFontCheck": 9,
+    "focusedCaptures": 12
+  }
+}
