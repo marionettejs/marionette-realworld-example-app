@@ -1,0 +1,6 @@
+
+/Users/paulfalgout/Projects/marionette-realworld-example-app/playwright.realworld.config.mjs
+  13:21  error  'process' is not defined  no-undef
+
+✖ 1 problem (1 error, 0 warnings)
+

@@ -1,0 +1,28 @@
+{
+  "repository": "https://github.com/realworld-apps/realworld",
+  "revision": "ebbcdeb8d55b42a3a613c787560498b8ef10003f",
+  "unaltered_files": {
+    "null-fields.spec.ts": "d01b6083e231d93f0abea926e2756563a1e2ba39758252e154cd5abee0b04069",
+    "playwright.base.ts": "67032d3cbb51e64b1e31db336d7c6d45f6d18becd099584e49c75e7ff69b6387",
+    "navigation.spec.ts": "388296af54e85da0fcce95f8f22871787f6a1c4b8c583fdba3c740dfa2b60d82",
+    "social.spec.ts": "f44475ba7fdeac4edcfab790bb3787601909bb5c0799c39ad39810fd0879e935",
+    "error-handling.spec.ts": "1ab3e37ed96ddeb13e071d50dc1c4edccf6897657f80521fec0f554ad30886c6",
+    "auth.spec.ts": "45a781d8bc353413eef10f575f9db7765774454ee592915eb2b369b61ccba76e",
+    "comments.spec.ts": "fad532a24cd2944bb679fcac48553f8d9fe95dd559a48b94014b198101f94593",
+    "settings.spec.ts": "a6da288c62292c6038d42fd9f256d8c68b5e3462b35aa037edd61a4b3a5294a2",
+    "user-fetch-errors.spec.ts": "5311db1d2f6fdc0b72570c68af95a03407f77af782ad8a1bc3afac19b608cf2d",
+    "SELECTORS.md": "c3d786c2acc6bd2a5ed08569fde605b1249ebac2ae868c686985d21b97637abd",
+    "xss-security.spec.ts": "f68bccbeb3f08ba1c1cacd6825ad3f177d92d9f0ecf9d59118a8f74d6382a50a",
+    "articles.spec.ts": "a480adc07f718de78f9c37f4ee24b1397a99d7024ff067c91d2f03eb60b18171",
+    "url-navigation.spec.ts": "b8aa177acd958ed168bb1ea73cd281e380c1ee0650a51274c43e01fba932869d",
+    "health.spec.ts": "81546efe698c8bc1d1f197801af82d00e77d717f719fd8708d62ea46637fd099",
+    "helpers/comments.ts": "9e54b47c166498b2823e205717c258c8667b3d9b92921009a369f2360e31a096",
+    "helpers/articles.ts": "76c6f7f9b1813cf3060be53288768036b67664affbdac9b0a471b0751846674e",
+    "helpers/debug.ts": "07d037e88a279354dd9368f0380fb3e12b292dc52e96be04ef2c7f94b4e7e0f4",
+    "helpers/setup.ts": "8d25fd26b59dd7fc38dc5178cca65467c79854f809807f83ea221e2af8fdb7a1",
+    "helpers/api.ts": "67ba561a258b996570d4d31b712457fbe776a1c937b30b6cc3ee22e05eb00315",
+    "helpers/profile.ts": "3509e80e25e09c5ea7704f5a537d822eedfadd66bcd8ff6cf82a1a5e5b4c72f2",
+    "helpers/config.ts": "b8d18b2b0cd007c2ece7b7ef4c8d1d5893c83bedceac1298fb0e79e03aaf733c",
+    "helpers/auth.ts": "54f09d7b8b647340ac1321e5612036557c80743a24fba0ceeaa7c8aef4ca3ec5"
+  }
+}

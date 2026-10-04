@@ -4,7 +4,7 @@
   "sourceDirty": true,
   "sourcePatch": "source.patch",
   "sourcePatchSha256": "5b6f98a6341065df07584bb8f03ab7d9e90aea22061766993e97fcd74fc891fc",
-  "note": "Patch includes concurrent preparation/rendering work plus visual corrections; base is the parent of the commit being amended. This snapshot was not performance-benchmarked.",
+  "note": "Patch includes concurrent preparation/rendering work plus visual corrections; source is identified by baseCommit plus source.patch. This snapshot was not performance-benchmarked.",
   "sourceHashes": {
     "src/app/application.ts": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
     "src/app/routes.ts": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",

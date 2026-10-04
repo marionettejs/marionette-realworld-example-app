@@ -1,6 +1,6 @@
 # Marionette v5 RC2 source review — 2026-10-04
 
-Reviewed committed revision `3e7ef93bc577a4afbd54849549059cb6a6fc21e4`, including concurrent readiness, visual/loading fidelity and bounded cleanup. No application source was changed during this review. Installed Marionette and matching adapters/data are published `5.0.0-rc.2`; the packaged Application lifecycle, retained-restart and CollectionView contracts govern this review.
+Reviewed the application source matching [the final application commit](https://github.com/marionettejs/marionette-realworld-example-app/commit/48b910a2e2c496772d1409c19792a7ef0ce8121d), including concurrent readiness, visual/loading fidelity and bounded cleanup. No application source was changed during this review. [Evidence provenance](metrics/README.md) maps the recorded snapshot to that commit. Installed Marionette and matching adapters/data are published `5.0.0-rc.2`; the packaged Application lifecycle, retained-restart and CollectionView contracts govern this review.
 
 ## Conclusion
 

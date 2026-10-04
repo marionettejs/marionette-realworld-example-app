@@ -1,0 +1,141 @@
+Listing tests:
+  [chromium] › articles.spec.ts:32:3 › Articles › should create a new article
+  [chromium] › articles.spec.ts:50:3 › Articles › should edit an existing article
+  [chromium] › articles.spec.ts:71:3 › Articles › should delete an article
+  [chromium] › articles.spec.ts:97:3 › Articles › should delete an article when server returns 200 instead of 204
+  [chromium] › articles.spec.ts:123:3 › Articles › should favorite an article
+  [chromium] › articles.spec.ts:139:3 › Articles › should unfavorite an article
+  [chromium] › articles.spec.ts:182:3 › Articles › should view article from home feed
+  [chromium] › articles.spec.ts:207:3 › Articles › should display article preview correctly
+  [chromium] › articles.spec.ts:229:3 › Articles › should remove all tags when editing an article
+  [chromium] › articles.spec.ts:282:3 › Articles › should only allow author to edit/delete article
+  [chromium] › auth.spec.ts:7:3 › Authentication › should register a new user
+  [chromium] › auth.spec.ts:19:3 › Authentication › should login with existing user
+  [chromium] › auth.spec.ts:33:3 › Authentication › should show error for invalid login
+  [chromium] › auth.spec.ts:42:3 › Authentication › should fail login with wrong password
+  [chromium] › auth.spec.ts:59:3 › Authentication › should logout successfully
+  [chromium] › auth.spec.ts:72:3 › Authentication › should prevent accessing editor when not logged in
+  [chromium] › auth.spec.ts:78:3 › Authentication › should maintain session after page reload
+  [chromium] › auth.spec.ts:87:3 › Authentication › should handle invalid token on page reload gracefully
+  [chromium] › comments.spec.ts:31:3 › Comments › should add a comment to an article
+  [chromium] › comments.spec.ts:38:3 › Comments › should delete own comment
+  [chromium] › comments.spec.ts:60:3 › Comments › should delete comment when server returns 200 instead of 204
+  [chromium] › comments.spec.ts:86:3 › Comments › should display multiple comments
+  [chromium] › comments.spec.ts:102:3 › Comments › should require login to post comment
+  [chromium] › comments.spec.ts:116:3 › Comments › should only allow comment author to delete
+  [chromium] › comments.spec.ts:141:3 › Comments › should handle long comments
+  [chromium] › comments.spec.ts:148:3 › Comments › should preserve comments after page reload
+  [chromium] › comments.spec.ts:157:3 › Comments › should clear comment form after posting
+  [chromium] › error-handling.spec.ts:36:3 › Error Handling - 400 Bad Request › should handle 400 on login with validation errors
+  [chromium] › error-handling.spec.ts:50:3 › Error Handling - 400 Bad Request › should handle 400 on registration with validation errors
+  [chromium] › error-handling.spec.ts:68:3 › Error Handling - 400 Bad Request › should handle 400 on article creation
+  [chromium] › error-handling.spec.ts:104:3 › Error Handling - 401 Unauthorized › should handle 401 when submitting settings form
+  [chromium] › error-handling.spec.ts:136:3 › Error Handling - 401 Unauthorized › should handle 401 when posting a comment
+  [chromium] › error-handling.spec.ts:199:3 › Error Handling - 403 Forbidden › should handle 403 when updating article
+  [chromium] › error-handling.spec.ts:252:3 › Error Handling - 403 Forbidden › should handle 403 when deleting another users comment
+  [chromium] › error-handling.spec.ts:324:3 › Error Handling - 403 Forbidden › should handle 403 when following user you are blocked by
+  [chromium] › error-handling.spec.ts:379:3 › Error Handling - 500 Internal Server Error › should handle 500 on articles feed load
+  [chromium] › error-handling.spec.ts:390:3 › Error Handling - 500 Internal Server Error › should handle 500 on tags load
+  [chromium] › error-handling.spec.ts:410:3 › Error Handling - 500 Internal Server Error › should handle network error on tags load
+  [chromium] › error-handling.spec.ts:429:3 › Error Handling - 500 Internal Server Error › should handle 500 on user profile load
+  [chromium] › error-handling.spec.ts:440:3 › Error Handling - 500 Internal Server Error › should handle network error on user profile load
+  [chromium] › error-handling.spec.ts:451:3 › Error Handling - 500 Internal Server Error › should handle 500 on article detail load
+  [chromium] › error-handling.spec.ts:462:3 › Error Handling - 500 Internal Server Error › should handle network error on article detail load
+  [chromium] › error-handling.spec.ts:473:3 › Error Handling - 500 Internal Server Error › should handle 500 when submitting settings
+  [chromium] › error-handling.spec.ts:505:3 › Error Handling - 500 Internal Server Error › should handle intermittent 500 errors gracefully
+  [chromium] › error-handling.spec.ts:532:3 › Error Handling - Network Errors › should handle network timeout
+  [chromium] › error-handling.spec.ts:543:3 › Error Handling - Network Errors › should handle connection refused
+  [chromium] › error-handling.spec.ts:553:3 › Error Handling - Network Errors › should show error message on settings form when network fails
+  [chromium] › error-handling.spec.ts:593:3 › Error Handling - Network Errors › should show error message on login form when network fails
+  [chromium] › error-handling.spec.ts:607:3 › Error Handling - Network Errors › should show error message on register form when network fails
+  [chromium] › error-handling.spec.ts:622:3 › Error Handling - Network Errors › should show error message on create article form when network fails
+  [chromium] › error-handling.spec.ts:650:3 › Error Handling - Network Errors › should show error message on update article form when network fails
+  [chromium] › error-handling.spec.ts:698:3 › Error Handling - Network Errors › should show error message when adding comment fails due to network
+  [chromium] › error-handling.spec.ts:754:3 › Error Handling - Network Errors › should handle network error when favoriting article
+  [chromium] › error-handling.spec.ts:812:3 › Error Handling - Network Errors › should handle network error when following user
+  [chromium] › error-handling.spec.ts:862:3 › Error Handling - Edge Cases › should handle malformed JSON response
+  [chromium] › error-handling.spec.ts:876:3 › Error Handling - Edge Cases › should handle empty response body
+  [chromium] › error-handling.spec.ts:890:3 › Error Handling - Edge Cases › should handle 404 for non-existent article
+  [chromium] › error-handling.spec.ts:901:3 › Error Handling - Edge Cases › should handle 404 for non-existent profile
+  [chromium] › health.spec.ts:5:3 › Health Checks › app should load successfully
+  [chromium] › health.spec.ts:15:3 › Health Checks › API should be accessible
+  [chromium] › health.spec.ts:21:3 › Health Checks › can navigate to login page
+  [chromium] › health.spec.ts:29:3 › Health Checks › can navigate to register page
+  [chromium] › navigation.spec.ts:21:3 › Navigation and Filtering › should navigate through main pages when logged out
+  [chromium] › navigation.spec.ts:40:3 › Navigation and Filtering › should navigate through main pages when logged in
+  [chromium] › navigation.spec.ts:63:3 › Navigation and Filtering › should filter articles by tag
+  [chromium] › navigation.spec.ts:109:3 › Navigation and Filtering › should switch between Global Feed and Your Feed
+  [chromium] › navigation.spec.ts:139:3 › Navigation and Filtering › should display popular tags
+  [chromium] › navigation.spec.ts:160:3 › Navigation and Filtering › should paginate articles
+  [chromium] › navigation.spec.ts:183:3 › Navigation and Filtering › should navigate to article from author name
+  [chromium] › navigation.spec.ts:200:3 › Navigation and Filtering › should show article count on profile tabs
+  [chromium] › navigation.spec.ts:227:3 › Navigation and Filtering › should handle empty states gracefully
+  [chromium] › null-fields.spec.ts:22:3 › Null/Empty Image and Bio Handling › newly registered user should show default avatar on profile page
+  [chromium] › null-fields.spec.ts:33:3 › Null/Empty Image and Bio Handling › newly registered user should show default avatar in navbar
+  [chromium] › null-fields.spec.ts:42:3 › Null/Empty Image and Bio Handling › newly registered user should show default avatar on article meta
+  [chromium] › null-fields.spec.ts:53:3 › Null/Empty Image and Bio Handling › newly registered user should show default avatar in comment section
+  [chromium] › null-fields.spec.ts:71:3 › Null/Empty Image and Bio Handling › setting image should display custom avatar on profile page
+  [chromium] › null-fields.spec.ts:88:3 › Null/Empty Image and Bio Handling › clearing image to empty string should restore default avatar
+  [chromium] › null-fields.spec.ts:107:3 › Null/Empty Image and Bio Handling › null bio should not render as literal "null" on profile page
+  [chromium] › null-fields.spec.ts:117:3 › Null/Empty Image and Bio Handling › setting then clearing bio should not show stale data
+  [chromium] › null-fields.spec.ts:138:3 › Null/Empty Image and Bio Handling › settings form should show empty string for null image
+  [chromium] › null-fields.spec.ts:145:3 › Null/Empty Image and Bio Handling › settings form should show empty string for null bio
+  [chromium] › null-fields.spec.ts:152:3 › Null/Empty Image and Bio Handling › author avatars should render on other user articles in feed
+  [chromium] › settings.spec.ts:20:3 › Settings - Profile Updates › should update bio only
+  [chromium] › settings.spec.ts:68:3 › Settings - Profile Updates › should update image only
+  [chromium] › settings.spec.ts:107:3 › Settings - Profile Updates › should update bio and image together
+  [chromium] › settings.spec.ts:150:3 › Settings - Profile Updates › should display updated bio on profile page
+  [chromium] › settings.spec.ts:175:3 › Settings - Profile Updates › should display updated image on profile page
+  [chromium] › settings.spec.ts:200:3 › Settings - Profile Updates › should preserve username in navbar after update
+  [chromium] › settings.spec.ts:225:3 › Settings - Profile Updates › should allow navigation to settings again after update
+  [chromium] › social.spec.ts:22:3 › Social Features › should follow and unfollow a user
+  [chromium] › social.spec.ts:45:3 › Social Features › should view own profile
+  [chromium] › social.spec.ts:62:3 › Social Features › should view other user profile
+  [chromium] › social.spec.ts:97:3 › Social Features › should display user articles on profile
+  [chromium] › social.spec.ts:115:3 › Social Features › should display favorited articles on profile
+  [chromium] › social.spec.ts:153:3 › Social Features › should display followed users articles in feed
+  [chromium] › url-navigation.spec.ts:13:3 › URL-based Navigation (Realworld Issue #691) › / should show Global Feed for everyone
+  [chromium] › url-navigation.spec.ts:23:3 › URL-based Navigation (Realworld Issue #691) › /?feed=following should show Your Feed (authenticated)
+  [chromium] › url-navigation.spec.ts:33:3 › URL-based Navigation (Realworld Issue #691) › /?feed=following should redirect to /login when not authenticated
+  [chromium] › url-navigation.spec.ts:39:3 › URL-based Navigation (Realworld Issue #691) › /tag/:tag should filter by tag
+  [chromium] › url-navigation.spec.ts:52:3 › URL-based Navigation (Realworld Issue #691) › tabs should have correct href attributes
+  [chromium] › url-navigation.spec.ts:65:3 › URL-based Navigation (Realworld Issue #691) › clicking Your Feed should navigate to /?feed=following
+  [chromium] › url-navigation.spec.ts:77:3 › URL-based Navigation (Realworld Issue #691) › clicking Global Feed should navigate to /
+  [chromium] › url-navigation.spec.ts:90:3 › URL-based Navigation (Realworld Issue #691) › empty Your Feed shows helpful message with link to Global Feed
+  [chromium] › url-navigation.spec.ts:111:3 › Pagination › pagination should update URL with ?page=N
+  [chromium] › url-navigation.spec.ts:137:3 › Pagination › should load correct page when navigating directly to ?page=N
+  [chromium] › url-navigation.spec.ts:160:3 › Pagination › pagination URL preserves feed=following parameter
+  [chromium] › url-navigation.spec.ts:182:3 › Pagination › pagination should work with /tag/:tag
+  [chromium] › url-navigation.spec.ts:206:3 › Pagination › page should reset when switching feeds
+  [chromium] › url-navigation.spec.ts:234:3 › Pagination › tag pagination shows correct articles per page
+  [chromium] › user-fetch-errors.spec.ts:21:3 › User Fetch Errors on App Initialization - 4XX (should logout) › should handle 400 Bad Request on /api/user
+  [chromium] › user-fetch-errors.spec.ts:45:3 › User Fetch Errors on App Initialization - 4XX (should logout) › should handle 401 Unauthorized on /api/user
+  [chromium] › user-fetch-errors.spec.ts:71:3 › User Fetch Errors on App Initialization - 4XX (should logout) › should handle 403 Forbidden on /api/user
+  [chromium] › user-fetch-errors.spec.ts:93:3 › User Fetch Errors on App Initialization - 4XX (should logout) › should handle 404 Not Found on /api/user
+  [chromium] › user-fetch-errors.spec.ts:117:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should handle 500 Internal Server Error on /api/user
+  [chromium] › user-fetch-errors.spec.ts:138:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should allow browsing app in unavailable mode and persist token across reloads
+  [chromium] › user-fetch-errors.spec.ts:179:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should handle network timeout on /api/user
+  [chromium] › user-fetch-errors.spec.ts:196:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should handle network failure on /api/user
+  [chromium] › user-fetch-errors.spec.ts:213:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should handle empty response on /api/user
+  [chromium] › user-fetch-errors.spec.ts:230:3 › User Fetch Errors on App Initialization - 5XX (should enter unavailable mode) › should handle malformed JSON on /api/user
+  [chromium] › user-fetch-errors.spec.ts:260:3 › User Fetch Errors - Protected Routes › should redirect from /settings on 401
+  [chromium] › user-fetch-errors.spec.ts:274:3 › User Fetch Errors - Protected Routes › should redirect from /editor on 401
+  [chromium] › user-fetch-errors.spec.ts:288:3 › User Fetch Errors - Protected Routes › should handle 500 on loading /settings gracefully
+  [chromium] › user-fetch-errors.spec.ts:301:3 › User Fetch Errors - Protected Routes › should handle network error on /settings gracefully
+  [chromium] › xss-security.spec.ts:136:5 › @security XSS Security - Image URL Injection (Direct API) › should prevent XSS via onerror attribute injection
+  [chromium] › xss-security.spec.ts:136:5 › @security XSS Security - Image URL Injection (Direct API) › should prevent XSS via onerror with javascript protocol
+  [chromium] › xss-security.spec.ts:136:5 › @security XSS Security - Image URL Injection (Direct API) › should prevent XSS via onload attribute injection
+  [chromium] › xss-security.spec.ts:136:5 › @security XSS Security - Image URL Injection (Direct API) › should prevent XSS via javascript protocol in src
+  [chromium] › xss-security.spec.ts:136:5 › @security XSS Security - Image URL Injection (Direct API) › should prevent XSS via data URI with script
+  [chromium] › xss-security.spec.ts:164:3 › @security XSS Security - Image URL Injection (Direct API) › should safely render malicious payload in navbar image
+  [chromium] › xss-security.spec.ts:186:3 › @security XSS Security - Image URL Injection (Direct API) › should safely render malicious payload in article comments
+  [chromium] › xss-security.spec.ts:222:5 › @security XSS Security - Article Description in Feed (Direct API) › should sanitize script tag in article description
+  [chromium] › xss-security.spec.ts:222:5 › @security XSS Security - Article Description in Feed (Direct API) › should sanitize img onerror in article description
+  [chromium] › xss-security.spec.ts:222:5 › @security XSS Security - Article Description in Feed (Direct API) › should sanitize svg onload in article description
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize script tag in article body
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize img onerror in article body
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize svg onload in article body
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize iframe srcdoc in article body
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize anchor javascript href in article body
+  [chromium] › xss-security.spec.ts:258:5 › @security XSS Security - Article Body Markdown (Direct API) › should sanitize event handler in div in article body
+Total: 139 tests in 12 files

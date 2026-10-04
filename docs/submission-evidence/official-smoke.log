@@ -1,0 +1,15 @@
+[WebServer] (node:5171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:5254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 12:35:36 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  1 [chromium] › test-results/realworld/e2e/health.spec.ts:5:3 › Health Checks › app should load successfully (1.2s)
+[WebServer] 12:35:37 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  2 [chromium] › test-results/realworld/e2e/health.spec.ts:21:3 › Health Checks › can navigate to login page (769ms)
+[WebServer] 12:35:38 AM [vite] (client) [console.warn] Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+  ✓  3 [chromium] › test-results/realworld/e2e/health.spec.ts:29:3 › Health Checks › can navigate to register page (772ms)
+
+  3 passed (7.7s)

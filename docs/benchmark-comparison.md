@@ -1,6 +1,6 @@
 # RealWorld benchmark comparison
 
-Latest full measurement: 2026-10-04 (Asia/Seoul). All five implementations were measured sequentially with the unchanged shared workload, machine, Node and Chromium versions. Marionette is committed revision `3e7ef93bc577a4afbd54849549059cb6a6fc21e4`. Reference production builds are the same pinned artifacts used previously; they were not reinstalled or rebuilt. Prior results remain separate evidence and are not mixed into these medians.
+Latest full measurement: 2026-10-05 (Asia/Seoul; raw run timestamp 2026-10-04T15:01:32.910Z). All five implementations were measured sequentially with the unchanged shared workload, machine, Node and Chromium versions. The measured Marionette application source matches [the final application commit](https://github.com/marionettejs/marionette-realworld-example-app/commit/48b910a2e2c496772d1409c19792a7ef0ce8121d). The manifest retains the original measurement identity; see [evidence provenance](metrics/README.md). Reference production builds are the same pinned artifacts used previously; they were not reinstalled or rebuilt. Prior results remain separate evidence and are not mixed into these medians.
 
 ## Executed results
 
@@ -10,7 +10,7 @@ Times are medians in milliseconds; initial JavaScript is actual requested payloa
 
 | Implementation | Initial JS gzip KiB | Desktop feed ms | Mobile feed ms | Article desktop / mobile ms | Return home desktop / mobile ms |
 | -------------- | ------------------: | --------------: | -------------: | --------------------------: | ------------------------------: |
-| Marionette     |                55.6 |             141 |            793 |                    73 / 174 |                        80 / 143 |
+| Marionette     |                55.6 |             141 |            793 |                    73 / 175 |                        80 / 143 |
 | Vue            |                49.3 |             141 |            832 |                    83 / 425 |                        77 / 140 |
 | React FSD      |               111.1 |             408 |           1404 |                   335 / 458 |                       331 / 345 |
 | Angular        |                98.4 |             176 |           1292 |                   101 / 637 |                        80 / 163 |

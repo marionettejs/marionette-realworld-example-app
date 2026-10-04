@@ -1,0 +1,5 @@
+Cloning into '/var/folders/s6/02kylqmd56gg5_53cq4zzwxr0000gn/T/realworld-official-HiZgx5/checkout'...
+From https://github.com/realworld-apps/realworld
+ * branch            ebbcdeb8d55b42a3a613c787560498b8ef10003f -> FETCH_HEAD
+HEAD is now at ebbcdeb build(deps): bump actions/configure-pages from 4 to 6 (#1701)
+Prepared unchanged official tests at /Users/paulfalgout/Projects/marionette-realworld-example-app/test-results/realworld
