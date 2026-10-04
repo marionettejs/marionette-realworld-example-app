@@ -1,0 +1,60 @@
+tests/loading.spec.ts
+  s_8b90fc56d8e6c7::t_2fdf87e55a2e1f 1-9,11,12-23,24-27,28-31,32-51,52-61,62-77,78-104
+src/features/article/application.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 31
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 34-35,45-46,57-60,62,64,71
+src/features/article/views.ts
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 48-60
+  s_8b90fc56d8e6c7::t_b113b23e454172 64-77,79
+src/features/profile/views.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 3,22
+  s_8b90fc56d8e6c7::t_0783aca6ee5984 28
+src/features/feed/views.ts
+  s_8b90fc56d8e6c7::t_a46bb23d3ce6cb 81-83
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 55-56,67-75
+src/features/settings/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 25-26
+src/features/feed/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 13,46-47,74
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 28,105,107-108
+src/app/session.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 15
+src/features/auth/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 13
+docs/architecture.md
+  s_8b90fc56d8e6c7::t_3efb36c2b38f87 68
+  s_8b90fc56d8e6c7::t_2bcbbc159201b3 67
+  s_8b90fc56d8e6c7::t_3436abc019d10a 58-59
+  s_8b90fc56d8e6c7::t_2c7e539b1f1065 20,66
+src/features/profile/application.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 5,12,20,33
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 22-32,47-48
+src/features/home/application.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 9,21
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 14,17,19,22-25,27-28
+  s_8b90fc56d8e6c7::t_2fd18d47823519 26
+src/shared/form-application.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 14,21
+src/app/application.ts
+  s_8b90fc56d8e6c7::t_2fd18d47823519 226-228
+src/features/editor/view.ts
+  s_8b90fc56d8e6c7::t_57f07a91da8ec3 32,36-38,57-59
+src/features/comments/application.ts
+  s_8b90fc56d8e6c7::t_3de8a15e3d3e7d 18,27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "48b910a2e2c496772d1409c19792a7ef0ce8121d",
+  "prompts": {},
+  "sessions": {
+    "s_8b90fc56d8e6c7": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a106aa-2792-74e2-9362-5072fa2440b2",
+        "model": "gpt-6-astra"
+      },
+      "human_author": null
+    }
+  }
+}
