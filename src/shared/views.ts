@@ -1,7 +1,5 @@
 import { View } from "marionette";
 import { html } from "lit-html";
-import type { Status } from "./types";
-import { errorsTemplate } from "./presentation";
 export const LoadingView = View.extend({
   template: () =>
     html`<div class="container page" role="status">Loading…</div>`,
@@ -21,11 +19,4 @@ export const NotFoundView = View.extend({
       <h1 tabindex="-1">Page not found</h1>
       <a href="/">Back to the feed</a>
     </div>`,
-});
-export const StatusView = View.extend({
-  modelEvents: { change: "render" },
-  template: ({ pending, errors }: Status) =>
-    html`${errorsTemplate(errors)}${pending
-      ? html`<p role="status">Working…</p>`
-      : ""}`,
 });

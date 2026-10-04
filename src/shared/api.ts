@@ -102,7 +102,10 @@ function comment(value: unknown): Comment {
 export const segment = encodeURIComponent;
 export class Api {
   constructor(
-    private token: () => string | null,
+    private credentials: (write: boolean) => {
+      token: string | null;
+      signal: AbortSignal;
+    },
     private unauthorized: () => void,
   ) {}
   async request(
@@ -111,7 +114,10 @@ export class Api {
     method = "GET",
     body?: unknown,
   ): Promise<Record<string, unknown>> {
-    const token = this.token();
+    const { token, signal: credentialsSignal } = this.credentials(
+      method !== "GET" && path !== "/users" && path !== "/users/login",
+    );
+    signal = AbortSignal.any([signal, credentialsSignal]);
     const response = await fetch(`${apiBase}${path}`, {
       signal,
       method,
@@ -125,9 +131,10 @@ export class Api {
     const raw: unknown =
       response.status === 204 ? {} : await response.json().catch(() => ({}));
     signal.throwIfAborted();
+    if (token !== this.credentials(false).token)
+      throw new DOMException("Session changed. Please retry.", "AbortError");
     if (!response.ok) {
-      if (response.status === 401 && token && token === this.token())
-        this.unauthorized();
+      if (response.status === 401 && token) this.unauthorized();
       const errors = record(raw).errors;
       const messages =
         errors && typeof errors === "object"

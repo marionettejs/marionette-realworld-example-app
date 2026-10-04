@@ -57,3 +57,11 @@ export function pageHref(page: number, current = window.location.href) {
   url.searchParams.set("page", String(page));
   return url.pathname + url.search;
 }
+
+export function requiresUser(route: Route): boolean {
+  return (
+    route.kind === "editor" ||
+    route.kind === "settings" ||
+    (route.kind === "home" && !!route.feed.following)
+  );
+}

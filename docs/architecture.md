@@ -1,58 +1,70 @@
 # Ownership and lifecycle
 
-This is a frontend teaching example, with explicit feature lifetimes instead of a controller hidden inside a large View. Read alongside the installed [RC2 architecture guide](../node_modules/marionette/docs/architecture.md) and [records lesson](../node_modules/marionette/docs/records.md).
+This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [RC2 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
 
-```mermaid
-flowchart TD
-  Root[ConduitApplication] --> Session[SessionApplication]
-  Root --> Shell[ShellView / header, status, content Regions]
-  Root --> Home[HomeApplication]
-  Root --> Profile[ProfileApplication]
-  Root --> Article[ArticleApplication]
-  Root --> Forms[Auth / Editor / Settings Applications]
-  Home --> HomeFeed[FeedApplication]
-  Profile --> ProfileFeed[FeedApplication]
-  Article --> Comments[CommentsApplication]
-  HomeFeed --> List[CollectionView / ArticleRow Views]
-  ProfileFeed --> List
-  Comments --> CommentList[CollectionView / CommentRow Views]
-```
+## Finding a workflow
 
-## Responsibilities
+Each directory under `src/features` has an `application.ts` coordination entrypoint and a `view.ts` or `views.ts` presentation file. Related small Views stay together; there is no barrel or generic page layer to traverse.
 
-| Owner                                              | Authority and lifetime                                                                                                                                                                                        |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ConduitApplication](../src/app/application.ts)    | Owns session, page Applications, the shell, browser history and storage listeners. Stops outgoing destinations before starting another. Same-home/profile filter changes call the retained feed owner.        |
-| [SessionApplication](../src/app/session.ts)        | Restores a JWT-backed session during preparation, publishes one observable user/status authority, and owns the API client's token access. It has no View.                                                     |
-| [HomeApplication](../src/features/home.ts)         | Prepares tags, mounts the home layout, and starts its registered FeedApplication. Home readiness does not pretend to await child feed readiness in a notification hook.                                       |
-| [ProfileApplication](../src/features/profile.ts)   | Prepares a profile, owns follow status, and composes profile tabs plus a registered FeedApplication.                                                                                                          |
-| [FeedApplication](../src/features/feed.ts)         | Owns query readiness, retry, pagination results, articles collection, and favorite operations. `restart({query})` supersedes older preparation while retaining layout/status/list ownership.                  |
-| [ArticleApplication](../src/features/article.ts)   | Prepares article data; one observable model drives both action bars. Body, heading, and action bars live in separate Regions. Coordinates favorite/follow/delete and starts a registered CommentsApplication. |
-| [CommentsApplication](../src/features/comments.ts) | Prepares comments; owns collection, composer draft, posting/deletion status, and their cancellation. Specific `comment:*` intents cannot collide with article deletion.                                       |
-| [Form Applications](../src/features/forms.ts)      | Own form data and shared save/navigation decisions. Editor preparation checks article ownership; settings uses the already-restored session. The small abstract base shares only save/status/teardown policy. |
-| [FormView](../src/features/form-view.ts)           | Owns DOM editing and tag controls, updates borrowed draft models, and emits intent. It never fetches, navigates, or starts another feature.                                                                   |
-| [API](../src/shared/api.ts)                        | HTTP envelopes, path encoding, authorization headers, response validation, and errors. Native Models deliberately have no persistence methods.                                                                |
+| Feature  | Coordination                                                                               | Presentation                                                                          |
+| -------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| Auth     | [authenticate and accept session](../src/features/auth/application.ts)                     | [login/register form](../src/features/auth/view.ts)                                   |
+| Editor   | [prepare, authorize, publish, preserve newer edits](../src/features/editor/application.ts) | [text and tag editing](../src/features/editor/view.ts)                                |
+| Settings | [profile update and logout intent](../src/features/settings/application.ts)                | [settings form](../src/features/settings/view.ts)                                     |
+| Home     | [tags and child feed](../src/features/home/application.ts)                                 | [layout, tabs, tags](../src/features/home/views.ts)                                   |
+| Profile  | [profile, follow, child feed](../src/features/profile/application.ts)                      | [layout, header, tabs](../src/features/profile/views.ts)                              |
+| Feed     | [query, pagination, favorites](../src/features/feed/application.ts)                        | [layout, CollectionView, article row, status, pages](../src/features/feed/views.ts)   |
+| Article  | [article readiness and actions, child comments](../src/features/article/application.ts)    | [layout, heading, body, two metadata bars](../src/features/article/views.ts)          |
+| Comments | [collection, draft, post/delete](../src/features/comments/application.ts)                  | [layout, composer, CollectionView and comment row](../src/features/comments/views.ts) |
 
-## Readiness, refresh, and writes
+[ConduitApplication](../src/app/application.ts) owns browser navigation, the persistent shell, SessionApplication, and registered page Applications. Home/Profile own a FeedApplication; Article owns a CommentsApplication. Parent activation mounts the child Regions; each child owns its requests and error presentation.
 
-`prepareStart` returns required data; `onStart` applies it. The caller owns rejected starts. Page changes use `stop()` then `start()` for reconstruction. Feed filters/pages use `restart()` for retained readiness; Marionette's signal and activation guard prevent stale results, including from an API that ignores abort.
+[FormApplication](../src/shared/form-application.ts) shares only save/status/teardown policy. Concrete Applications define typed fields and completion decisions. [Field template helpers](../src/shared/form-fields.ts) produce markup; they do not build Views, manage requests, or define a form schema. Auth shares login/register presentation because those workflows differ by one field and labels; Editor and Settings are independent Views.
 
-Feed layout, status, and list instances survive readiness refresh. Replacing collection membership intentionally replaces rows. Favorites mutate one row model, so siblings do not rerender. Profile tab updates affect their own View and child feed, without rerendering the profile layout. Article follow/favorite status rerenders its two action bars without replacing the body or comment draft.
+## Why native Applications and `View.extend`?
 
-Writes have a separate lifetime. [Operation](../src/shared/operation.ts) permits one pending operation per owner (per article for feed favorites), aborts on stop, and checks cancellation before success/failure callbacks. It is not a substitute for Application readiness or lifecycle state. Backend writes may already have committed even if the client stops waiting.
+Both are supported RC2 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
 
-Form drafts belong to their feature Application. Lit updates the form's controls in place; status changes do not replace its View. Comment completion clears only unchanged submitted text. Editor completion navigates only if no newer text was typed. On stop, drafts and pending operations are cleared. There is no hidden draft persistence or compatibility fallback.
+Native View subclasses are also valid. Using them uniformly here would require additional option declarations/constructors and careful prototype getters for configuration, without changing ownership. Conversely, Applications could use `.extend`; native classes make their owned instance resources especially visible. This is a local readability convention, not a claim that either syntax is preferred by the framework.
 
-## Presentation and event ownership
+Construction timing matters more than syntax: native fields run **after** `super()` and Marionette initialization. Construction-time configuration (`createState`, `viewEvents`) therefore uses prototype methods/getters; instance models and Operations use fields. A typed `initialize` on a View declares its borrowed sources/options without overwriting framework initialization.
 
-Views use templates and native delegated bindings. Regions own replacement/destruction. Article and comment records use CollectionView and modelEvents. Small static tag/tab/pagination lists use template iteration because they do not have independent item behavior or observable lifetimes.
+## Async ownership and session authority
 
-Applications use `viewEvents` for root intent and `listenTo` for temporary error/status Views. Destroyed sources release their incoming listeners automatically. There is no blanket `stopListening()` on stop: the root's session subscription must survive stop/start. Native Window listeners are explicitly installed once and removed on stop. The development HMR boundary destroys the root.
+Application-owned async is the default here. A narrow View-local model save can be appropriate when a persistence-capable model owns that operation; RC2 permits it. That exception does not justify putting feature loading, navigation, shared state, or request coordination in Views. This example's native `@mnjs/data` Models have no fetch/save methods: [the explicit API](../src/shared/api.ts) owns HTTP and response validation, while Applications own every network workflow.
 
-Native class fields hold per-instance collections/operations after construction. Framework construction-time configuration uses prototype methods/getters (`createState`, `viewEvents`), avoiding native field initialization overwriting Marionette initialization. Public View instance narrowing is used only where a known layout supplies Regions; no framework internals are read.
+[SessionApplication](../src/app/session.ts) owns observable user/status, verification, and credential lifetime. Changing credentials aborts requests issued under the previous credentials; transport also checks token identity after awaiting. Protected writes require authenticated status. Shared form completion checks captured authority too, including when a test API ignores abort.
 
-## Verification and boundaries
+Same-user verification retains the active page and draft. Temporary verification failure under unchanged credentials keeps the last verified user and draft, displays Retry, and blocks new writes until verification succeeds. Changed identity or lost access reconstructs the destination. Cancelled/superseded session readiness cannot cause a root redispatch. Root startup rechecks credentials changed before its storage listener was installed. Explicit sign-out and expired credentials use one root navigation subscription to `signed:out`. A server 401 for current credentials clears the session and stops the page, including its draft. Current-user verification also clears the session on other 4xx responses, as required by the [RealWorld user-fetch contract](https://github.com/realworld-apps/realworld/blob/ebbcdeb8d55b42a3a613c787560498b8ef10003f/specs/e2e/user-fetch-errors.spec.ts). Other endpoints still display their validation errors. Temporary network/server failure retains the token and draft. Superseded verification returns no state to commit.
 
-Lifecycle tests inspect public methods and effects: outgoing destruction, borrowed-model listener release, retained root identity on restart, replacement on stop/start, one navigation subscription, child/state destruction, stale preparation that ignores cancellation, and late write suppression.
+## Readiness and operations
 
-Deliberate limits: no offline queue, persisted drafts, server implementation, or optimistic rollback machinery. Auth protection in the UI improves navigation but cannot authorize server writes. The RealWorld-required JWT debug interface has the same script access boundary as localStorage.
+`prepareStart` returns required data; `onStart` applies it. The caller handles rejected starts. Marionette prevents cancelled preparation from activating, including when a dependency ignores abort. Root navigation also checks its current dispatch before handling activation errors.
+
+| Owner                | Retained operation                                                                    | Reconstruction / draft boundary                                              |
+| -------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Root                 | `restart()` retains shell and page                                                    | `stop()` then `start()` replaces shell and descendants                       |
+| Session              | `restart()` verifies current credentials                                              | No UI; credential changes revoke old request authority                       |
+| Feed                 | `load(query)` uses `restart`; layout/status/list survive                              | New membership replaces rows after active writes settle; stop cancels writes |
+| Home/Profile         | Same-feature readiness retains parent and child Regions; reopens the child feed query | Route identity changes use stop/start                                        |
+| Article              | Same-article readiness retains layout and running Comments draft                      | New article routes use stop/start                                            |
+| Comments             | Same-article readiness retains composer text and layout                               | Stop clears draft and collection                                             |
+| Auth/Editor/Settings | No readiness-refresh control; save status retains the View and draft                  | Activation initializes fields; navigation uses stop/start and discards draft |
+
+The UI uses retained refresh for feed queries and session verification. Resource navigation uses stop/start. Direct lifecycle checks verify same-feature Region retention and reconstruction.
+
+[Operation](../src/shared/operation.ts) permits one pending write per owner (per article for feed favorites), aborts on stop, and guards callbacks after cancellation. It is separate from readiness. Backend writes may already have committed when the client stops waiting.
+
+Feed owns one operation-to-promise map for cancellation and awaiting active favorites. Feed readiness waits for those writes before reading. A write that starts during a read invalidates its snapshot, so preparation repeats the query before committing. Own-favorites membership refresh waits for all sibling writes, then requeries membership/count and refills the page. Removing the last result from a later page replaces the URL with the last valid page, preserving browser Back behavior. Row write errors stay on the row and clear on resubmission; query Retry belongs to query errors.
+
+Editor fields include observable saved slug, so the View derives its editing heading from data. Completion compares the submitted text and copied tag list with the current draft. Unchanged drafts navigate to the article; newer edits stay in place with a notice and the saved editor URL. Editor emits `draft:saved`; the root observes that intent and owns the history replacement. Comment completion similarly clears only unchanged submitted text. Nothing silently persists drafts across page teardown.
+
+## Presentation, cleanup, and verification
+
+Regions own View replacement/destruction; CollectionViews own article/comment rows. Article's two action bars observe one model; successful actions commit data and pending status together. Heading observes title; body observes body/tag changes, so both reflect full server responses without rendering for unrelated status changes. Comment rows observe pending state, not composer typing. Body and comment draft are separate Views. Small static tag/tab/pagination lists use template iteration because they have no independent observable lifetime. Lit updates controls in place, preserving typing during status changes.
+
+Applications use `viewEvents` for root intent and `listenTo` for error/status Views. Comment intents are namespaced to avoid triggering article deletion. Destroyed sources release incoming listeners. No blanket `stopListening()` runs on stop: root's session subscriptions must survive stop/start. Window listeners are installed once per root run and removed on stop; HMR destroys the root.
+
+[Lifecycle tests](../tests/lifecycle.spec.ts) exercise retained identity, reconstruction, borrowed-model listener release, descendant destruction, stale preparation/activation, session/draft races, credential replacement, and feed read/write ordering. [Journeys](../tests/journeys.spec.ts) cover product behavior, newer typing, favorites pagination, errors, auth, and responsive interaction.
+
+The backend enforces authentication and ownership. The RealWorld JWT debug interface shares localStorage's script-access boundary.

@@ -41,6 +41,8 @@ export const markdown = (body: string) =>
     }),
   );
 export const errorsTemplate = (errors: string[] = []) =>
-  html`<ul class="error-messages" role="alert">
-    ${errors.map((error) => html`<li>${error}</li>`)}
-  </ul>`;
+  errors.length
+    ? html`<ul class="error-messages" role="alert">
+        ${errors.map((error) => html`<li>${error}</li>`)}
+      </ul>`
+    : "";

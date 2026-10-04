@@ -1,11 +1,8 @@
-import { Application, View, type LifecycleContext } from "marionette";
+import { View } from "marionette";
 import { html } from "lit-html";
-import { Model } from "@mnjs/data";
-import { FeedApplication } from "./feed";
-import type { Context } from "../app/session";
-import type { FeedQuery } from "../shared/types";
-import { segment } from "../shared/api";
-const HomeLayout = View.extend({
+import type { FeedQuery } from "../../shared/types";
+import { segment } from "../../shared/api";
+export const HomeLayout = View.extend({
   className: "home-page",
   template: () =>
     html`<div class="banner">
@@ -30,7 +27,7 @@ const HomeLayout = View.extend({
       </div>`,
   regions: { tabs: ".tabs", feed: ".feed", tags: ".tags" },
 });
-const HomeTabs = View.extend({
+export const HomeTabs = View.extend({
   modelEvents: { change: "render" },
   template: ({
     tag,
@@ -63,7 +60,7 @@ const HomeTabs = View.extend({
       </ul>
     </div>`,
 });
-const TagsView = View.extend({
+export const TagsView = View.extend({
   template: ({ tags }: { tags: string[] }) =>
     html`<div class="tag-list">
       ${tags.map(
@@ -74,33 +71,3 @@ const TagsView = View.extend({
       )}
     </div>`,
 });
-export class HomeApplication extends Application {
-  feed: FeedApplication;
-  tabs = new Model<FeedQuery & { authenticated: boolean }>({
-    page: 1,
-    authenticated: false,
-  });
-  constructor(readonly context: Context) {
-    super();
-    this.feed = this.addChildApp("feed", new FeedApplication(context));
-  }
-  prepareStart(_options: unknown, { signal }: LifecycleContext) {
-    return this.context.session.api.tags(signal);
-  }
-  onStart(_app: unknown, { query }: { query: FeedQuery }, tags: string[]) {
-    const layout = this.setView(new HomeLayout());
-    layout.showChildView("tabs", new HomeTabs({ model: this.tabs }));
-    layout.showChildView("tags", new TagsView({ model: { tags } }));
-    this.showView();
-    // Parent readiness is tags/layout; the feed owns its independently retryable readiness.
-    void this.feed.open(layout.getRegion("feed")!, query);
-    this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
-  }
-  setQuery(query: FeedQuery) {
-    this.tabs.reset({ ...query, authenticated: !!this.context.session.user() });
-    void this.feed.load(query);
-  }
-  onDestroy() {
-    this.tabs.destroy();
-  }
-}

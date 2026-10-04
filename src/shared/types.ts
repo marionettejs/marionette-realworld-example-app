@@ -34,6 +34,7 @@ export type Draft = {
   tagList: string[];
 };
 export type Status = { pending: boolean; errors: string[] };
+export type FormStatus = Status & { notice?: string };
 export type FeedQuery = {
   tag?: string;
   author?: string;

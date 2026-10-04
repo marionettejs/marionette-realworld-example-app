@@ -313,6 +313,10 @@ test("editor keeps newer text after save and updates the returned slug on next s
   await expect(
     page.getByPlaceholder("Write your article (in markdown)"),
   ).toHaveValue("Newer body");
+  await expect(page).toHaveURL(/\/editor\/new-/);
+  await expect(
+    page.getByRole("heading", { name: "Edit Article" }),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Publish Article" }).click();
   await expect(page.locator(".article-content")).toContainText("Newer body");
   expect(
@@ -411,4 +415,114 @@ test("desktop and mobile Conduit layout, keyboard focus and empty feed", async (
   await expect(page.locator(".empty-feed-message")).toContainText(
     "No articles here",
   );
+});
+
+test("unfavoriting reconciles favorites membership, pages, and empty results", async ({
+  page,
+  api,
+}) => {
+  api.articles = api.articles
+    .slice(0, 21)
+    .map((article) => ({ ...article, favorited: true, favoritesCount: 1 }));
+  await signIn(page);
+  await page.goto("/profile/reader/favorites?page=2");
+  await page
+    .getByRole("button", { name: "Unfavorite Article 21", exact: true })
+    .click();
+  await expect(page).toHaveURL("/profile/reader/favorites?page=1");
+  await expect(page.locator(".preview-link")).toHaveCount(20);
+  await expect(
+    page.getByRole("navigation", { name: "Article pages" }).getByRole("link"),
+  ).toHaveCount(1);
+  await page.goBack();
+  await expect(page).toHaveURL("/");
+  await page.goForward();
+  await expect(page).toHaveURL("/profile/reader/favorites?page=1");
+  api.articles = api.articles.slice(0, 1);
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Unfavorite Article 1", exact: true })
+    .click();
+  await expect(page.getByText("No articles here... yet.")).toBeVisible();
+  await expect(page.locator(".preview-link")).toHaveCount(0);
+});
+
+test("favorite failure belongs to its row and clears after a successful retry", async ({
+  page,
+  api,
+}) => {
+  await signIn(page);
+  api.failures.set("POST /articles/article-1/favorite", 503);
+  const row = page.locator(".article-preview").first();
+  await row
+    .getByRole("button", { name: "Favorite Article 1", exact: true })
+    .click();
+  await expect(row.getByRole("alert")).toBeVisible();
+  await expect(page.locator(".feed-status").getByRole("alert")).toHaveCount(0);
+  api.failures.clear();
+  await row
+    .getByRole("button", { name: "Favorite Article 1", exact: true })
+    .click();
+  await expect(
+    row.getByRole("button", { name: "Unfavorite Article 1", exact: true }),
+  ).toBeVisible();
+  await expect(row.getByRole("alert")).toHaveCount(0);
+});
+
+test("form autocomplete matches the workflow and logout adds one history entry", async ({
+  page,
+}) => {
+  await page.goto("/register");
+  await expect(
+    page.getByPlaceholder("Password", { exact: true }),
+  ).toHaveAttribute("autocomplete", "new-password");
+  await page.goto("/login");
+  await expect(
+    page.getByPlaceholder("Password", { exact: true }),
+  ).toHaveAttribute("autocomplete", "current-password");
+  await signIn(page);
+  await page.getByRole("link", { name: "Settings", exact: true }).click();
+  await expect(page.getByPlaceholder("New Password")).toHaveAttribute(
+    "autocomplete",
+    "new-password",
+  );
+  const before = await page.evaluate(() => history.length);
+  await page.getByRole("button", { name: "Or click here to logout." }).click();
+  await expect(page).toHaveURL("/");
+  expect(await page.evaluate(() => history.length)).toBe(before + 1);
+});
+
+test("overlapping unfavorites finish before membership refresh replaces their rows", async ({
+  page,
+  api,
+}) => {
+  api.articles = api.articles
+    .slice(0, 2)
+    .map((article) => ({ ...article, favorited: true, favoritesCount: 1 }));
+  await signIn(page);
+  await page.goto("/profile/reader/favorites");
+  const first = Promise.withResolvers<void>();
+  const second = Promise.withResolvers<void>();
+  api.delays.set("DELETE /articles/article-1/favorite", first.promise);
+  api.delays.set("DELETE /articles/article-2/favorite", second.promise);
+  await page
+    .getByRole("button", { name: "Unfavorite Article 1", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Unfavorite Article 2", exact: true })
+    .click();
+  await expect
+    .poll(() => api.requests.filter((r) => r.method === "DELETE").length)
+    .toBe(2);
+  first.resolve();
+  await expect(
+    page.getByRole("button", { name: "Favorite Article 1", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Unfavorite Article 2", exact: true }),
+  ).toBeDisabled();
+  second.resolve();
+  await expect(page.getByText("No articles here... yet.")).toBeVisible();
+  expect(api.articles.every((article) => !article.favorited)).toBe(true);
+  await expect(page.getByRole("alert")).toHaveCount(0);
 });

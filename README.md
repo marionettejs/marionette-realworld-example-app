@@ -27,9 +27,11 @@ Start with [the ownership guide](docs/architecture.md), then follow:
 
 1. [Setup](src/setup.ts): configure the published Lit DOM adapter and native DataApi/StateApi once.
 2. [ConduitApplication](src/app/application.ts): retain the shell, own browser navigation and registered child Applications, handle destination readiness/failure.
-3. [HomeApplication](src/features/home.ts) and [FeedApplication](src/features/feed.ts): compose a feature; repeat preparation with `restart` while retaining the layout; let CollectionView own rows.
-4. [ArticleApplication](src/features/article.ts) and [CommentsApplication](src/features/comments.ts): coordinate sibling metadata Views through one observable model and give comments their own lifetime.
-5. [Form Applications](src/features/forms.ts) and [FormView](src/features/form-view.ts): keep transport and workflow with Applications, editing with the View, and drafts stable during status changes.
+3. [HomeApplication](src/features/home/application.ts) and [FeedApplication](src/features/feed/application.ts): compose a feature; repeat preparation with `restart` while retaining the layout; let CollectionView own rows.
+4. [ArticleApplication](src/features/article/application.ts) and [CommentsApplication](src/features/comments/application.ts): coordinate sibling metadata Views through one observable model and give comments their own lifetime.
+5. [Auth](src/features/auth/application.ts), [Editor](src/features/editor/application.ts), and [Settings](src/features/settings/application.ts): each feature has its own Application and View file. The [shared save policy](src/shared/form-application.ts) keeps drafts stable during status changes.
+
+Each feature directory separates coordination (`application.ts`) from presentation (`view.ts` or `views.ts`). See [the inheritance-style rationale](docs/architecture.md#why-native-applications-and-viewextend) for the deliberate native Application / `View.extend` convention.
 
 The installed package's `docs/architecture.md`, `docs/records.md`, examples, API references, declarations, ESLint rule, and lookup tool govern this implementation. No v4 APIs, local framework builds, or source aliases are used.
 
@@ -53,7 +55,7 @@ The browser tests exercise workflows against local API fixtures. Run them agains
 
 ## Behavior notes
 
-- JWT uses the specification's `localStorage.jwtToken` key and `Authorization: Token …` header. A 401 clears the session. Temporary restoration failure retains the token and offers Retry; it does not silently log the user out.
+- JWT uses the specification's `localStorage.jwtToken` key and `Authorization: Token …` header. A 401 clears the session. Same-user verification preserves active drafts. Temporary verification failure retains the token and offers Retry; new writes wait for successful verification. Credential changes revoke old response authority.
 - Article text is parsed with Marked and sanitized with DOMPurify. Other user content uses escaped Lit expressions. The server remains responsible for authentication and ownership enforcement.
 - Tags can be added/removed during creation and editing, following the current OpenAPI UpdateArticle schema and backend acceptance tests. Article-list responses omit body; full article responses include it.
 - Save status never replaces the form. Newer comment text remains after an earlier comment is posted. If article text changes while publishing, the editor retains it and saves subsequent edits to the returned slug.
