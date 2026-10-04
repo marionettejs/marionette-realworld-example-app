@@ -1,0 +1,134 @@
+docs/metrics/visual-final/production-tests.log
+  s_8b90fc56d8e6c7::t_c3485f1808becc 1-36
+src/features/editor/view.ts
+  s_8b90fc56d8e6c7::t_57f07a91da8ec3 32,36-38,57-59
+docs/benchmark-comparison.md
+  s_8b90fc56d8e6c7::t_c7d68cdb16fef8 3-42
+  s_8b90fc56d8e6c7::t_0eeec4730d4915 1-2,50-54,96-114,142-143
+  s_8b90fc56d8e6c7::t_32ef2e07fef09d 47-49,115,117-141
+  s_8b90fc56d8e6c7::t_ecbb92355bce66 55-95,116
+  s_8b90fc56d8e6c7::t_a7d91f57c15faf 43-46,144-160
+src/features/article/application.ts
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 38-39,49-50,61-64,66,68,75
+docs/loading-review.md
+  s_8b90fc56d8e6c7::t_ad1fc912ec644b 15-21
+  s_8b90fc56d8e6c7::t_c7d68cdb16fef8 45-46,50-52
+  s_8b90fc56d8e6c7::t_ec97f937234ac1 1-14,22-44,47-49,53-58
+docs/metrics/marionette-loading-run/production.log
+  s_8b90fc56d8e6c7::t_d0e900ac04412b 1-38
+src/features/article/views.ts
+  s_8b90fc56d8e6c7::t_b113b23e454172 64-77,79
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 48-60
+docs/development-journal.md
+  s_8b90fc56d8e6c7::t_ec97f937234ac1 85-86
+  s_8b90fc56d8e6c7::t_3436abc019d10a 79-84
+  s_8b90fc56d8e6c7::t_c7d68cdb16fef8 87-88
+  s_8b90fc56d8e6c7::t_2c7e539b1f1065 56-62
+  s_8b90fc56d8e6c7::t_ecbb92355bce66 63-66
+  s_8b90fc56d8e6c7::t_96460e2a026471 67
+  s_8b90fc56d8e6c7::t_2c7310712f93f8 68-78
+  s_8b90fc56d8e6c7::t_504c3a734f8cf4 89
+docs/metrics/visual-final/auth-results.json
+  s_8b90fc56d8e6c7::t_93b850208e3d82 1-230
+docs/metrics/marionette-loading-run/source.patch
+  s_8b90fc56d8e6c7::t_86edc2308449f4 1-371
+docs/metrics/marionette-loading-run/test-config.txt
+  s_8b90fc56d8e6c7::t_ec97f937234ac1 1-15
+docs/metrics/marionette-performance-run/preserved-inputs.json
+  s_8b90fc56d8e6c7::t_ecbb92355bce66 1-36,38
+  s_8b90fc56d8e6c7::t_c1e228232c60c9 37
+docs/metrics/visual-final/detail-results.json
+  s_8b90fc56d8e6c7::t_f16600f6f2d26d 1-348
+docs/metrics/marionette-performance-run/build.log
+  s_8b90fc56d8e6c7::t_22cd1798238389 1-18
+docs/metrics/marionette-performance-run/comparison.json
+  s_8b90fc56d8e6c7::t_32ef2e07fef09d 1-110
+docs/metrics/marionette-loading-run/results.json
+  s_8b90fc56d8e6c7::t_c7d68cdb16fef8 2706
+  s_8b90fc56d8e6c7::t_1267e1669df6ab 1-2705
+docs/metrics/visual-final/build.log
+  s_8b90fc56d8e6c7::t_4f7c0058b1ef0a 1-18
+docs/metrics/marionette-loading-run/visual.log
+  s_8b90fc56d8e6c7::t_d0e900ac04412b 1-19
+src/features/settings/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 25-26
+src/features/feed/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 13,48-49,76
+docs/metrics/marionette-loading-run/development.log
+  s_8b90fc56d8e6c7::t_d0e900ac04412b 1-287
+docs/metrics/marionette-performance-run/execution.log
+  s_8b90fc56d8e6c7::t_e6697781302d43 5
+  s_8b90fc56d8e6c7::t_2b3c2c7c37fd35 1-4
+docs/metrics/visual-final/external-results.json
+  s_8b90fc56d8e6c7::t_93b850208e3d82 1-732
+docs/metrics/marionette-loading-run/build.log
+  s_8b90fc56d8e6c7::t_d0e900ac04412b 1-18
+docs/metrics/marionette-loading-run/comparison.json
+  s_8b90fc56d8e6c7::t_bed41cf1e82f4d 1-98
+docs/metrics/marionette-loading-run/build.json
+  s_8b90fc56d8e6c7::t_bed41cf1e82f4d 54
+  s_8b90fc56d8e6c7::t_86edc2308449f4 1-53,55-137
+docs/visual-comparison.md
+  s_8b90fc56d8e6c7::t_d6be4cc9fc00e1 32-72
+  s_8b90fc56d8e6c7::t_96460e2a026471 1-2,5-31
+  s_8b90fc56d8e6c7::t_ec97f937234ac1 3-4
+src/features/home/application.ts
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 17,20,22,25-28,30-33
+src/app/application.ts
+  s_8b90fc56d8e6c7::t_2fd18d47823519 226-228
+src/features/profile/application.ts
+  s_8b90fc56d8e6c7::t_20ce5b5715ee85 24-35,49-50
+docs/metrics/visual-final/source.patch
+  s_8b90fc56d8e6c7::t_c3485f1808becc 1-273
+src/features/profile/views.ts
+  s_8b90fc56d8e6c7::t_0783aca6ee5984 30
+docs/metrics/visual-final/development-tests.log
+  s_8b90fc56d8e6c7::t_c3485f1808becc 1-275
+docs/metrics/marionette-performance-run/source.patch
+  s_8b90fc56d8e6c7::t_0b3ecfef407785 1-166
+docs/metrics/marionette-performance-run/build.json
+  s_8b90fc56d8e6c7::t_0b3ecfef407785 1-70
+docs/metrics/marionette-loading-run/normal-build.log
+  s_8b90fc56d8e6c7::t_d0e900ac04412b 1-13
+  s_8b90fc56d8e6c7::t_f39bdd10ef8c67 14
+docs/metrics/marionette-performance-run/correctness.json
+  s_8b90fc56d8e6c7::t_0b3ecfef407785 1-123
+docs/metrics/visual-final/detail-check.mjs
+  s_8b90fc56d8e6c7::t_e45952fb315fa2 1-176
+docs/metrics/marionette-performance-run/results.json
+  s_8b90fc56d8e6c7::t_e6697781302d43 69,169,271,371,471,571,671,771,871,971,1071,1171,1249,1255,1261-1262,1319,1419,1521,1621,1721,1821,1921,2021,2121,2221,2321,2421,2499,2505,2511-2703
+  s_8b90fc56d8e6c7::t_ecbb92355bce66 2706
+  s_8b90fc56d8e6c7::t_30989cbd788b2d 1-68,70-168,170-270,272-370,372-470,472-570,572-670,672-770,772-870,872-970,972-1070,1072-1170,1172-1248,1250-1254,1256-1260,1263-1318,1320-1418,1420-1520,1522-1620,1622-1720,1722-1820,1822-1920,1922-2020,2022-2120,2122-2220,2222-2320,2322-2420,2422-2498,2500-2504,2506-2510,2704-2705
+tests/loading.spec.ts
+  s_8b90fc56d8e6c7::t_2fdf87e55a2e1f 1-116
+docs/metrics/visual-final/build.json
+  s_8b90fc56d8e6c7::t_1e8d8ee20f1cc4 1-141
+docs/architecture.md
+  s_8b90fc56d8e6c7::t_2c7e539b1f1065 20,66
+  s_8b90fc56d8e6c7::t_3436abc019d10a 58-59
+src/features/auth/application.ts
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 13
+src/features/feed/views.ts
+  s_8b90fc56d8e6c7::t_a46bb23d3ce6cb 81-83
+  s_8b90fc56d8e6c7::t_b7e5576390d4ff 55-56,67-75
+docs/metrics/visual-final/results.json
+  s_8b90fc56d8e6c7::t_93b850208e3d82 1-732
+docs/metrics/marionette-loading-run/execution.log
+  s_8b90fc56d8e6c7::t_2547b088b2ae73 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "301eb63cd166d4f4bed4d2fabc501d9192a6bd99",
+  "prompts": {},
+  "sessions": {
+    "s_8b90fc56d8e6c7": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a106aa-2792-74e2-9362-5072fa2440b2",
+        "model": "gpt-6-astra"
+      },
+      "human_author": null
+    }
+  }
+}
