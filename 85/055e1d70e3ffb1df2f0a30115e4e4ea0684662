@@ -1,0 +1,26 @@
+docs/realworld-submission.md
+  h_0f06c286dda36f 1-63
+docs/submission-evidence/official-list.log
+  h_0f06c286dda36f 1-141
+docs/submission-evidence/official-prepare.log
+  h_0f06c286dda36f 1-5
+docs/submission-evidence/official-provenance.json
+  h_0f06c286dda36f 1-28
+docs/submission-evidence/official-smoke.log
+  h_0f06c286dda36f 1-15
+docs/submission-evidence/tooling-lint.log
+  h_0f06c286dda36f 1-6
+docs/submission-evidence/typecheck.log
+  h_0f06c286dda36f 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "85055e1d70e3ffb1df2f0a30115e4e4ea0684662",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
