@@ -1,10 +1,10 @@
 # Conduit · Marionette v5
 
-A RealWorld frontend built with **published Marionette 5.0.0-rc.2**, matching RC2 companions, TypeScript, Lit templates, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
+A RealWorld frontend built with **published Marionette 5.0.0**, matching 5.0.0 companions, TypeScript, Lit templates, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
 
 ## Run locally
 
-Requires Node **24+** and npm.
+Requires Node **24.15.0+** and npm.
 
 ```sh
 nvm use

@@ -18,13 +18,13 @@
     "test:production": "TEST_PRODUCTION=1 playwright test --project=chromium"
   },
   "dependencies": {
-    "@mnjs/adapters": "5.0.0-rc.2",
-    "@mnjs/data": "5.0.0-rc.2",
-    "@mnjs/radio": "5.0.0-rc.2",
-    "@mnjs/utils": "5.0.0-rc.2",
+    "@mnjs/adapters": "5.0.0",
+    "@mnjs/data": "5.0.0",
+    "@mnjs/radio": "5.0.0",
+    "@mnjs/utils": "5.0.0",
     "dompurify": "3.4.16",
     "lit-html": "3.3.3",
-    "marionette": "5.0.0-rc.2",
+    "marionette": "5.0.0",
     "marked": "18.0.14"
   },
   "devDependencies": {
@@ -38,6 +38,6 @@
     "vite": "8.3.2"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24.15.0"
   }
 }

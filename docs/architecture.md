@@ -1,6 +1,6 @@
 # Ownership and lifecycle
 
-This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [RC2 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
+This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [5.0.0 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
 
 ## Finding a workflow
 
@@ -23,7 +23,7 @@ Each directory under `src/features` has an `application.ts` coordination entrypo
 
 ## Why native Applications and `View.extend`?
 
-Both are supported RC2 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
+Both are supported 5.0.0 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
 
 Native View subclasses are also valid. Using them uniformly here would require additional option declarations/constructors and careful prototype getters for configuration, without changing ownership. Conversely, Applications could use `.extend`; native classes make their owned instance resources especially visible. This is a local readability convention, not a claim that either syntax is preferred by the framework.
 
@@ -31,7 +31,7 @@ Construction timing matters more than syntax: native fields run **after** `super
 
 ## Async ownership and session authority
 
-Application-owned async is the default here. A narrow View-local model save can be appropriate when a persistence-capable model owns that operation; RC2 permits it. That exception does not justify putting feature loading, navigation, shared state, or request coordination in Views. This example's native `@mnjs/data` Models have no fetch/save methods: [the explicit API](../src/shared/api.ts) owns HTTP and response validation, while Applications own every network workflow.
+Application-owned async is the default here. A narrow View-local model save can be appropriate when a persistence-capable model owns that operation; Marionette permits it. That exception does not justify putting feature loading, navigation, shared state, or request coordination in Views. This example's native `@mnjs/data` Models have no fetch/save methods: [the explicit API](../src/shared/api.ts) owns HTTP and response validation, while Applications own every network workflow.
 
 [SessionApplication](../src/app/session.ts) owns observable user/status, verification, and credential lifetime. Changing credentials aborts requests issued under the previous credentials; transport also checks token identity after awaiting. Protected writes require authenticated status. Shared form completion checks captured authority too, including when a test API ignores abort.
 
@@ -55,7 +55,7 @@ The UI uses retained refresh for feed queries and session verification. Resource
 
 [Operation](../src/shared/operation.ts) permits one pending write per owner (per article for feed favorites), aborts on stop, and guards callbacks after cancellation. It is separate from readiness. Backend writes may already have committed when the client stops waiting.
 
-Feed loading uses the base `article-preview` block. Its layout borrows the feed status Model and toggles `hidden` on the existing result and pagination containers while a query is pending. It does not rerender the layout: RC2 layout rendering destroys Region children. Successful readiness updates the collection and pagination; a failed refresh restores previous results alongside the existing Retry error. Model bindings release automatically when the layout is destroyed.
+Feed loading uses the base `article-preview` block. Its layout borrows the feed status Model and toggles `hidden` on the existing result and pagination containers while a query is pending. It does not rerender the layout: Marionette layout rendering destroys Region children. Successful readiness updates the collection and pagination; a failed refresh restores previous results alongside the existing Retry error. Model bindings release automatically when the layout is destroyed.
 
 Feed owns one operation-to-promise map for cancellation and awaiting active favorites. Feed readiness waits for those writes before reading. A write that starts during a read invalidates its snapshot, so preparation repeats the query before committing. Own-favorites membership refresh waits for all sibling writes, then requeries membership/count and refills the page. Removing the last result from a later page replaces the URL with the last valid page, preserving browser Back behavior. Row write errors stay on the row and clear on resubmission; query Retry belongs to query errors.
 
