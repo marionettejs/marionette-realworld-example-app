@@ -1,6 +1,6 @@
 # Ownership and lifecycle
 
-This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [5.0.0 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
+This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [5.0.1 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
 
 ## Finding a workflow
 
@@ -23,7 +23,7 @@ Each directory under `src/features` has an `application.ts` coordination entrypo
 
 ## Why native Applications and `View.extend`?
 
-Both are supported 5.0.0 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
+Both are supported 5.0.1 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
 
 Native View subclasses are also valid. Using them uniformly here would require additional option declarations/constructors and careful prototype getters for configuration, without changing ownership. Conversely, Applications could use `.extend`; native classes make their owned instance resources especially visible. This is a local readability convention, not a claim that either syntax is preferred by the framework.
 
