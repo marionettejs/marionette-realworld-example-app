@@ -1,0 +1,24 @@
+{
+  "kind": "post-hoc-operator-nonmodel-supported-workflow-probe",
+  "scored": false,
+  "checkedUTC": "2026-10-10T17:43:55.212Z",
+  "candidateSource": "snapshots/B1/solution.mjs",
+  "candidateSourceSha256": "8335e8fa07f77b938e798638b9bcdf002a578cdbdc3b1e81ce09319bfc42d6f9",
+  "originalFrozenAcceptanceUnchanged": true,
+  "frozenAcceptanceResult": "11/11 passed",
+  "sequence": "Successful start; retained restart A awaits validation; retained restart B awaits load and supersedes A; A validation settles late; invoke refresh while B remains pending.",
+  "observed": {
+    "latestRestartStillPending": true,
+    "applicationStillRunning": true,
+    "refreshStartedLoad": true,
+    "latestLoadSignalAborted": true,
+    "expectedRefreshStartedLoad": false,
+    "expectedLatestLoadSignalAborted": false
+  },
+  "publicRequirement": "While starting, refresh returns false without loading.",
+  "diagnosis": "Canceled prepareStart request finally unconditionally sets shared isStarting=false, clearing the newer pending restart gate. Refresh starts a new load and aborts the newer pending load.",
+  "candidateEdited": false,
+  "additionalModelInvocations": 0,
+  "feedbackSentToAgent": false,
+  "limitation": "A post-hoc deterministic observation, not an originally prespecified acceptance case, a new scoring gate, or a framework defect."
+}

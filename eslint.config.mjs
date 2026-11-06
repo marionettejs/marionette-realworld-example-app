@@ -10,6 +10,7 @@ export default [
       "playwright-report/**",
       "public/**",
       "realworld/**",
+      "evaluations/**",
     ],
   },
   js.configs.recommended,

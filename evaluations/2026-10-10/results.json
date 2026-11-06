@@ -1,0 +1,192 @@
+{
+  "kind": "sanitized-descriptive-maintenance-pilot",
+  "originalFour": [
+    {
+      "task": "rw-filter-add",
+      "startedUTC": "2026-10-10T15:30:55.697775+00:00",
+      "endedUTC": "2026-10-10T15:44:58.040518+00:00",
+      "wallSeconds": 842.3427424430847,
+      "submissionSha256": "8f82e3f878846278b6c7a9fb43a3852c132f9af51797c7a4927345484b48d357",
+      "authorHandoffPresent": false,
+      "changedFiles": [
+        "src/features/feed/application.ts",
+        "src/features/feed/views.ts",
+        "src/styles.css",
+        "tests/filtering.spec.ts"
+      ],
+      "incrementalUsageFromStreamedCompletedResponses": {
+        "input_tokens": 427975,
+        "output_tokens": 80294,
+        "thinking_tokens": 67191,
+        "cache_read_tokens": 8300726,
+        "total_tokens": 508269
+      },
+      "id": "A1",
+      "group": "original-four",
+      "protectedInputsUnchanged": true,
+      "acceptancePassed": false,
+      "fullyCorrect": false,
+      "browserCounts": {
+        "expected": 38,
+        "unexpected": 3,
+        "skipped": 0,
+        "flaky": 0
+      },
+      "disposition": "Incomplete: provider quota interruption; 33 baseline and 3 hidden feature checks passed, 3 of 5 author checks failed."
+    },
+    {
+      "task": "rw-filter-change",
+      "startedUTC": "2026-10-10T16:09:49.991001+00:00",
+      "endedUTC": "2026-10-10T16:20:28.765030+00:00",
+      "wallSeconds": 638.7740292549133,
+      "submissionSha256": "c4b1c93b3fe9d5562bb179e163af3889e618431ac6253a1b7f4c26238a42df8f",
+      "authorHandoffPresent": true,
+      "changedFiles": [
+        "HANDOFF.md",
+        "src/features/feed/application.ts",
+        "src/features/feed/views.ts",
+        "src/styles.css",
+        "tests/filtering.spec.ts"
+      ],
+      "incrementalUsageFromStreamedCompletedResponses": {
+        "input_tokens": 466770,
+        "output_tokens": 23548,
+        "thinking_tokens": 11802,
+        "cache_read_tokens": 7207560,
+        "total_tokens": 490318
+      },
+      "id": "A2",
+      "group": "original-four",
+      "protectedInputsUnchanged": false,
+      "acceptancePassed": false,
+      "fullyCorrect": false,
+      "rejectionReason": "Inherited author tests changed; protected-input gate rejected before behavior grading.",
+      "disposition": "Current change turn completed; inherited tests rewritten. Frozen protected-input policy rejected submission."
+    },
+    {
+      "task": "rw-handoff",
+      "startedUTC": "2026-10-10T16:21:52.376670+00:00",
+      "endedUTC": "2026-10-10T16:36:41.317635+00:00",
+      "wallSeconds": 888.9409642219543,
+      "submissionSha256": "6091d226db21dc04f2cb3da82fdea9e0875da3119e602b44d5e491daaa523bee",
+      "authorHandoffPresent": true,
+      "changedFiles": [
+        "HANDOFF.md",
+        "src/app/shell.ts",
+        "src/features/feed/views.ts",
+        "tests/extended-filtering.spec.ts"
+      ],
+      "incrementalUsageFromStreamedCompletedResponses": {
+        "input_tokens": 460503,
+        "output_tokens": 34984,
+        "thinking_tokens": 24014,
+        "cache_read_tokens": 6626709,
+        "total_tokens": 495487
+      },
+      "id": "A3",
+      "group": "original-four",
+      "protectedInputsUnchanged": true,
+      "acceptancePassed": true,
+      "fullyCorrect": null,
+      "browserCounts": {
+        "expected": 44,
+        "unexpected": 0,
+        "skipped": 0,
+        "flaky": 0
+      },
+      "disposition": "Completed; all 44 browser checks and 3 units passed; separate fresh source architecture review PASS."
+    },
+    {
+      "task": "composed-lifecycle-repair",
+      "startedUTC": "2026-10-10T16:37:27.029453+00:00",
+      "endedUTC": "2026-10-10T16:49:05.408429+00:00",
+      "wallSeconds": 698.3789761066437,
+      "submissionSha256": "3dc4237c3e04c38adf77f42232a31e59f55c6f42f70e50fc95108a8d1871dc22",
+      "authorHandoffPresent": false,
+      "changedFiles": [
+        "check_scratch.mjs"
+      ],
+      "incrementalUsageFromStreamedCompletedResponses": {
+        "input_tokens": 263762,
+        "output_tokens": 71216,
+        "thinking_tokens": 67796,
+        "cache_read_tokens": 1405433,
+        "total_tokens": 334978
+      },
+      "id": "A4",
+      "group": "original-four",
+      "protectedInputsUnchanged": true,
+      "acceptancePassed": false,
+      "fullyCorrect": false,
+      "counts": {
+        "tests": 11,
+        "pass": 7,
+        "fail": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "disposition": "Incomplete: provider quota interruption; solution unchanged, 7/11 frozen lifecycle cases passed."
+    }
+  ],
+  "additionalLifecycle": {
+    "startedUTC": "2026-10-10T17:25:56.098318+00:00",
+    "endedUTC": "2026-10-10T17:40:08.315257+00:00",
+    "wallSeconds": 852.2169389724731,
+    "usage": {
+      "input_tokens": 518123,
+      "output_tokens": 104086,
+      "thinking_tokens": 82121,
+      "cache_read_tokens": 4593695,
+      "total_tokens": 622209
+    },
+    "submissionSha256": "73f1573fadb61a7c9b8abbe62d3cb9f7b90154e6d80ceb34286e741187df1751",
+    "changedFiles": [
+      "HANDOFF.md",
+      "solution.mjs",
+      "test_solution.mjs"
+    ],
+    "id": "B1",
+    "group": "separately-authorized-additional-lifecycle",
+    "task": "composed-lifecycle-repair",
+    "protectedInputsUnchanged": true,
+    "handoffPresent": true,
+    "acceptancePassed": true,
+    "fullyCorrect": null,
+    "architectureReview": "not performed",
+    "counts": {
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "namedCases": [
+      "working startup, edits, refresh errors and repeated resource cycles survive repair",
+      "canceled loading never validates or commits its late value",
+      "late validation cannot overwrite a newer successful start",
+      "refresh replacement, obsolete errors and successful stop invalidate pending work",
+      "destroy stops resources immediately and prevents late refresh commits",
+      "startup validation failure preserves data and acquires no resources",
+      "borrowed source survives destruction for another consumer",
+      "refresh validation errors respect replacement and preserve data for retry",
+      "retained restart leaves one active resource pair",
+      "failed replacement load releases resources and allows retry",
+      "failed replacement validation releases resources and allows retry"
+    ],
+    "disposition": "Frozen 11/11 pass; no overall fullyCorrect claim. Separate post-hoc supported-workflow defect reproduced; source and frozen grade unchanged."
+  },
+  "model": "gemini-3.8-flash-high",
+  "effort": "high",
+  "runner": "Official Antigravity CLI 1.3.3",
+  "originalWallSeconds": 3068.436712026596,
+  "originalIncrementalUsage": {
+    "input_tokens": 1619010,
+    "output_tokens": 210042,
+    "thinking_tokens": 170803,
+    "cache_read_tokens": 23540428,
+    "total_tokens": 1829052
+  },
+  "usageMeaning": "Native runner token counters, not billing receipts. Thinking/cache counts are separate fields; do not sum them into native total or double-count inherited conversation usage."
+}

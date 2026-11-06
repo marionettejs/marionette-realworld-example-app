@@ -1,0 +1,20 @@
+{
+  "kind": "operator-final-assessment",
+  "attempt": "A3",
+  "submissionSha256": "6091d226db21dc04f2cb3da82fdea9e0875da3119e602b44d5e491daaa523bee",
+  "acceptancePassed": true,
+  "architecturePassed": true,
+  "fullyCorrect": true,
+  "scope": "Declared frozen local-fixture behavior acceptance plus fresh public-source architecture review",
+  "acceptanceCases": 44,
+  "units": 3,
+  "build": "pass",
+  "lint": "pass",
+  "protectedInputsUnchanged": true,
+  "limitations": [
+    "Filtering runs twice per input, directly and through Application event forwarding.",
+    "Focus across a programmatic refresh while the input is focused is not verified; source hides the filter ancestor while pending. This is a limitation, not a demonstrated public-contract violation.",
+    "Chromium local fixture backend only; official live backend and Firefox/WebKit are unverified."
+  ],
+  "nativeRecordAndFrozenGraderUnmodified": true
+}

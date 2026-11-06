@@ -1,0 +1,51 @@
+{
+  "kind": "independent-source-architecture-review",
+  "freshHistory": true,
+  "reviewedUTC": "2026-10-10T16:44:08.051674+00:00",
+  "attempt": "A3",
+  "submissionSha256": "6091d226db21dc04f2cb3da82fdea9e0875da3119e602b44d5e491daaa523bee",
+  "verdict": "PASS",
+  "materialFindings": [],
+  "candidateExecutedByReviewer": false,
+  "filesEditedByReviewer": false,
+  "withheldAcceptanceOrReferencesReadByReviewer": false,
+  "publicInputs": [
+    "candidate PROMPT.md, CHANGE.md, HANDOFF.md, src/tests/config",
+    "public original RealWorld baseline",
+    "matching installed stable 5.0.0 public docs"
+  ],
+  "findings": [
+    {
+      "area": "local filtering",
+      "evidence": "src/features/feed/views.ts:112-141",
+      "result": "Trimmed case-insensitive title/description/tag match via documented setFilter/removeFilter; no fetch/domain/route/pagination mutation."
+    },
+    {
+      "area": "identity and focus",
+      "evidence": "src/features/feed/views.ts:59-74,119-144",
+      "result": "Input remains outside managed list; filtering retains excluded row instances and does not rerender layout/list; disconnected focus has a fallback."
+    },
+    {
+      "area": "retained refresh and failures",
+      "evidence": "src/features/feed/application.ts:82-127",
+      "result": "Layout/list created once; retained filter reapplied after loaded snapshot reset; active failures retain data/UI."
+    },
+    {
+      "area": "ownership and cleanup",
+      "evidence": "src/features/feed/application.ts:24-25,85-95,160-171; src/shared/operation.ts:12-22",
+      "result": "Application owns status and collection; Views borrow them. Before-stop cancels writes and clears query synchronously, framework root teardown precedes collection reset and destruction disposal. Canceled writes cannot commit."
+    },
+    {
+      "area": "accessibility repairs",
+      "evidence": "src/features/feed/views.ts:32; src/app/shell.ts:14",
+      "result": "Title-based article-link label and distinct footer Conduit home label repair inherited tests without altering navigation or DOM structure; not a complete accessibility conformance claim."
+    }
+  ],
+  "nonblockingObservations": [
+    "Filtering runs twice per input, directly and through Application event forwarding.",
+    "Focus across a programmatic refresh while the input is focused is not verified; source hides the filter ancestor while pending. This is a limitation, not a demonstrated public-contract violation."
+  ],
+  "clarifiedJudgment": "Architecture PASS supports overall PASS combined with successful predeclared acceptance, with runtime limitation recorded; no additional gate or needs-verification judgment.",
+  "docsVersion": "5.0.0",
+  "sourceRevision": "0f2284ad4bbfe8c82ce82714471697a68c2acaeb"
+}

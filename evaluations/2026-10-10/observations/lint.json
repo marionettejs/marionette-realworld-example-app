@@ -1,0 +1,853 @@
+{
+  "kind": "new-operator-nonmodel-diagnostic",
+  "scored": false,
+  "checkedUTC": "2026-10-10T17:20:22.205Z",
+  "runtime": "v24.19.0",
+  "installedESLintVersion": "10.12.0",
+  "installedMarionetteVersion": "5.0.0",
+  "diagnosticCode": "MN0040",
+  "originalConsumerConfigSha256": "952abc3d20a9a03191b9d84db294dd70a635cdbbbea2cecdf5cd86b9633044d4",
+  "diagnostics": [
+    {
+      "id": "existing-valid-application-underscore",
+      "origin": "existing public consumer-lint fixture",
+      "source": "import { View } from 'marionette';\n\nconst FormView = View.extend({\n  _applicationCache: new Map(),\n\n  renderCachedValue() {\n    return this._applicationCache.get('value');\n  }\n});\n\nnew FormView().renderCachedValue();\n",
+      "sourceSha256": "c4216ebcc8271aac0ac81906c03e6896f77df027ade35bcb9a08d759e2fb4a66",
+      "expected": 0,
+      "actual": 0,
+      "messages": []
+    },
+    {
+      "id": "existing-invalid-framework-private",
+      "origin": "existing public consumer-lint fixture",
+      "source": "import { View } from 'marionette';\n\nconst InternalView = View.extend({\n  inspectElement() {\n    return this._getEl();\n  }\n});\n\nnew InternalView().inspectElement();\n",
+      "sourceSha256": "dce5da5de930452ae869ab9556ae6c0e68ff60ca52576ec9ec63285b2f629b49",
+      "expected": 1,
+      "actual": 1,
+      "messages": [
+        {
+          "ruleId": "marionette/no-private-framework-members",
+          "messageId": "privateMember",
+          "message": "View._getEl is a private framework member.",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "id": "valid-public-view-method",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { View } from 'marionette'; class Consumer extends View { inspect() { return this.getUI('field'); } }",
+      "sourceSha256": "d34e4c83cb9e6079c224d89f53e7268d82c5c069353cf62d93e53340b02f5ac3",
+      "expected": 0,
+      "actual": 0,
+      "messages": []
+    },
+    {
+      "id": "valid-unrelated-same-private-spelling",
+      "origin": "new operator diagnostic snippet",
+      "source": "class Consumer { _getEl() { return null; } inspect() { return this._getEl(); } }",
+      "sourceSha256": "bd9b4f38f7df7733084bf3a57c0f7b86c9b0b95b177332e7969077e36fdf4c73",
+      "expected": 0,
+      "actual": 0,
+      "messages": []
+    },
+    {
+      "id": "valid-lexical-arrow-own-cache",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { View } from 'marionette'; class Consumer extends View { _applicationCache = new Map(); inspect = () => this._applicationCache.get('x'); }",
+      "sourceSha256": "21562fd028f3599f8ede3faeb807fa77a3749e3775eb2e1da5e93e6cf3be654a",
+      "expected": 0,
+      "actual": 0,
+      "messages": []
+    },
+    {
+      "id": "valid-js-private-field",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { View } from 'marionette'; class Consumer extends View { #cache = 1; inspect() { return this.#cache; } }",
+      "sourceSha256": "1dbb98abd04671c6955421e2dfa6b0ae362d4260606c4e266ea3f2ded9cd00c3",
+      "expected": 0,
+      "actual": 0,
+      "messages": []
+    },
+    {
+      "id": "invalid-import-alias-private",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { View as Base } from 'marionette'; class Consumer extends Base { inspect() { return this._getEl(); } }",
+      "sourceSha256": "61b2cc21ce1f30765f1938c96791672a0d57f7b33077b34b3ba949f6908365ee",
+      "expected": 1,
+      "actual": 1,
+      "messages": [
+        {
+          "ruleId": "marionette/no-private-framework-members",
+          "messageId": "privateMember",
+          "message": "View._getEl is a private framework member.",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "invalid-constant-instance-private",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { CollectionView } from 'marionette'; const list = new CollectionView(); list._filterChildren();",
+      "sourceSha256": "031cc0cbe095d8c0c673b09ce4fd712e6fea75b1ff1e3d5ec4a192c51d8706a3",
+      "expected": 1,
+      "actual": 1,
+      "messages": [
+        {
+          "ruleId": "marionette/no-private-framework-members",
+          "messageId": "privateMember",
+          "message": "CollectionView._filterChildren is a private framework member.",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "invalid-lexical-arrow-private",
+      "origin": "new operator diagnostic snippet",
+      "source": "import { View } from 'marionette'; class Consumer extends View { inspect = () => this._getEl(); }",
+      "sourceSha256": "bf13dbd1c229a7454337748dac56134ec46bedb633c2b519a9e25479331294cb",
+      "expected": 1,
+      "actual": 1,
+      "messages": [
+        {
+          "ruleId": "marionette/no-private-framework-members",
+          "messageId": "privateMember",
+          "message": "View._getEl is a private framework member.",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "consumerRuns": [
+    {
+      "id": "baseline",
+      "checkedFiles": 29,
+      "errors": 0,
+      "warnings": 0,
+      "files": [
+        {
+          "file": "src/app/application.ts",
+          "sourceSha256": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/routes.ts",
+          "sourceSha256": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/session.ts",
+          "sourceSha256": "f1f3d783b30775f8e67f91201e63884ecd8a82006caebd309989f9d31c3de934",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/shell.ts",
+          "sourceSha256": "37c24f17e13f5b7bdd6158cc7dc9e7411c47f023bd243f99432832f8fbe01032",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/application.ts",
+          "sourceSha256": "bb340057857bf6260898e310aed20e693f2e171318a2db5a7a28527973a38a81",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/views.ts",
+          "sourceSha256": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/application.ts",
+          "sourceSha256": "5d7332fb74d851e10a5da14100f20302ebfd64dd6c11bb1bfa7617b3e6818fad",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/view.ts",
+          "sourceSha256": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/application.ts",
+          "sourceSha256": "39d43d2b981aeeb902b6028cc9dd8e653f0bd8e2bd2bcdacdb98b91ec5390fcc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/views.ts",
+          "sourceSha256": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/application.ts",
+          "sourceSha256": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/view.ts",
+          "sourceSha256": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/application.ts",
+          "sourceSha256": "1898165ec02c23db80bff3bf16192270e671b05a2c6122c4fc5667cc798de5ba",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/views.ts",
+          "sourceSha256": "a3a99f37d6588e2ba7cfbabb28707f203ea05937abff0423753a9d9e43bdeae3",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/application.ts",
+          "sourceSha256": "cda68d232153bcfa41f36963428adfe71fc2ac04958f218043d83dd8d1d49ee9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/views.ts",
+          "sourceSha256": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/application.ts",
+          "sourceSha256": "cbcdc20f046ac009f82f94ab0bdd4e444860f7641e791f38bf989af2d9a35993",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/views.ts",
+          "sourceSha256": "323bd76a533da2813699d4ddc97aea0617835327a702836300054031d0336812",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/application.ts",
+          "sourceSha256": "73ef80f4471c5c8baa002753fadf8132dd79611a76718d799a66692ec6e6aedc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/view.ts",
+          "sourceSha256": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/main.ts",
+          "sourceSha256": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/setup.ts",
+          "sourceSha256": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/api.ts",
+          "sourceSha256": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-application.ts",
+          "sourceSha256": "a659aa128b4ab19b8fddb94ea1a539647aacc1ea3250eda90cdbea58efef39a5",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-fields.ts",
+          "sourceSha256": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/operation.ts",
+          "sourceSha256": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/presentation.ts",
+          "sourceSha256": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/types.ts",
+          "sourceSha256": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/views.ts",
+          "sourceSha256": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+          "errors": 0,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "id": "valid-01",
+      "checkedFiles": 29,
+      "errors": 0,
+      "warnings": 0,
+      "files": [
+        {
+          "file": "src/app/application.ts",
+          "sourceSha256": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/routes.ts",
+          "sourceSha256": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/session.ts",
+          "sourceSha256": "f1f3d783b30775f8e67f91201e63884ecd8a82006caebd309989f9d31c3de934",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/shell.ts",
+          "sourceSha256": "37c24f17e13f5b7bdd6158cc7dc9e7411c47f023bd243f99432832f8fbe01032",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/application.ts",
+          "sourceSha256": "bb340057857bf6260898e310aed20e693f2e171318a2db5a7a28527973a38a81",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/views.ts",
+          "sourceSha256": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/application.ts",
+          "sourceSha256": "5d7332fb74d851e10a5da14100f20302ebfd64dd6c11bb1bfa7617b3e6818fad",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/view.ts",
+          "sourceSha256": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/application.ts",
+          "sourceSha256": "39d43d2b981aeeb902b6028cc9dd8e653f0bd8e2bd2bcdacdb98b91ec5390fcc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/views.ts",
+          "sourceSha256": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/application.ts",
+          "sourceSha256": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/view.ts",
+          "sourceSha256": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/application.ts",
+          "sourceSha256": "1cb20badd94c1130eee3ee02f212a1350e229b772e09fbe8deeb8a97b6f9bb2f",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/views.ts",
+          "sourceSha256": "315cef4655a25151959dff15332b51c531993a655066e62b50054c8c1cab3982",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/application.ts",
+          "sourceSha256": "cda68d232153bcfa41f36963428adfe71fc2ac04958f218043d83dd8d1d49ee9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/views.ts",
+          "sourceSha256": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/application.ts",
+          "sourceSha256": "cbcdc20f046ac009f82f94ab0bdd4e444860f7641e791f38bf989af2d9a35993",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/views.ts",
+          "sourceSha256": "323bd76a533da2813699d4ddc97aea0617835327a702836300054031d0336812",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/application.ts",
+          "sourceSha256": "73ef80f4471c5c8baa002753fadf8132dd79611a76718d799a66692ec6e6aedc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/view.ts",
+          "sourceSha256": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/main.ts",
+          "sourceSha256": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/setup.ts",
+          "sourceSha256": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/api.ts",
+          "sourceSha256": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-application.ts",
+          "sourceSha256": "a659aa128b4ab19b8fddb94ea1a539647aacc1ea3250eda90cdbea58efef39a5",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-fields.ts",
+          "sourceSha256": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/operation.ts",
+          "sourceSha256": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/presentation.ts",
+          "sourceSha256": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/types.ts",
+          "sourceSha256": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/views.ts",
+          "sourceSha256": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+          "errors": 0,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "id": "valid-02",
+      "checkedFiles": 29,
+      "errors": 0,
+      "warnings": 0,
+      "files": [
+        {
+          "file": "src/app/application.ts",
+          "sourceSha256": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/routes.ts",
+          "sourceSha256": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/session.ts",
+          "sourceSha256": "f1f3d783b30775f8e67f91201e63884ecd8a82006caebd309989f9d31c3de934",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/shell.ts",
+          "sourceSha256": "37c24f17e13f5b7bdd6158cc7dc9e7411c47f023bd243f99432832f8fbe01032",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/application.ts",
+          "sourceSha256": "bb340057857bf6260898e310aed20e693f2e171318a2db5a7a28527973a38a81",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/views.ts",
+          "sourceSha256": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/application.ts",
+          "sourceSha256": "5d7332fb74d851e10a5da14100f20302ebfd64dd6c11bb1bfa7617b3e6818fad",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/view.ts",
+          "sourceSha256": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/application.ts",
+          "sourceSha256": "39d43d2b981aeeb902b6028cc9dd8e653f0bd8e2bd2bcdacdb98b91ec5390fcc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/views.ts",
+          "sourceSha256": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/application.ts",
+          "sourceSha256": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/view.ts",
+          "sourceSha256": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/application.ts",
+          "sourceSha256": "87613accc6bb5dd6591cd4d4ab5ba26535addfc06ae5923a5fcb741f21ffdbad",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/views.ts",
+          "sourceSha256": "92fb32b143163b0b895f463cefaca19069dc487e8bdafe886993bb1879cc1373",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/application.ts",
+          "sourceSha256": "cda68d232153bcfa41f36963428adfe71fc2ac04958f218043d83dd8d1d49ee9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/views.ts",
+          "sourceSha256": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/application.ts",
+          "sourceSha256": "cbcdc20f046ac009f82f94ab0bdd4e444860f7641e791f38bf989af2d9a35993",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/views.ts",
+          "sourceSha256": "323bd76a533da2813699d4ddc97aea0617835327a702836300054031d0336812",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/application.ts",
+          "sourceSha256": "73ef80f4471c5c8baa002753fadf8132dd79611a76718d799a66692ec6e6aedc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/view.ts",
+          "sourceSha256": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/main.ts",
+          "sourceSha256": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/setup.ts",
+          "sourceSha256": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/api.ts",
+          "sourceSha256": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-application.ts",
+          "sourceSha256": "a659aa128b4ab19b8fddb94ea1a539647aacc1ea3250eda90cdbea58efef39a5",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-fields.ts",
+          "sourceSha256": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/operation.ts",
+          "sourceSha256": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/presentation.ts",
+          "sourceSha256": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/types.ts",
+          "sourceSha256": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/views.ts",
+          "sourceSha256": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+          "errors": 0,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "id": "valid-03",
+      "checkedFiles": 29,
+      "errors": 0,
+      "warnings": 0,
+      "files": [
+        {
+          "file": "src/app/application.ts",
+          "sourceSha256": "6833c96c348177e5ab06211c964c624f930af5d874434690bc6422046e9f1e48",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/routes.ts",
+          "sourceSha256": "8f644d21fb589bafcbcc7874d2369fc63014ae3c41584aface9b3f73132b7762",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/session.ts",
+          "sourceSha256": "f1f3d783b30775f8e67f91201e63884ecd8a82006caebd309989f9d31c3de934",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/app/shell.ts",
+          "sourceSha256": "831bb554708814f96ea582d393342dfe0e83e997765cb42ed0f746edf5a283a5",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/application.ts",
+          "sourceSha256": "bb340057857bf6260898e310aed20e693f2e171318a2db5a7a28527973a38a81",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/article/views.ts",
+          "sourceSha256": "b35df5071f257e651265d74e417d1dd85508700135ddff20893ac18271ad2151",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/application.ts",
+          "sourceSha256": "5d7332fb74d851e10a5da14100f20302ebfd64dd6c11bb1bfa7617b3e6818fad",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/auth/view.ts",
+          "sourceSha256": "4c82e70b6933f2361e421abdea2b7f18cc3fea7511c30175c5becf4f2ff1a4fe",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/application.ts",
+          "sourceSha256": "39d43d2b981aeeb902b6028cc9dd8e653f0bd8e2bd2bcdacdb98b91ec5390fcc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/comments/views.ts",
+          "sourceSha256": "cf73d808f3b5f5d561d8772fdeaddf13d18c9e9c38e2838229b3c28b716b2e17",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/application.ts",
+          "sourceSha256": "9e864750b132645d4fd040a61afc45f93e42a9dab552f770b8bdcf16bef87e73",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/editor/view.ts",
+          "sourceSha256": "228941400a712e930e0016af17bc8a6db0f43d41bf7270c16e14be77d90f7562",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/application.ts",
+          "sourceSha256": "1cb20badd94c1130eee3ee02f212a1350e229b772e09fbe8deeb8a97b6f9bb2f",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/feed/views.ts",
+          "sourceSha256": "724388b45adf9476977696e785cd3c13f0a89731e31f73d6c864ffffd99ab017",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/application.ts",
+          "sourceSha256": "cda68d232153bcfa41f36963428adfe71fc2ac04958f218043d83dd8d1d49ee9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/home/views.ts",
+          "sourceSha256": "9089a1f90cbf315cfc210ff0f2e40cf587bd4d95a72e9cab84e7862197dcbc83",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/application.ts",
+          "sourceSha256": "cbcdc20f046ac009f82f94ab0bdd4e444860f7641e791f38bf989af2d9a35993",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/profile/views.ts",
+          "sourceSha256": "323bd76a533da2813699d4ddc97aea0617835327a702836300054031d0336812",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/application.ts",
+          "sourceSha256": "73ef80f4471c5c8baa002753fadf8132dd79611a76718d799a66692ec6e6aedc",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/features/settings/view.ts",
+          "sourceSha256": "efc8e25b0e4c530a5b196fe48fc98eb1165faa6f339f4f83b422d396932c314e",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/main.ts",
+          "sourceSha256": "ce14db6fcedbe795ecf677670788b66b59a03bd6bda70c07c7bce34d1b0cf4d7",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/setup.ts",
+          "sourceSha256": "c20dbd77be6d06a550ef009fdea90ba02eae5f1a9297d39f0b1fb178e664bd50",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/api.ts",
+          "sourceSha256": "1741a56640dbdb01865aeb719dd4886e976619e75e325b057192d8c49bbf90c9",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-application.ts",
+          "sourceSha256": "a659aa128b4ab19b8fddb94ea1a539647aacc1ea3250eda90cdbea58efef39a5",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/form-fields.ts",
+          "sourceSha256": "5e00f875411f5205e2969620b2b4d97e7c5b371c2436b47079bc88e0bd8b3b8b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/operation.ts",
+          "sourceSha256": "13fb5427e5e33e5e5ef03299bff68a61db0bbdcd244a965e88fb1413d18e4b2b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/presentation.ts",
+          "sourceSha256": "311221c5a63beba02271206c1271fbfbc145a8ddae49b54bc83930de27479e6b",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/types.ts",
+          "sourceSha256": "b79e3e819f4f7f11750e4fce97cd363288dc22602801725db5339d9d494da5a4",
+          "errors": 0,
+          "warnings": 0
+        },
+        {
+          "file": "src/shared/views.ts",
+          "sourceSha256": "a28c4e5ee803772ddb39f3cd18de6575d0354b24a7ef4d3cd677f17710509f06",
+          "errors": 0,
+          "warnings": 0
+        }
+      ]
+    }
+  ],
+  "allDiagnosticExpectationsMet": true,
+  "interpretation": "Synthetic catches and valid-pattern checks establish bounded installed-rule behavior only. They are not naturally occurring independent-agent catches, a broad false-positive rate, or a change to prior grading."
+}

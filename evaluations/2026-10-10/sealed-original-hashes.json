@@ -1,0 +1,49 @@
+{
+  "kind": "Private originals retained locally; public hashes bind originals without releasing raw logs, archives, accounts or machine paths.",
+  "artifacts": {
+    "original-artifact-1": {
+      "sha256": "4bf8adce1af5c351fc354b2e4b0e4a158f6af508a1b9a0ca883e331f327d2894",
+      "bytes": 128397
+    },
+    "original-artifact-2": {
+      "sha256": "cb8af06582bb602108577ae4c6e6f7cc493240fc8dcf96b71ff94cd2976768d2",
+      "bytes": 2807
+    },
+    "original-artifact-3": {
+      "sha256": "a0c3a37f088682d13c9a329843cf587dd5601e9f6822ea3ec4b10d31e8b85240",
+      "bytes": 979
+    },
+    "original-artifact-4": {
+      "sha256": "5bb4034574cfff58dc5c4ba93d86f8a7277173a1589fce27de3b1304102162c2",
+      "bytes": 449
+    },
+    "original-artifact-5": {
+      "sha256": "3c52afa7b46067644162f8f3bf001ce5c2602bf63498ba12213ce691ee9c34ee",
+      "bytes": 171112
+    },
+    "original-artifact-6": {
+      "sha256": "5b301cd4f496e071d0df1e1d8fa2e14e9d5ffeb8379195a2c140e7917461a15a",
+      "bytes": 141024
+    },
+    "original-artifact-7": {
+      "sha256": "b08a9289e607b90c5030a606779487c4860048cf467665839e681f926d8b91e1",
+      "bytes": 163958
+    },
+    "original-artifact-8": {
+      "sha256": "b33115415138af96de1f2f697b1299ffde08d944a083907b73bffecabc3e4761",
+      "bytes": 35745
+    },
+    "additional-report.json": {
+      "sha256": "26a87b6a7f24a717fcb099fe4a5d5274bb491ff7586bfa7c3ccd711c6b04d2ec",
+      "bytes": 13476
+    },
+    "additional-freeze.json": {
+      "sha256": "530dd6616386dae4acbae8458132448f10cd20f12d8eeb9351973a9d48ba7863",
+      "bytes": 5350
+    },
+    "additional-evidence.tar.gz": {
+      "sha256": "94446ee270710a1ecee460474bba4a521ccb65d78c00172f93b84db6dff5d5d2",
+      "bytes": 70037
+    }
+  }
+}

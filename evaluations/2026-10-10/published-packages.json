@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "source": {
+    "revision": "0f2284ad4bbfe8c82ce82714471697a68c2acaeb",
+    "origin": "published npm 5.0.0, checked against RealWorld lockfile"
+  },
+  "packages": [
+    {
+      "id": "core",
+      "name": "marionette",
+      "version": "5.0.0",
+      "tarball": {
+        "file": "marionette-5.0.0.tgz",
+        "size": 626197,
+        "sha512": "ff6d20291451086287e89aa61679523c4f44db03ffd7306d98d952505e7972695a398b9d05947d3205cd589d088e19c49c713b8984858bbb9a27b39d9eb15a1a",
+        "integrity": "sha512-/20gKRRRCGKH6JqmFnlSPE9E2wP/1zBtmNlSUF55cmlaOYudBZR9MgXNWJ0IjhnEnHE7iYSFi7uaJ7OdnrFaGg=="
+      }
+    },
+    {
+      "id": "data",
+      "name": "@mnjs/data",
+      "version": "5.0.0",
+      "tarball": {
+        "file": "mnjs-data-5.0.0.tgz",
+        "size": 27629,
+        "sha512": "66810f8df8712c0e19c5e5e972e8f748d9331a015efef927b8936bcd01328ae91088cd9db550b8772ed1b5afc6085ec841319f6a5479e8cebacede639851f2e4",
+        "integrity": "sha512-ZoEPjfhxLA4ZxeXpcuj3SNkzGgFe/vknuJNrzQEyiukQiM2dtVC4dy7Rta/GCF7IQTGfalR56M66zt5jmFHy5A=="
+      }
+    },
+    {
+      "id": "utils",
+      "name": "@mnjs/utils",
+      "version": "5.0.0",
+      "tarball": {
+        "file": "mnjs-utils-5.0.0.tgz",
+        "size": 40160,
+        "sha512": "faaf83aea4d2f2b086afe354365813bcba50e010e96c39d67686f8432947f6e109a3b4434f2aa85d2a23decf259b499f5138acb9f9be6ca1e5b9980c85898894",
+        "integrity": "sha512-+q+DrqTS8rCGr+NUNlgTvLpQ4BDpbDnWdob4QylH9uEJo7RDTyqoXSoj3s8lm0mfUTisufm+bKHluZgMhYmIlA=="
+      }
+    },
+    {
+      "id": "radio",
+      "name": "@mnjs/radio",
+      "version": "5.0.0",
+      "tarball": {
+        "file": "mnjs-radio-5.0.0.tgz",
+        "size": 11416,
+        "sha512": "6b27ee9ab9fafae52dfd8dd01c22a8f4f6626c754807dd896ebfe95b6703bff018d948ceef99393e082a0a03356dfd46815b91c84bba6639834e6bd0154667e3",
+        "integrity": "sha512-ayfumrn6+uUt/Y3QHCKo9PZibHVIB92Jbr/pW2cDv/AY2UjO75k5PggqCgM1bf1GgVuRyEu6ZjmDTmvQFUZn4w=="
+      }
+    },
+    {
+      "id": "adapters",
+      "name": "@mnjs/adapters",
+      "version": "5.0.0",
+      "tarball": {
+        "file": "mnjs-adapters-5.0.0.tgz",
+        "size": 15955,
+        "sha512": "eb5556f42f7c902ddf499740ed9992d4c4eebd3d2e5475dab637e4f97f403a3d3c005e0a01a1d51be1b2c8717fe7aa9e0a1d3683ba9a021550ab1db0c787c6a3",
+        "integrity": "sha512-61VW9C98kC3fSZdA7ZmS1MTuvT0uVHXatjfk+X9AOj08AF4KAaHVG+GyyHF/56qeCh02g7qaAhVQqx2wx4fGow=="
+      }
+    }
+  ]
+}

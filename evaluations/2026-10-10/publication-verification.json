@@ -1,0 +1,13 @@
+{
+  "kind": "ordinary-publication-packaging-verification",
+  "additionalModelRuns": 0,
+  "candidateEdits": false,
+  "checks": {
+    "B1OriginalAcceptance": "11/11 pass",
+    "B1PostHocRestartProbe": "expected exit 1; refresh starts a load and aborts latest pending load",
+    "installedMN0040Diagnostics": "4 invalid caught; 5 valid clear",
+    "A3Build": "pass",
+    "publicationRootLint": "pass"
+  },
+  "dependencyInstall": "Verification reused already verified installed dependencies via local-only links. Public replay instructs a fresh lockfile install. No dependency links are published."
+}
