@@ -67,6 +67,14 @@ Editor fields include observable saved slug, so the View derives its editing hea
 
 ## Presentation, cleanup, and verification
 
+### Template and directive boundaries
+
+`html` builds template values; it does not own events, requests, child selection, or View lifetimes. Forms use delegated View `events`/`triggers`; article/comment rows use CollectionViews; feature layouts use named Regions. Small tag/tab/pagination lists have no separate observable child lifetime, so template iteration is sufficient.
+
+The only directives are `live` and `unsafeHTML`. Keep `live` on the shared input/textarea helpers and comment composer: it compares the Model value with the actual control property, skips equal writes while typing, and reconciles native DOM changes on the next render even when the Model value has not changed. Plain `.value` bindings compare with the renderer's previous value and miss that last case. Replacing it with `ui` lookups and `onRender` setters would split form synchronization between the template and manual DOM writes. The installed Marionette local-editing guide uses this same binding. Models remain authoritative; delegated input events update the draft.
+
+Keep `unsafeHTML` only inside `markdown`, immediately after Marked and DOMPurify. `ArticleBody` is already the dedicated View owning this rendered content; heading, action bars, and comments are separate Views. A further Markdown View/Region or an `onRender` DOM-fragment insertion would add a placement/update boundary without changing that ownership or removing the need to sanitize. Ordinary user content continues to use escaped expressions. Neither directive replaces Marionette lifecycle management.
+
 Regions own View replacement/destruction; CollectionViews own article/comment rows. Article's two action bars observe one model; successful actions commit data and pending status together. Heading observes title; body observes text and tag values, so both reflect full server responses without rendering for unrelated status changes or an equal tag array returned by a favorite response. Comment rows observe pending state, not composer typing. Body and comment draft are separate Views. Small static tag/tab/pagination lists use template iteration because they have no independent observable lifetime. `@mnjs/html` updates controls in place, preserving typing during status changes.
 
 Native Application classes declare the concrete `getState` return type without overriding its runtime implementation. `createState` still creates the owned Model; Marionette retains and disposes it. Direct event forwarding uses method-name bindings, while callbacks remain where event payloads need transformation.
