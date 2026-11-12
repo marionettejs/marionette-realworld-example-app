@@ -1,7 +1,7 @@
 import { CollectionView, View, type DelegatedEvent } from "marionette";
 import { Model } from "@mnjs/data";
-import { html } from "lit-html";
-import { live } from "lit-html/directives/live.js";
+import { html } from "@mnjs/html";
+import { live } from "@mnjs/html/directives/live.js";
 import type { Comment, Status } from "../../shared/types";
 import { avatar, errorsTemplate, profilePath } from "../../shared/presentation";
 export const CommentsLayout = View.extend({

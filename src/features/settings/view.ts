@@ -1,6 +1,6 @@
 import { View, type DelegatedEvent } from "marionette";
 import type { Model } from "@mnjs/data";
-import { html } from "lit-html";
+import { html } from "@mnjs/html";
 import { input, textarea } from "../../shared/form-fields";
 import { errorsTemplate } from "../../shared/presentation";
 import type { FormStatus } from "../../shared/types";

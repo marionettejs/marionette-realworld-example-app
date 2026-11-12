@@ -1,5 +1,5 @@
 import { View } from "marionette";
-import { html } from "lit-html";
+import { html } from "@mnjs/html";
 import type { Article, Status } from "../../shared/types";
 import {
   authorMeta,

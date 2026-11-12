@@ -1,5 +1,5 @@
-import { html } from "lit-html";
-import { live } from "lit-html/directives/live.js";
+import { html } from "@mnjs/html";
+import { live } from "@mnjs/html/directives/live.js";
 export function input(
   name: string,
   label: string,

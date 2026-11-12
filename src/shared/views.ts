@@ -1,5 +1,5 @@
 import { View } from "marionette";
-import { html } from "lit-html";
+import { html } from "@mnjs/html";
 export const LoadingView = View.extend({
   template: () =>
     html`<div class="container page" role="status">Loading…</div>`,

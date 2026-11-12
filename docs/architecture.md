@@ -1,6 +1,6 @@
 # Ownership and lifecycle
 
-This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [5.0.1 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
+This example uses named Applications for asynchronous workflows, readiness, composition, and cleanup. Views own presentation and local editing. Read alongside the installed [5.1.0 architecture guide](../node_modules/marionette/docs/architecture.md), [records lesson](../node_modules/marionette/docs/records.md), and [composed source](../node_modules/marionette/examples/records/src/records-application.js).
 
 ## Finding a workflow
 
@@ -19,11 +19,15 @@ Each directory under `src/features` has an `application.ts` coordination entrypo
 
 [ConduitApplication](../src/app/application.ts) owns browser navigation, the persistent shell, SessionApplication, and registered page Applications. Home/Profile own a FeedApplication; Article owns a CommentsApplication. Home, Profile, and Article prepare their layouts off-screen and start registered children alongside their own readiness requests. Child Applications keep request and error ownership. The parent mounts after its own data is ready; an abandoned initial start stops the parent and descendants before displaying the page error.
 
+A registered `navigation` child is the single `@mnjs/router` instance. Its explicit History API driver owns ordinary same-origin links, programmatic URL changes, and back/forward events. The shell no longer intercepts links or maintains a separate `popstate` listener. Static assets and API paths remain outside router ownership; fragments, modified clicks, downloads, and external links remain browser-owned. The route table names URLs; its committed match becomes feature options through `routeFor`. The root still owns access checks, retained feed queries, page selection, readiness/error presentation, and focus. Route handlers return the feature work so router readiness covers that work; feature requests remain in their Applications. Stop destroys displayed UI and stops routing; a later start explicitly starts the same registered Router again.
+
+Saving newer editor text adopts the returned slug and replaces the URL through Router while retaining the current editor and its draft. It does not restart the editor. HTML templates, `live`, and sanitized `unsafeHTML` all come from one `@mnjs/html` instance; the integrated DOM adapter forwards Marionette attachment/disposal notifications. No template event handlers are introduced.
+
 [FormApplication](../src/shared/form-application.ts) shares only save/status/teardown policy. Concrete Applications define typed fields and completion decisions. [Field template helpers](../src/shared/form-fields.ts) produce markup; they do not build Views, manage requests, or define a form schema. Auth shares login/register presentation because those workflows differ by one field and labels; Editor and Settings are independent Views.
 
 ## Why native Applications and `View.extend`?
 
-Both are supported 5.0.1 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
+Both are supported 5.1.0 APIs. This example deliberately uses native `class … extends Application` for explicit instance-owned models, children, operations, and typed lifecycle methods. It uses `View.extend` and `CollectionView.extend` for declarative templates, Regions, event maps, and concise option inference from a typed `initialize`. The [packaged TypeScript guide](../node_modules/marionette/docs/guides/typescript.md#constructors-instances-options-and-state) documents that inference, including `InstanceType<typeof ViewClass>`.
 
 Native View subclasses are also valid. Using them uniformly here would require additional option declarations/constructors and careful prototype getters for configuration, without changing ownership. Conversely, Applications could use `.extend`; native classes make their owned instance resources especially visible. This is a local readability convention, not a claim that either syntax is preferred by the framework.
 
@@ -63,11 +67,19 @@ Editor fields include observable saved slug, so the View derives its editing hea
 
 ## Presentation, cleanup, and verification
 
-Regions own View replacement/destruction; CollectionViews own article/comment rows. Article's two action bars observe one model; successful actions commit data and pending status together. Heading observes title; body observes text and tag values, so both reflect full server responses without rendering for unrelated status changes or an equal tag array returned by a favorite response. Comment rows observe pending state, not composer typing. Body and comment draft are separate Views. Small static tag/tab/pagination lists use template iteration because they have no independent observable lifetime. Lit updates controls in place, preserving typing during status changes.
+### Template and directive boundaries
+
+`html` builds template values; it does not own events, requests, child selection, or View lifetimes. Forms use delegated View `events`/`triggers`; article/comment rows use CollectionViews; feature layouts use named Regions. Small tag/tab/pagination lists have no separate observable child lifetime, so template iteration is sufficient.
+
+The only directives are `live` and `unsafeHTML`. Keep `live` on the shared input/textarea helpers and comment composer: it compares the Model value with the actual control property, skips equal writes while typing, and reconciles native DOM changes on the next render even when the Model value has not changed. Plain `.value` bindings compare with the renderer's previous value and miss that last case. Replacing it with `ui` lookups and `onRender` setters would split form synchronization between the template and manual DOM writes. The installed Marionette local-editing guide uses this same binding. Models remain authoritative; delegated input events update the draft.
+
+Keep `unsafeHTML` only inside `markdown`, immediately after Marked and DOMPurify. `ArticleBody` is already the dedicated View owning this rendered content; heading, action bars, and comments are separate Views. A further Markdown View/Region or an `onRender` DOM-fragment insertion would add a placement/update boundary without changing that ownership or removing the need to sanitize. Ordinary user content continues to use escaped expressions. Neither directive replaces Marionette lifecycle management.
+
+Regions own View replacement/destruction; CollectionViews own article/comment rows. Article's two action bars observe one model; successful actions commit data and pending status together. Heading observes title; body observes text and tag values, so both reflect full server responses without rendering for unrelated status changes or an equal tag array returned by a favorite response. Comment rows observe pending state, not composer typing. Body and comment draft are separate Views. Small static tag/tab/pagination lists use template iteration because they have no independent observable lifetime. `@mnjs/html` updates controls in place, preserving typing during status changes.
 
 Native Application classes declare the concrete `getState` return type without overriding its runtime implementation. `createState` still creates the owned Model; Marionette retains and disposes it. Direct event forwarding uses method-name bindings, while callbacks remain where event payloads need transformation.
 
-Applications use `viewEvents` for root intent and `listenTo` for error/status Views. Comment intents are namespaced to avoid triggering article deletion. Destroyed sources release incoming listeners. No blanket `stopListening()` runs on stop: root's session subscriptions must survive stop/start. Window listeners are installed once per root run and removed on stop; HMR destroys the root.
+Applications use `viewEvents` for root intent and `listenTo` for error/status Views. Comment intents are namespaced to avoid triggering article deletion. Destroyed sources release incoming listeners. No blanket `stopListening()` runs on stop: root's session subscriptions must survive stop/start. The storage listener is installed once per root run and removed on stop; the Router owns its driver listeners; HMR destroys the root.
 
 [Lifecycle tests](../tests/lifecycle.spec.ts) exercise retained identity, reconstruction, borrowed-model listener release, descendant destruction, stale preparation/activation, session/draft races, credential replacement, and feed read/write ordering. [Journeys](../tests/journeys.spec.ts) cover product behavior, newer typing, favorites pagination, errors, auth, and responsive interaction.
 

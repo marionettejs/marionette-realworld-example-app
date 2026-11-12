@@ -1,5 +1,5 @@
 import { View } from "marionette";
-import { html } from "lit-html";
+import { html } from "@mnjs/html";
 import type { FeedQuery } from "../../shared/types";
 import { segment } from "../../shared/api";
 export const HomeLayout = View.extend({
