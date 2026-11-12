@@ -1,6 +1,6 @@
 # Conduit · Marionette v5
 
-A RealWorld frontend built with **published Marionette 5.0.1**, matching 5.0.1 companions, TypeScript, Lit templates, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
+A RealWorld frontend built with **published Marionette 5.1.0**, matching data companions, `@mnjs/html` 1.0.0 templates, `@mnjs/router` 0.1.1, TypeScript, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
 
 ## Run locally
 
@@ -19,13 +19,15 @@ npm run build
 npm run preview
 ```
 
+Routing explicitly uses the router's History API driver. It requires native `URLPattern`, `AbortSignal.any`, `Promise.withResolvers`, `URL.canParse`, and `structuredClone`; it does not require the Navigation API or install a polyfill. The router package currently reports Chromium verification only; Firefox/WebKit support for this migration remains unverified until the browser suite passes there.
+
 The preview serves `dist`. Vite handles direct path links locally. Another host must serve `index.html` for application routes such as `/article/:slug` and `/profile/:username`.
 
 ## Architecture tour
 
 Start with [the ownership guide](docs/architecture.md), then follow:
 
-1. [Setup](src/setup.ts): configure the published Lit DOM adapter and native DataApi/StateApi once.
+1. [Setup](src/setup.ts): configure the published HTML DOM adapter and native DataApi/StateApi once.
 2. [ConduitApplication](src/app/application.ts): retain the shell, own browser navigation and registered child Applications, handle destination readiness/failure.
 3. [HomeApplication](src/features/home/application.ts) and [FeedApplication](src/features/feed/application.ts): compose a feature; repeat preparation with `restart` while retaining the layout; let CollectionView own rows.
 4. [ArticleApplication](src/features/article/application.ts) and [CommentsApplication](src/features/comments/application.ts): coordinate sibling metadata Views through one observable model and give comments their own lifetime.
@@ -78,7 +80,7 @@ The shared SPA tests expect seeded cross-user data such as `johndoe`. Some upstr
 ## Behavior notes
 
 - JWT uses the specification's `localStorage.jwtToken` key and `Authorization: Token …` header. A 401 clears the session. Same-user verification preserves active drafts. Temporary verification failure retains the token and offers Retry; new writes wait for successful verification. Credential changes revoke old response authority.
-- Article text is parsed with Marked and sanitized with DOMPurify. Other user content uses escaped Lit expressions. The server remains responsible for authentication and ownership enforcement.
+- Article text is parsed with Marked and sanitized with DOMPurify. Other user content uses escaped HTML expressions. The server remains responsible for authentication and ownership enforcement.
 - Tags can be added/removed during creation and editing, following the current OpenAPI UpdateArticle schema and backend acceptance tests. Article-list responses omit body; full article responses include it.
 - Save status never replaces the form. Newer comment text remains after an earlier comment is posted. If article text changes while publishing, the editor retains it and saves subsequent edits to the returned slug.
 - Leaving a page discards its unsaved draft and cancels its client-side operations. Cancellation prevents late UI/session updates; it cannot undo a server write already accepted.

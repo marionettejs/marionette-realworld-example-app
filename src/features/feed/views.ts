@@ -1,6 +1,6 @@
 import { CollectionView, View } from "marionette";
 import { Model } from "@mnjs/data";
-import { html } from "lit-html";
+import { html } from "@mnjs/html";
 import type { ArticleSummary, Status } from "../../shared/types";
 import {
   articlePath,

@@ -1,5 +1,5 @@
-import { View, type DelegatedEvent } from "marionette";
-import { html } from "lit-html";
+import { View } from "marionette";
+import { html } from "@mnjs/html";
 import type { User } from "../shared/types";
 import { avatar, profilePath } from "../shared/presentation";
 import type { AuthState } from "./session";
@@ -19,26 +19,6 @@ export const ShellView = View.extend({
         </div>
       </footer>`,
   regions: { header: "header", status: ".session-status", content: "main" },
-  events: { "click a": "navigate" },
-  navigate(event: DelegatedEvent) {
-    const link = event.delegateTarget;
-    const mouse = event as MouseEvent;
-    if (
-      !(link instanceof HTMLAnchorElement) ||
-      mouse.button !== 0 ||
-      mouse.metaKey ||
-      mouse.ctrlKey ||
-      mouse.shiftKey ||
-      mouse.altKey ||
-      link.target ||
-      link.hasAttribute("download")
-    )
-      return;
-    const url = new URL(link.href);
-    if (url.origin !== window.location.origin || url.hash) return;
-    event.preventDefault();
-    this.trigger("navigate", url.pathname + url.search);
-  },
 });
 export const HeaderView = View.extend({
   modelEvents: { change: "render" },
