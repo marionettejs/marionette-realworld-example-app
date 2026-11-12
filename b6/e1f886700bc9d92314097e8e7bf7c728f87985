@@ -1,0 +1,16 @@
+docs/architecture.md
+  h_0f06c286dda36f 70-77
+tests/html.spec.ts
+  h_0f06c286dda36f 1-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b6e1f886700bc9d92314097e8e7bf7c728f87985",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
