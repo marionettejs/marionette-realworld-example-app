@@ -1,4 +1,4 @@
-import { Application } from "marionette";
+import { RouteApplication } from "@mnjs/router";
 import { Model } from "@mnjs/data";
 import type { Context } from "../app/session";
 import type { FormStatus } from "./types";
@@ -7,7 +7,7 @@ import { errorMessages } from "./api";
 // Shared save policy only. Each feature defines its fields, View, and completion.
 export abstract class FormApplication<
   Fields extends Record<string, unknown>,
-> extends Application {
+> extends RouteApplication {
   createState() {
     return new Model<FormStatus>({ pending: false, errors: [] });
   }
