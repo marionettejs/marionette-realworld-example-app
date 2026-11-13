@@ -1,0 +1,14 @@
+tests/lifecycle.spec.ts
+  h_0f06c286dda36f 261-264,267,293-296,306,311-314
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cf625ef4a2d792bb426d017c9547919ec2a1a263",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
