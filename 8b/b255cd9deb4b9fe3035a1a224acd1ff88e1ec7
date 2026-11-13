@@ -1,0 +1,50 @@
+src/features/home/routes.ts
+  h_0f06c286dda36f 1-20
+tests/operation.test.ts
+  h_0f06c286dda36f 4-28,32,93-111,113-114,116-117,120,123-125,130,140-145
+src/app/application.ts
+  h_0f06c286dda36f 1-5,13,17,27-39,41-45,53-55,78-84,91-100,165,186,194-210,212-216,218-222,224-228,230,233
+src/features/editor/routes.ts
+  h_0f06c286dda36f 1-8
+src/features/profile/application.ts
+  h_0f06c286dda36f 1-3,12-28
+src/features/article/routes.ts
+  h_0f06c286dda36f 1
+src/features/auth/application.ts
+  h_0f06c286dda36f 1-2,6-16
+src/features/profile/routes.ts
+  h_0f06c286dda36f 1-13
+src/features/article/application.ts
+  h_0f06c286dda36f 1-3,17-23
+src/features/settings/application.ts
+  h_0f06c286dda36f 1,6-11
+src/features/editor/draft-application.ts
+  h_0f06c286dda36f 1-63
+src/features/auth/routes.ts
+  h_0f06c286dda36f 1-4
+src/features/home/application.ts
+  h_0f06c286dda36f 1-3,9-25
+src/app/routes.ts
+  h_0f06c286dda36f 1-14
+README.md
+  h_0f06c286dda36f 31,34
+docs/architecture.md
+  h_0f06c286dda36f 7-18,22,24-30,72
+src/features/editor/application.ts
+  h_0f06c286dda36f 1-10,12-13,15-22,24-39
+src/shared/form-application.ts
+  h_0f06c286dda36f 1,10
+src/features/settings/routes.ts
+  h_0f06c286dda36f 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8bb255cd9deb4b9fe3035a1a224acd1ff88e1ec7",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
