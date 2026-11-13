@@ -1,0 +1,24 @@
+README.md
+  h_0f06c286dda36f 3,22
+docs/architecture.md
+  h_0f06c286dda36f 22
+package-lock.json
+  h_0f06c286dda36f 14,313-315
+package.json
+  h_0f06c286dda36f 24
+src/app/application.ts
+  h_0f06c286dda36f 8,23,37,39-60
+src/main.ts
+  h_0f06c286dda36f 4-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a45c612beef1e22901390a22127397dee88074c5",
+  "prompts": {},
+  "humans": {
+    "h_0f06c286dda36f": {
+      "author": "Paul Falgout <paul.falgout@roundingwell.com>"
+    }
+  }
+}
