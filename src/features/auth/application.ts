@@ -1,6 +1,19 @@
+import type { ActiveMatch } from "@mnjs/router";
+import { authRoutes } from "./routes";
 import { FormApplication } from "../../shared/form-application";
 import { AuthView, type AuthFields, type AuthMode } from "./view";
 export class AuthApplication extends FormApplication<AuthFields> {
+  get routes() {
+    return authRoutes;
+  }
+  routeOptions(match: ActiveMatch) {
+    return { mode: match.name };
+  }
+  async showAuth(match: ActiveMatch) {
+    if (this.mode === match.name) return;
+    this.stop();
+    await this.start({ ...this.routeOptions(match), region: this.getRegion() });
+  }
   mode: AuthMode = "login";
   onStart(_app: unknown, { mode }: { mode: AuthMode }) {
     this.mode = mode;

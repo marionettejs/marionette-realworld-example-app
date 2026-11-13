@@ -258,11 +258,13 @@ test("same-user, unavailable, and superseded session refresh retain the editor d
   expect(
     await page.evaluate(async () => {
       const app = window.__conduit_app__!;
-      const editor = app.getChildApp("editor")!;
-      const view = editor.getView() as import("marionette").ViewInstance;
+      const draft = app.getChildApp("editor")!.getChildApp("draft")!;
+      const view = draft.getView() as
+        | import("marionette").ViewInstance
+        | undefined;
       await app.refreshSession();
       await app.routeTask;
-      return editor.getView() === view && !view!.isDestroyed();
+      return !!view && draft.getView() === view && !view.isDestroyed();
     }),
   ).toBe(true);
   api.failures.set("GET /user", 503);
@@ -288,7 +290,10 @@ test("same-user, unavailable, and superseded session refresh retain the editor d
   expect(
     await page.evaluate(async () => {
       const app = window.__conduit_app__!;
-      const view = app.getChildApp("editor")!.getView();
+      const draft = app.getChildApp("editor")!.getChildApp("draft")!;
+      const view = draft.getView() as
+        | import("marionette").ViewInstance
+        | undefined;
       const user = app.session.user()!;
       const original = app.session.api.current;
       const deferred: Array<(value: typeof user) => void> = [];
@@ -298,13 +303,15 @@ test("same-user, unavailable, and superseded session refresh retain the editor d
       await Promise.resolve();
       const second = app.refreshSession();
       await first;
-      const retainedBeforeLatest =
-        view === app.getChildApp("editor")!.getView();
+      const retainedBeforeLatest = view === draft.getView();
       deferred.forEach((resolve) => resolve(user));
       await second;
       app.session.api.current = original;
       return (
-        retainedBeforeLatest && view === app.getChildApp("editor")!.getView()
+        !!view &&
+        retainedBeforeLatest &&
+        view === draft.getView() &&
+        !view.isDestroyed()
       );
     }),
   ).toBe(true);

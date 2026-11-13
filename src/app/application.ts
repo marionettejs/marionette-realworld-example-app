@@ -1,4 +1,8 @@
-import { type ViewInstance, type LifecycleContext } from "marionette";
+import {
+  type ApplicationOptions,
+  type ViewInstance,
+  type LifecycleContext,
+} from "marionette";
 import { Model } from "@mnjs/data";
 import {
   RouteApplication,
@@ -6,10 +10,11 @@ import {
   type ActiveMatch,
   type Driver,
   type RouterInstance,
+  type RouteApplicationInstance,
 } from "@mnjs/router";
 import { SessionApplication, type Context } from "./session";
 import { ShellView, HeaderView, SessionStatusView } from "./shell";
-import { routeFor, routes, requiresUser, type Route } from "./routes";
+import { pageRoutes } from "./routes";
 import { HomeApplication } from "../features/home/application";
 import { ProfileApplication } from "../features/profile/application";
 import { ArticleApplication } from "../features/article/application";
@@ -19,16 +24,35 @@ import { SettingsApplication } from "../features/settings/application";
 import { ErrorView, LoadingView, NotFoundView } from "../shared/views";
 import { errorMessages } from "../shared/api";
 import type { User } from "../shared/types";
+const pageApplications = {
+  home: HomeApplication,
+  profile: ProfileApplication,
+  article: ArticleApplication,
+  auth: AuthApplication,
+  editor: EditorApplication,
+  settings: SettingsApplication,
+} satisfies Record<string, new (context: Context) => RoutedPage>;
+type RoutedPage = RouteApplicationInstance & {
+  routeOptions(match: ActiveMatch): Record<string, unknown>;
+};
+class SessionUnavailable extends Error {}
+
 export class ConduitApplication extends RouteApplication {
+  // Native fields configure route compilation after runtime children receive context.
+  childApps = pageApplications as unknown as NonNullable<
+    ApplicationOptions["childApps"]
+  >;
+  routes = pageRoutes;
   session: SessionApplication;
   router: RouterInstance;
   header = new Model<{ user: User | null; path: string }>({
     user: null,
     path: "/",
   });
-  currentRoute?: Route;
   routeTask: Promise<void> = Promise.resolve();
-  private routeUrl?: string;
+  private hasRouted = false;
+  private moveFocus = false;
+  private focusAfterRoute = false;
   private onStorage = (event: StorageEvent) => {
     if (event.key === "jwtToken" || event.key === null)
       void this.refreshSession();
@@ -39,7 +63,6 @@ export class ConduitApplication extends RouteApplication {
       "navigation",
       new Router({
         driver,
-        routes,
         notFound: "missing",
         owns: (url) =>
           !/^\/(?:api|assets|src|node_modules|@vite|@id)(?:\/|$)/.test(
@@ -48,29 +71,33 @@ export class ConduitApplication extends RouteApplication {
           !["/default-avatar.svg", "/favicon.ico", "/styles.css"].includes(
             url.pathname,
           ),
-        handler: (match) => {
-          this.routeTask = this.showRoute(match);
-          return this.routeTask;
-        },
       }),
     );
     this.listenTo(this.router, {
       "route:error": (error: unknown) => this.showNavigationError(error),
+      route: (match: ActiveMatch) => {
+        this.moveFocus = this.hasRouted;
+        this.hasRouted = true;
+        this.focusAfterRoute = false;
+        this.header.set("path", match.url.pathname);
+      },
+      "route:ready": () => this.focusPage(this.focusAfterRoute),
     });
     this.session = this.addChildApp("session", new SessionApplication());
     const context: Context = {
       session: this.session,
       navigate: (path, options) => this.navigate(path, options),
     };
-    this.addChildApp("home", new HomeApplication(context));
-    this.addChildApp("profile", new ProfileApplication(context));
-    this.addChildApp("article", new ArticleApplication(context));
-    this.addChildApp("auth", new AuthApplication(context));
-    const editor = this.addChildApp("editor", new EditorApplication(context));
-    this.listenTo(editor, {
-      "draft:saved": (slug: string) => this.replaceEditorUrl(slug),
-    });
-    this.addChildApp("settings", new SettingsApplication(context));
+    for (const [name, Page] of Object.entries(pageApplications)) {
+      const page = this.addChildApp(name, new Page(context));
+      this.listenTo(page, {
+        "before:start": () => {
+          if (!page.isRunning()) this.showLoading();
+        },
+        "page:loading": () => this.showLoading(),
+      });
+    }
+    this.mountRoutes(this.router);
     this.listenTo(this.session, {
       "signed:out": (path: string) => {
         if (!this.isRunning()) return;
@@ -135,17 +162,7 @@ export class ConduitApplication extends RouteApplication {
   }
   resetDestination() {
     this.clear();
-    this.currentRoute = undefined;
-    this.routeUrl = undefined;
-  }
-  replaceEditorUrl(slug: string) {
-    if (this.currentRoute?.kind !== "editor") return;
-    const url = `/editor/${encodeURIComponent(slug)}`;
-    // Saving a draft changes its URL without replacing its owning feature.
-    this.currentRoute = { kind: "editor", key: url, slug };
-    this.routeUrl = url;
-    this.header.set("path", url);
-    this.navigate(url, { replace: true });
+    this.hasRouted = false;
   }
   navigate(path: string, { replace = false }: { replace?: boolean } = {}) {
     const result = this.router.navigate(path, {
@@ -166,6 +183,7 @@ export class ConduitApplication extends RouteApplication {
   }
   showNavigationError(error: unknown) {
     if (!this.isRunning()) return;
+    this.focusAfterRoute = this.moveFocus;
     this.resetDestination();
     const view = new ErrorView({
       model: { message: errorMessages(error).join(". ") },
@@ -173,86 +191,46 @@ export class ConduitApplication extends RouteApplication {
     this.listenTo(view, { retry: () => this.dispatch() });
     (this.getView() as ViewInstance).getRegion("content")!.show(view);
   }
-  async showRoute(match: ActiveMatch) {
+  routeTo(match: ActiveMatch) {
+    this.routeTask = super.routeTo(match).then(() => {});
+    return this.routeTask;
+  }
+  childRouteOptions(match: ActiveMatch, mount: string) {
+    return (this.getChildApp(mount) as RoutedPage).routeOptions(match);
+  }
+  onBeforeRoute(match: ActiveMatch) {
+    const access = match.meta.requiresUser;
+    const required =
+      typeof access === "function" ? access(match) : access === true;
+    if (!required || this.session.user()) return;
+    if (this.session.getState().get("status") === "unavailable")
+      throw new SessionUnavailable();
+    this.navigate("/login", { replace: true });
+  }
+  showLoading() {
     if (!this.isRunning()) return;
-    const moveFocus = !!this.currentRoute;
-    const route = this.accessibleRoute(routeFor(match, match.url));
-    if (!route) return;
-    const url = location.pathname + location.search;
-    if (this.routeUrl === url) return;
-    this.routeUrl = url;
-    this.header.set("path", location.pathname);
-    if (this.updateRetainedRoute(route)) return;
-    this.currentRoute = route;
-    const region = (this.getView() as ViewInstance).getRegion("content")!;
-    if (route.kind === "missing") {
-      this.clear();
-      region.show(new NotFoundView());
-      this.focusPage(moveFocus);
+    this.focusAfterRoute = this.moveFocus;
+    (this.getView() as ViewInstance)
+      .getRegion("content")!
+      .show(new LoadingView());
+    document.title = "Loading… — Conduit";
+  }
+  showMissing() {
+    this.focusAfterRoute = this.moveFocus;
+    (this.getView() as ViewInstance)
+      .getRegion("content")!
+      .show(new NotFoundView());
+  }
+  handleRouteError(error: unknown, match: ActiveMatch) {
+    if (match.signal.aborted || !this.isRunning()) return;
+    if (error instanceof SessionUnavailable) {
+      this.showSessionUnavailable();
       return;
     }
-    const name =
-      route.kind === "login" || route.kind === "register" ? "auth" : route.kind;
-    try {
-      const activation = this.switchTo(name, {
-        key: route.key,
-        signal: match.signal,
-        // Query-only retention was handled above. Other same-feature visits
-        // start a new page lifetime, including New Article after saving a draft.
-        restart: this.getCurrent() === this.getChildApp(name),
-        options: {
-          region,
-          ...route,
-          ...("feed" in route ? { query: route.feed } : {}),
-          mode: route.kind,
-        },
-      });
-      if (!match.signal.aborted && this.isRunning()) {
-        region.show(new LoadingView());
-        document.title = "Loading… — Conduit";
-      }
-      const child = await activation;
-      if (child && !match.signal.aborted && this.isRunning())
-        this.focusPage(moveFocus);
-    } catch (error) {
-      if (match.signal.aborted || !this.isRunning()) return;
-      this.clear();
-      this.routeUrl = undefined;
-      const view = new ErrorView({
-        model: { message: errorMessages(error).join(". ") },
-      });
-      this.listenTo(view, { retry: () => this.dispatch() });
-      region.show(view);
-      this.focusPage(moveFocus);
-    }
-  }
-  accessibleRoute(route: Route) {
-    if (requiresUser(route) && !this.session.user()) {
-      if (this.session.getState().get("status") === "unavailable") {
-        this.showSessionUnavailable();
-        return undefined;
-      }
-      this.navigate("/login", { replace: true });
-      return undefined;
-    }
-    return route;
-  }
-  updateRetainedRoute(route: Route): boolean {
-    const current = this.getCurrent();
-    if (
-      route.key === this.currentRoute?.key &&
-      current?.isRunning() &&
-      (current instanceof HomeApplication ||
-        current instanceof ProfileApplication) &&
-      "feed" in route
-    ) {
-      this.currentRoute = route;
-      current.setQuery(route.feed);
-      return true;
-    }
-    return false;
+    this.showNavigationError(error);
   }
   showSessionUnavailable() {
+    this.focusAfterRoute = this.moveFocus;
     this.resetDestination();
     const view = new ErrorView({
       model: { message: "Session unavailable. Retry to check your session." },
