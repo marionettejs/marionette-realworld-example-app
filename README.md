@@ -1,6 +1,6 @@
 # Conduit · Marionette v5
 
-A RealWorld frontend built with **published Marionette 5.1.0**, matching data companions, `@mnjs/html` 1.0.0 templates, `@mnjs/router` 0.1.1, TypeScript, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
+A RealWorld frontend built with **published Marionette 5.1.0**, matching data companions, `@mnjs/html` 1.0.0 templates, `@mnjs/router` 0.2.0, TypeScript, and observable `@mnjs/data` Models/Collections. It implements authentication, global/followed/tag feeds, pagination, profiles, following, favorites, article creation/editing/deletion, Markdown, comments, and settings using the framework-neutral Conduit markup and shared theme.
 
 ## Run locally
 
@@ -19,7 +19,7 @@ npm run build
 npm run preview
 ```
 
-Routing explicitly uses the router's History API driver. It requires native `URLPattern`, `AbortSignal.any`, `Promise.withResolvers`, `URL.canParse`, and `structuredClone`; it does not require the Navigation API or install a polyfill. The router package currently reports Chromium verification only; Firefox/WebKit support for this migration remains unverified until the browser suite passes there.
+Routing uses the native Navigation API when available. If it is absent or its capability getter throws, bootstrap asynchronously imports `@mnjs/router/history` before constructing the Application. Native clients do not load that History chunk. Both paths require `URLPattern`, `AbortSignal.any`, `Promise.withResolvers`, and `URL.canParse`; History also requires `structuredClone`. No polyfills are installed. Router 0.2.0 reports Chromium, Firefox, and Playwright WebKit coverage with documented native WebKit differences; this application's browser verification remains outstanding.
 
 The preview serves `dist`. Vite handles direct path links locally. Another host must serve `index.html` for application routes such as `/article/:slug` and `/profile/:username`.
 

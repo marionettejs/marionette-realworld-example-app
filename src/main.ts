@@ -1,7 +1,16 @@
 import "./setup";
 import "./styles.css";
 import { ConduitApplication } from "./app/application";
-const app = new ConduitApplication();
+let hasNavigation = false;
+try {
+  hasNavigation = Boolean(globalThis.navigation);
+} catch {
+  // Some environments expose Navigation through a throwing getter.
+}
+const driver = hasNavigation
+  ? undefined
+  : (await import("@mnjs/router/history")).historyDriver();
+const app = new ConduitApplication(driver);
 window.__conduit_debug__ = {
   getToken: () => app.session.token(),
   getAuthState: () => app.session.getState().get("status") || "loading",

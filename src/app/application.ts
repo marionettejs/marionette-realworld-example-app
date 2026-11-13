@@ -5,7 +5,7 @@ import {
   type LifecycleContext,
 } from "marionette";
 import { Model } from "@mnjs/data";
-import { Router, historyDriver } from "@mnjs/router";
+import { Router, type Driver, type RouterInstance } from "@mnjs/router";
 import { SessionApplication, type Context } from "./session";
 import { ShellView, HeaderView, SessionStatusView } from "./shell";
 import { routeFor, routes, requiresUser, type Route } from "./routes";
@@ -20,28 +20,7 @@ import { errorMessages } from "../shared/api";
 import type { User } from "../shared/types";
 export class ConduitApplication extends Application {
   session: SessionApplication;
-  router = this.addChildApp(
-    "navigation",
-    new Router({
-      driver: historyDriver(),
-      routes,
-      notFound: "missing",
-      owns: (url) =>
-        !/^\/(?:api|assets|src|node_modules|@vite|@id)(?:\/|$)/.test(
-          url.pathname,
-        ) &&
-        !["/default-avatar.svg", "/favicon.ico", "/styles.css"].includes(
-          url.pathname,
-        ),
-      handler: (match) => {
-        this.routeTask = this.showRoute(
-          ++this.navigation,
-          routeFor(match, match.url),
-        );
-        return this.routeTask;
-      },
-    }),
-  );
+  router: RouterInstance;
   header = new Model<{ user: User | null; path: string }>({
     user: null,
     path: "/",
@@ -55,8 +34,30 @@ export class ConduitApplication extends Application {
     if (event.key === "jwtToken" || event.key === null)
       void this.refreshSession();
   };
-  constructor() {
+  constructor(driver?: Driver) {
     super({ region: { el: "#app" } });
+    this.router = this.addChildApp(
+      "navigation",
+      new Router({
+        driver,
+        routes,
+        notFound: "missing",
+        owns: (url) =>
+          !/^\/(?:api|assets|src|node_modules|@vite|@id)(?:\/|$)/.test(
+            url.pathname,
+          ) &&
+          !["/default-avatar.svg", "/favicon.ico", "/styles.css"].includes(
+            url.pathname,
+          ),
+        handler: (match) => {
+          this.routeTask = this.showRoute(
+            ++this.navigation,
+            routeFor(match, match.url),
+          );
+          return this.routeTask;
+        },
+      }),
+    );
     this.listenTo(this.router, {
       "route:error": (error: unknown) => this.showNavigationError(error),
     });
