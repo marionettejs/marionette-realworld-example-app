@@ -122,13 +122,29 @@ test("stop/start and restart keep one navigation subscription; destroy disposes 
       const shell = app.getView() as import("marionette").ViewInstance;
       await app.restart();
       const retained = shell === app.getView();
+      const selected = app.getCurrent() === app.getChildApp("home");
       app.stop();
       const stopped = shell!.isDestroyed();
+      const cleared = app.getCurrent() === null;
       await app.start();
       await app.routeTask;
-      return { retained, stopped, replaced: shell !== app.getView() };
+      return {
+        retained,
+        selected,
+        stopped,
+        cleared,
+        replaced: shell !== app.getView(),
+        reselected: app.getCurrent() === app.getChildApp("home"),
+      };
     }),
-  ).toEqual({ retained: true, stopped: true, replaced: true });
+  ).toEqual({
+    retained: true,
+    selected: true,
+    stopped: true,
+    cleared: true,
+    replaced: true,
+    reselected: true,
+  });
   await expect(page.locator(".article-preview")).toHaveCount(20);
   const before = api.requests.filter((r) => r.path === "/articles").length;
   await page.evaluate(() => {
