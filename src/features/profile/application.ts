@@ -1,4 +1,6 @@
-import { Application, type LifecycleContext } from "marionette";
+import { profileRoutes, profileQuery } from "./routes";
+import { RouteApplication, type ActiveMatch } from "@mnjs/router";
+import { type LifecycleContext } from "marionette";
 import { Model } from "@mnjs/data";
 import { FeedApplication } from "../feed/application";
 import { requireUser, type Context } from "../../app/session";
@@ -7,7 +9,23 @@ import { errorMessages } from "../../shared/api";
 import { Operation } from "../../shared/operation";
 import { ProfileLayout, ProfileHeader, ProfileTabs } from "./views";
 type ProfileStart = { username: string; query: FeedQuery };
-export class ProfileApplication extends Application {
+export class ProfileApplication extends RouteApplication {
+  get routes() {
+    return profileRoutes;
+  }
+  routeOptions(match: ActiveMatch) {
+    return { username: match.params.username, query: profileQuery(match) };
+  }
+  showFeed(match: ActiveMatch) {
+    const query = profileQuery(match);
+    const previous = this.feed.query;
+    if (
+      query.page !== previous.page ||
+      query.author !== previous.author ||
+      query.favorited !== previous.favorited
+    )
+      this.setQuery(query);
+  }
   feed: FeedApplication;
   profile = new Model<Profile & Status & { self: boolean }>();
   tabs = new Model<{ username: string; favorites: boolean }>();

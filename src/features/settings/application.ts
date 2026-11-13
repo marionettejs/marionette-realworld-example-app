@@ -1,7 +1,14 @@
+import { settingsRoutes } from "./routes";
 import { FormApplication } from "../../shared/form-application";
 import { profilePath } from "../../shared/presentation";
 import { SettingsView, type SettingsFields } from "./view";
 export class SettingsApplication extends FormApplication<SettingsFields> {
+  get routes() {
+    return settingsRoutes;
+  }
+  routeOptions() {
+    return {};
+  }
   get viewEvents() {
     return {
       ...super.viewEvents,

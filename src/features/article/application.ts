@@ -1,8 +1,6 @@
-import {
-  Application,
-  type ViewInstance,
-  type LifecycleContext,
-} from "marionette";
+import { articleRoutes } from "./routes";
+import { RouteApplication, type ActiveMatch } from "@mnjs/router";
+import { type ViewInstance, type LifecycleContext } from "marionette";
 import { Model } from "@mnjs/data";
 import type { Article, Status } from "../../shared/types";
 import { errorMessages } from "../../shared/api";
@@ -16,7 +14,13 @@ import {
   ArticleBody,
   ArticleMeta,
 } from "./views";
-export class ArticleApplication extends Application {
+export class ArticleApplication extends RouteApplication {
+  get routes() {
+    return articleRoutes;
+  }
+  routeOptions(match: ActiveMatch) {
+    return { slug: match.params.slug };
+  }
   article = new Model<Article & Status & { self: boolean }>();
   comments: CommentsApplication;
   operation = new Operation();

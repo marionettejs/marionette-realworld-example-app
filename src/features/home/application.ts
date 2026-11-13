@@ -1,10 +1,28 @@
-import { Application, type LifecycleContext } from "marionette";
+import { homeRoutes, homeQuery } from "./routes";
+import { RouteApplication, type ActiveMatch } from "@mnjs/router";
+import { type LifecycleContext } from "marionette";
 import { Model } from "@mnjs/data";
 import { FeedApplication } from "../feed/application";
 import type { Context } from "../../app/session";
 import type { FeedQuery } from "../../shared/types";
 import { HomeLayout, HomeTabs, TagsView } from "./views";
-export class HomeApplication extends Application {
+export class HomeApplication extends RouteApplication {
+  get routes() {
+    return homeRoutes;
+  }
+  routeOptions(match: ActiveMatch) {
+    return { query: homeQuery(match) };
+  }
+  showFeed(match: ActiveMatch) {
+    const query = homeQuery(match);
+    const previous = this.feed.query;
+    if (
+      query.page !== previous.page ||
+      query.tag !== previous.tag ||
+      query.following !== previous.following
+    )
+      this.setQuery(query);
+  }
   feed: FeedApplication;
   tabs = new Model<FeedQuery & { authenticated: boolean }>();
   constructor(readonly context: Context) {

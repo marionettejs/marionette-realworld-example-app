@@ -28,10 +28,10 @@ The preview serves `dist`. Vite handles direct path links locally. Another host 
 Start with [the ownership guide](docs/architecture.md), then follow:
 
 1. [Setup](src/setup.ts): configure the published HTML DOM adapter and native DataApi/StateApi once.
-2. [ConduitApplication](src/app/application.ts): use `RouteApplication` for keyed page selection, retain the shell, and own browser navigation, access/error policy, and registered child Applications.
+2. [ConduitApplication](src/app/application.ts): mount feature-owned `RouteApplication` routes into the shell and own browser navigation, access/error policy, and registered child Applications.
 3. [HomeApplication](src/features/home/application.ts) and [FeedApplication](src/features/feed/application.ts): compose a feature; repeat preparation with `restart` while retaining the layout; let CollectionView own rows.
 4. [ArticleApplication](src/features/article/application.ts) and [CommentsApplication](src/features/comments/application.ts): coordinate sibling metadata Views through one observable model and give comments their own lifetime.
-5. [Auth](src/features/auth/application.ts), [Editor](src/features/editor/application.ts), and [Settings](src/features/settings/application.ts): each feature has its own Application and View file. The [shared save policy](src/shared/form-application.ts) keeps drafts stable during status changes.
+5. [Auth](src/features/auth/application.ts), [Editor](src/features/editor/application.ts), and [Settings](src/features/settings/application.ts): each feature owns its routes and View; Editor also owns a separate draft Application so saved-slug navigation preserves newer text. The [shared save policy](src/shared/form-application.ts) keeps drafts stable during status changes.
 
 Each feature directory separates coordination (`application.ts`) from presentation (`view.ts` or `views.ts`). See [the inheritance-style rationale](docs/architecture.md#why-native-applications-and-viewextend) for the deliberate native Application / `View.extend` convention.
 
