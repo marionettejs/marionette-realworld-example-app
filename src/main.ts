@@ -1,28 +1,31 @@
 import "./setup";
 import "./styles.css";
 import { ConduitApplication } from "./app/application";
-let hasNavigation = false;
-try {
-  hasNavigation = Boolean(globalThis.navigation);
-} catch {
-  // Some environments expose Navigation through a throwing getter.
+async function start() {
+  let hasNavigation = false;
+  try {
+    hasNavigation = Boolean(globalThis.navigation);
+  } catch {
+    // Some environments expose Navigation through a throwing getter.
+  }
+  const driver = hasNavigation
+    ? undefined
+    : (await import("@mnjs/router/history")).historyDriver();
+  const app = new ConduitApplication(driver);
+  window.__conduit_debug__ = {
+    getToken: () => app.session.token(),
+    getAuthState: () => app.session.getState().get("status") || "loading",
+    getCurrentUser: () => app.session.user(),
+  };
+  // Lifecycle test access is only present in Vite development, never the production bundle.
+  if (import.meta.env.DEV) window.__conduit_app__ = app;
+  if (import.meta.hot) import.meta.hot.dispose(() => app.destroy());
+  await app.start();
 }
-const driver = hasNavigation
-  ? undefined
-  : (await import("@mnjs/router/history")).historyDriver();
-const app = new ConduitApplication(driver);
-window.__conduit_debug__ = {
-  getToken: () => app.session.token(),
-  getAuthState: () => app.session.getState().get("status") || "loading",
-  getCurrentUser: () => app.session.user(),
-};
-// Lifecycle test access is only present in Vite development, never the production bundle.
-if (import.meta.env.DEV) window.__conduit_app__ = app;
-void app.start().catch(() => {
+void start().catch(() => {
   const mount = document.getElementById("app");
   if (mount) mount.textContent = "Unable to start Conduit. Please reload.";
 });
-if (import.meta.hot) import.meta.hot.dispose(() => app.destroy());
 declare global {
   interface Window {
     __conduit_debug__: {
