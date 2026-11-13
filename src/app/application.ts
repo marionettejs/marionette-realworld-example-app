@@ -1,11 +1,12 @@
-import {
-  Application,
-  type ViewInstance,
-  type ApplicationInstance,
-  type LifecycleContext,
-} from "marionette";
+import { type ViewInstance, type LifecycleContext } from "marionette";
 import { Model } from "@mnjs/data";
-import { Router, type Driver, type RouterInstance } from "@mnjs/router";
+import {
+  RouteApplication,
+  Router,
+  type ActiveMatch,
+  type Driver,
+  type RouterInstance,
+} from "@mnjs/router";
 import { SessionApplication, type Context } from "./session";
 import { ShellView, HeaderView, SessionStatusView } from "./shell";
 import { routeFor, routes, requiresUser, type Route } from "./routes";
@@ -18,18 +19,16 @@ import { SettingsApplication } from "../features/settings/application";
 import { ErrorView, LoadingView, NotFoundView } from "../shared/views";
 import { errorMessages } from "../shared/api";
 import type { User } from "../shared/types";
-export class ConduitApplication extends Application {
+export class ConduitApplication extends RouteApplication {
   session: SessionApplication;
   router: RouterInstance;
   header = new Model<{ user: User | null; path: string }>({
     user: null,
     path: "/",
   });
-  current?: ApplicationInstance<object, unknown>;
   currentRoute?: Route;
   routeTask: Promise<void> = Promise.resolve();
   private routeUrl?: string;
-  private navigation = 0;
   private onStorage = (event: StorageEvent) => {
     if (event.key === "jwtToken" || event.key === null)
       void this.refreshSession();
@@ -50,10 +49,7 @@ export class ConduitApplication extends Application {
             url.pathname,
           ),
         handler: (match) => {
-          this.routeTask = this.showRoute(
-            ++this.navigation,
-            routeFor(match, match.url),
-          );
+          this.routeTask = this.showRoute(match);
           return this.routeTask;
         },
       }),
@@ -130,7 +126,7 @@ export class ConduitApplication extends Application {
     const current = this.session.authority();
     const accepted = await task;
     if (!accepted || !current() || !this.isRunning()) return;
-    if (previous === this.session.user()?.username && this.current) return;
+    if (previous === this.session.user()?.username && this.getCurrent()) return;
     this.resetDestination();
     this.dispatch();
   }
@@ -138,9 +134,7 @@ export class ConduitApplication extends Application {
     this.header.set({ user: this.session.user(), path: location.pathname });
   }
   resetDestination() {
-    this.navigation++;
-    this.current?.stop();
-    this.current = undefined;
+    this.clear();
     this.currentRoute = undefined;
     this.routeUrl = undefined;
   }
@@ -179,47 +173,50 @@ export class ConduitApplication extends Application {
     this.listenTo(view, { retry: () => this.dispatch() });
     (this.getView() as ViewInstance).getRegion("content")!.show(view);
   }
-  async showRoute(navigation: number, destination: Route) {
+  async showRoute(match: ActiveMatch) {
     if (!this.isRunning()) return;
     const moveFocus = !!this.currentRoute;
-    const route = this.accessibleRoute(destination);
+    const route = this.accessibleRoute(routeFor(match, match.url));
     if (!route) return;
     const url = location.pathname + location.search;
     if (this.routeUrl === url) return;
     this.routeUrl = url;
     this.header.set("path", location.pathname);
     if (this.updateRetainedRoute(route)) return;
-    this.current?.stop();
     this.currentRoute = route;
     const region = (this.getView() as ViewInstance).getRegion("content")!;
     if (route.kind === "missing") {
-      this.current = undefined;
+      this.clear();
       region.show(new NotFoundView());
       this.focusPage(moveFocus);
       return;
     }
     const name =
       route.kind === "login" || route.kind === "register" ? "auth" : route.kind;
-    const child = (this.current = this.getChildApp(name)!);
-    region.show(new LoadingView());
-    document.title = "Loading… — Conduit";
     try {
-      const result = await child.start({
-        region,
-        ...route,
-        ...("feed" in route ? { query: route.feed } : {}),
-        mode: route.kind,
+      const activation = this.switchTo(name, {
+        key: route.key,
+        signal: match.signal,
+        // Query-only retention was handled above. Other same-feature visits
+        // start a new page lifetime, including New Article after saving a draft.
+        restart: this.getCurrent() === this.getChildApp(name),
+        options: {
+          region,
+          ...route,
+          ...("feed" in route ? { query: route.feed } : {}),
+          mode: route.kind,
+        },
       });
-      if (
-        result &&
-        navigation === this.navigation &&
-        this.current === child &&
-        this.routeUrl === url
-      )
+      if (!match.signal.aborted && this.isRunning()) {
+        region.show(new LoadingView());
+        document.title = "Loading… — Conduit";
+      }
+      const child = await activation;
+      if (child && !match.signal.aborted && this.isRunning())
         this.focusPage(moveFocus);
     } catch (error) {
-      if (navigation !== this.navigation || !this.isRunning()) return;
-      child.stop();
+      if (match.signal.aborted || !this.isRunning()) return;
+      this.clear();
       this.routeUrl = undefined;
       const view = new ErrorView({
         model: { message: errorMessages(error).join(". ") },
@@ -241,15 +238,16 @@ export class ConduitApplication extends Application {
     return route;
   }
   updateRetainedRoute(route: Route): boolean {
+    const current = this.getCurrent();
     if (
       route.key === this.currentRoute?.key &&
-      this.current?.isRunning() &&
-      (this.current instanceof HomeApplication ||
-        this.current instanceof ProfileApplication) &&
+      current?.isRunning() &&
+      (current instanceof HomeApplication ||
+        current instanceof ProfileApplication) &&
       "feed" in route
     ) {
       this.currentRoute = route;
-      this.current.setQuery(route.feed);
+      current.setQuery(route.feed);
       return true;
     }
     return false;

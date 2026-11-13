@@ -324,6 +324,32 @@ test("editor keeps newer text after save and updates the returned slug on next s
   ).toHaveLength(1);
 });
 
+test("New Article after adopting a saved slug starts a fresh editor draft", async ({
+  page,
+  api,
+}) => {
+  await signIn(page);
+  await page.getByRole("link", { name: "New Article" }).click();
+  await page.getByPlaceholder("Article Title").fill("Saved draft");
+  await page.getByPlaceholder("What's this article about?").fill("Description");
+  const body = page.getByPlaceholder("Write your article (in markdown)");
+  await body.fill("Submitted text");
+  const pending = Promise.withResolvers<void>();
+  api.delays.set("POST /articles", pending.promise);
+  await page.getByRole("button", { name: "Publish Article" }).click();
+  await body.fill("Newer draft text");
+  const previous = await body.elementHandle();
+  pending.resolve();
+  await expect(page).toHaveURL(/\/editor\/new-/);
+  await expect(body).toHaveValue("Newer draft text");
+  expect(await previous?.evaluate((el) => el.isConnected)).toBe(true);
+  await page.getByRole("link", { name: "New Article" }).click();
+  await expect(page).toHaveURL(/\/editor$/);
+  await expect(page.getByPlaceholder("Article Title")).toHaveValue("");
+  await expect(body).toHaveValue("");
+  expect(await previous?.evaluate((el) => el.isConnected)).toBe(false);
+});
+
 test("comment deletion cannot invoke article deletion; editor denies nonauthor", async ({
   page,
   api,
